@@ -1,0 +1,11 @@
+syntax="proto3";
+import "PacketService/Proto/PacketEnum.proto";
+
+
+package ErrorProto;
+
+message Error{
+  PacketEnum.PacketType packetType = 1;
+  string uniqueId = 2;
+  string errorDetails = 3;
+}

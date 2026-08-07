@@ -1,0 +1,12 @@
+syntax="proto3";
+import "PacketService/Proto/PacketEnum.proto";
+
+package FileChunkProto;
+
+message FileChunk{
+  PacketEnum.PacketType packetType = 1;
+  string uniqueId = 2;
+  string FileData = 3;
+  optional int32 chunkNumber = 4;
+  optional int64 chunkSize = 5;
+}

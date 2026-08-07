@@ -1,0 +1,12 @@
+syntax="proto3";
+import "PacketService/Proto/PacketEnum.proto";
+import "PacketService/Proto/DeviceProto.proto";
+
+package FileRequestProto;
+
+
+message FileRequest{
+  PacketEnum.PacketType packetType = 1;
+  string uniqueId = 2;
+  DeviceProto.Device device = 3;
+}

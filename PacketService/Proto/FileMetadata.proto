@@ -1,0 +1,12 @@
+syntax="proto3";
+package FileMetadataProto;
+
+import "PacketService/Proto/PacketEnum.proto";
+
+
+message FileMetadata{
+  PacketEnum.PacketType packetType = 1;
+  string fileName = 2;
+  string fileType = 3;
+  int64 fileSize = 4;
+}

@@ -1,0 +1,14 @@
+syntax="proto3";
+
+package PacketEnum;
+
+enum PacketType{
+  Discovery = 0;
+  HeartBeat = 1;
+  FileMetadata = 2;
+  FileRequest = 3;
+  FileResponse = 4;
+  FileChunk = 5;
+  TransferComplete = 6;
+  Error = 7;
+}

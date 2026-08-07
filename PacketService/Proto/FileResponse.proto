@@ -1,0 +1,11 @@
+syntax="proto3";
+import "PacketService/Proto/PacketEnum.proto";
+import "PacketService/Proto/FileMetadata.proto";
+
+package FileResponseProto;
+
+message FileResponse{
+  PacketEnum.PacketType packetType = 1;
+  FileMetadataProto.FileMetadata fileMetdata = 2;
+  bool isSenderAcceptedOrNot = 3;
+}

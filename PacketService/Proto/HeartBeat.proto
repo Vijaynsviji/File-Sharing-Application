@@ -1,0 +1,9 @@
+syntax="proto3";
+package HearBeatProto;
+import "PacketService/Proto/PacketEnum.proto";
+import "PacketService/Proto/DeviceProto.proto";
+
+message HeartBeat{
+  PacketEnum.PacketType packetType = 1;
+  DeviceProto.Device device = 2;
+}

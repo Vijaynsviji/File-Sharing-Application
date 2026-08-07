@@ -1,0 +1,10 @@
+syntax = "proto3";
+package discoveryProto;
+import "PacketService/Proto/PacketEnum.proto";
+import "PacketService/Proto/DeviceProto.proto";
+
+message Discovery{
+  PacketEnum.PacketType packetType = 1;
+  string uniqueId = 2;
+  DeviceProto.Device device = 3;
+}

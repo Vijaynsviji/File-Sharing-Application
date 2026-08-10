@@ -46,7 +46,13 @@ add_executable(FileShareBackend main.cpp
         DiscoveryService/Services/UDPListener.h
         DiscoveryService/Services/UDPListener.cpp
         DiscoveryService/Services/UDPBroadcaster.h
-        DiscoveryService/Services/UDPBroadcaster.cpp)
+        DiscoveryService/Services/UDPBroadcaster.cpp
+        PacketService/Factory/DiscoveryPacketFactory.h
+        PacketService/Factory/DiscoveryPacketFactory.cpp
+        PacketService/Factory/HeartBeatPacketFactory.h
+        PacketService/Factory/HeartBeatPacketFactory.cpp
+        PacketService/Factory/FIleMetadataPacketFactory.h
+        PacketService/Factory/FileMetadataPacketFactory.cpp)
 
 # 3. Modern generation: Automatically compile the proto and attach it to the target
 # This replaces the old macro and handles all generated file paths for you

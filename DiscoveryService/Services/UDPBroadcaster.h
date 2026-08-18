@@ -27,6 +27,5 @@ class UDPBroadcaster {
 public:
     explicit UDPBroadcaster(int portValue,int bufferSize):broadCastPort(portValue),bufferSize(bufferSize){}
     void broadCastUDP();
-
     void shutDownServer();
 };

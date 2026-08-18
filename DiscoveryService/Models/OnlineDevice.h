@@ -29,7 +29,7 @@ class OnlineDevice {
     time_t lastHeartBeatTimeStamp;
 public:
 
-    OnlineDevice(Device& device_value, std::string uniqueId,sockaddr_in& socket):
+    OnlineDevice(const Device& device_value, std::string uniqueId,sockaddr_in& socket):
     device(device_value),
     uniqueId(uniqueId),
     deviceSocket(socket)
@@ -67,5 +67,12 @@ public:
 
     void set_last_heart_beat_time_stamp(time_t last_heart_beat_time_stamp) {
         lastHeartBeatTimeStamp = last_heart_beat_time_stamp;
+    }
+
+    bool checkIsTimeDiffIsGreater(double secondsValue) {
+        time_t currentTime = time(nullptr);
+        double secondsPassed = difftime(currentTime, lastHeartBeatTimeStamp);
+
+        return secondsPassed > secondsValue;
     }
 };

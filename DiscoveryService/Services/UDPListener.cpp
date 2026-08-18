@@ -9,25 +9,35 @@
 #include <vector>
 #include <ws2tcpip.h>
 
+#include "UDPService.h"
 #include "DiscoveryService/Models/OnlineDevice.h"
+#include "DiscoveryService/Types/SocketValue.h"
+#include "DiscoveryService/Types/UDPSocketConfig.h"
 
 #pragma comment(lib, "Ws2_32.lib")
 
 
 void UDPListener::listenUDP(std::vector<OnlineDevice>& devices) {
-    SOCKET listenSocket = socket(AF_INET,SOCK_DGRAM,0);
-    if (listenSocket == INVALID_SOCKET) {
-        throw std::runtime_error("Not able to create Socket for UDP Listen");
-    }
+    // SOCKET listenSocket = socket(AF_INET,SOCK_DGRAM,0);
+    // if (listenSocket == INVALID_SOCKET) {
+    //     throw std::runtime_error("Not able to create Socket for UDP Listen");
+    // }
+    //
+    // sockaddr_in address{
+    //     AF_INET,
+    //     htons(listenPortValue),
+    //     INADDR_ANY
+    // };
 
-    sockaddr_in address{
-        AF_INET,
-        htons(listenPortValue),
-        INADDR_ANY
-    };
+    UDPSocketConfig udpSocketParams{};
+    udpSocketParams.portValue = listenPortValue;
+    udpSocketParams.isListenBroadCastMessage = true;
+
+    SocketValue createdSocketValue = UDPService::createSocket(udpSocketParams);
+    SOCKET listenSocket = createdSocketValue.socket;
+    sockaddr_in address = createdSocketValue.address;
 
     int bindSocketToAdrress = bind(listenSocket,(struct sockaddr*)&address,sizeof(address));
-
     if (bindSocketToAdrress == SOCKET_ERROR) {
         throw std::runtime_error("Not able to Bind to Socket address in UDP Listen");
     }

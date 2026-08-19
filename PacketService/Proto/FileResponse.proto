@@ -6,6 +6,6 @@ package FileResponseProto;
 
 message FileResponse{
   PacketEnum.PacketType packetType = 1;
-  FileMetadataProto.FileMetadata fileMetdata = 2;
+  repeated FileMetadataProto.FileMetadata fileMetdata = 2;
   bool isSenderAcceptedOrNot = 3;
 }

@@ -17,12 +17,12 @@
 class FileResponsePacketFactory {
 public:
     static FileResponse createPacket(
-        FileMetadata& fileMetadata,
+        std::vector<FileMetadata>& fileMetadata,
         bool isSenderAccepted
     );
 
     static FileResponseProto::FileResponse createProto(
-        FileMetadata& fileMetadata,
+        std::vector<FileMetadata>& fileMetadata,
        bool isSenderAccepted
     );
 };

@@ -9,6 +9,7 @@
 
 #pragma once
 #include <iostream>
+#include <vector>
 #include <string>
 
 #include "FileMetadata.h"
@@ -16,17 +17,20 @@
 
 class FileResponse {
     PacketTypes PacketType;
-    FileMetadata fileMetadata;
+    std::vector<FileMetadata> fileMetadata;
     bool isSenderAcceptedOrNot;
 public:
-    FileResponse(FileMetadata file_metadata, bool is_sender_accepted_or_not)
+    FileResponse(std::vector<FileMetadata> file_metadata, bool is_sender_accepted_or_not)
         : fileMetadata(file_metadata),
           isSenderAcceptedOrNot(is_sender_accepted_or_not),
     PacketType(PacketTypes::kFileMetadata){
     }
 
     bool isInvalid() const{
-        return  fileMetadata.isInvalid();
+        for (auto& file:fileMetadata) {
+            if (file.isInvalid()) return true;
+        }
+        return false;
     }
 
     PacketTypes get_packet_type() const {
@@ -38,11 +42,11 @@ public:
         PacketType = packet_type;
     }
 
-    FileMetadata get_file_metadata() const {
+    std::vector<FileMetadata> get_file_metadata() const {
         return fileMetadata;
     }
 
-    void set_file_metadata(FileMetadata file_metadata) {
+    void set_file_metadata(std::vector<FileMetadata> file_metadata) {
         fileMetadata = file_metadata;
     }
 

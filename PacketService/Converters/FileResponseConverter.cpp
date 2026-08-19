@@ -6,6 +6,7 @@
 #include "FileResponseConverter.h"
 
 #include <iostream>
+#include<vector>
 
 #include "FileMetadataConverter.h"
 #include "PacketService/Packets/FileResponse.h"
@@ -18,12 +19,17 @@ FileResponseProto::FileResponse FileResponseConverter::toProto(const FileRespons
     }
 
     FileResponseProto::FileResponse file_response_proto;
-    const FileMetadata& file_metadata = file_response.get_file_metadata();
-    FileMetadataProto::FileMetadata file_metadata_proto = FileMetadataConverter::toProto(
-        file_metadata
+    const std::vector<FileMetadata>& file_metadata = file_response.get_file_metadata();
+    for (auto& fileMetadata: file_metadata) {
+        FileMetadataProto::FileMetadata file_metadata_proto = FileMetadataConverter::toProto(
+        fileMetadata
         );
+        FileMetadataProto::FileMetadata* new_item = file_response_proto.add_filemetdata();
+        new_item->CopyFrom(file_metadata_proto);
+    }
 
-    *file_response_proto.mutable_filemetdata() = std::move(file_metadata_proto);
+
+    // *file_response_proto.mutable_filemetdata() = std::move(file_metadata_proto);
 
     file_response_proto.set_packettype(PacketEnum::FileResponse);
     file_response_proto.set_issenderacceptedornot(file_response.is_is_sender_accepted_or_not());
@@ -32,11 +38,14 @@ FileResponseProto::FileResponse FileResponseConverter::toProto(const FileRespons
 }
 
 FileResponse FileResponseConverter::toPacket(const FileResponseProto::FileResponse& file_response_proto) {
-    auto file_metadata_proto = file_response_proto.filemetdata();
+    std::vector<FileMetadata> fileMetadataArray;
+    for (const  auto& fileMetadata:file_response_proto.filemetdata()) {
+        auto file_metadata = FileMetadataConverter::toPacket(fileMetadata);
+        if (file_metadata.isInvalid()) continue;
+        fileMetadataArray.push_back(file_metadata);
+    }
 
-    auto file_metadata = FileMetadataConverter::toPacket(file_metadata_proto);
-
-    FileResponse file_response(file_metadata,
+    FileResponse file_response(fileMetadataArray,
         file_response_proto.issenderacceptedornot()
         );
 

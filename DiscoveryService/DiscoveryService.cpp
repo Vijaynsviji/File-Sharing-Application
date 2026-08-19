@@ -68,6 +68,9 @@ void DiscoveryService::DiscoveryRequestListner() {
     sockaddr_in address = tcpSocketValue.address;
     SOCKET requestListenSocket = tcpSocketValue.socket;
 
+    // accept(requestListenSocket)
+
+
     while (!stopDiscoveryListenServer) {
         sockaddr_in clientSocket;
         std::vector<char> buffer(1024);

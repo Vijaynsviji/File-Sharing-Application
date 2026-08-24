@@ -10,12 +10,12 @@
 #pragma once
 #include<string>
 #include <stdexcept>
-#include <winsock2.h>
-#include <ws2tcpip.h>
+#include "UniversalSocket.h"
+
 
 #include "DiscoveryService/Types/SocketValue.h"
 #include "DiscoveryService/Types/UDPSocketConfig.h"
-#pragma comment(lib, "Ws2_32.lib")
+
 
 
 

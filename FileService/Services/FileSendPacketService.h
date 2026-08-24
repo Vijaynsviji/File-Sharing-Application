@@ -15,14 +15,15 @@
 #include "PacketService/Factory/FileRequestPacketFactory.h"
 #include "PacketService/Packets/Device.h"
 #include "PacketService/Packets/FileMetadata.h"
+#include "UniversalSocket.h"
 
-class FileService {
+class FileSendPacketService {
 public:
-    static void fileRequest(SOCKET& socket, Device& device);
+    static void fileRequest(SocketType& socket, Device& device);
 
-    static void fileResponse(SOCKET& socket,std::vector<FileMetadata>& fileMetadataArray,bool isRequestAcceptedOrNot);
+    static void fileResponse(SocketType& socket,std::vector<FileMetadata>& fileMetadataArray,bool isRequestAcceptedOrNot);
 
-    static void transferComplete(SOCKET& socket, std::string& uniqueId);
+    static void transferComplete(SocketType& socket, std::string& uniqueId);
 
-    static void sendError(SOCKET& socket,std::string uniqueId,std::string errorDetails);
+    static void sendError(SocketType& socket,std::string uniqueId,std::string errorDetails);
 };

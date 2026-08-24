@@ -10,7 +10,11 @@
 #include <string>
 
 
-struct TCPSocketConfig {
+struct TCPServerSocketConfig {
+    int portValue;
+};
+
+struct TCPClientSocketConfig {
     int portValue;
     std::string listenIPAddress = "127.0.0.1";
 };

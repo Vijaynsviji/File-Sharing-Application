@@ -36,6 +36,54 @@ public:
     DiscoveryService(long long bufferSize, int portValue,int discoveryTCPPort):
     udpBroadCaster(portValue,bufferSize),udpListener(portValue),DiscoveryTCPPort(discoveryTCPPort){}
 
+    std::unordered_map<std::string, OnlineDevice> online_devices() const {
+        return onlineDevices;
+    }
+
+    void set_online_devices(std::unordered_map<std::string, OnlineDevice> online_devices) {
+        onlineDevices = online_devices;
+    }
+
+    UDPBroadcaster udp_broad_caster() const {
+        return udpBroadCaster;
+    }
+
+    void set_udp_broad_caster(UDPBroadcaster udp_broad_caster) {
+        udpBroadCaster = udp_broad_caster;
+    }
+
+    UDPListener udp_listener() const {
+        return udpListener;
+    }
+
+    void set_udp_listener(UDPListener udp_listener) {
+        udpListener = udp_listener;
+    }
+
+    bool stop_remove_inactive_task() const {
+        return stopRemoveInactiveTask;
+    }
+
+    void set_stop_remove_inactive_task(bool stop_remove_inactive_task) {
+        stopRemoveInactiveTask = stop_remove_inactive_task;
+    }
+
+    bool stop_discovery_listen_server() const {
+        return stopDiscoveryListenServer;
+    }
+
+    void set_stop_discovery_listen_server(bool stop_discovery_listen_server) {
+        stopDiscoveryListenServer = stop_discovery_listen_server;
+    }
+
+    int discovery_tcp_port() const {
+        return DiscoveryTCPPort;
+    }
+
+    void set_discovery_tcp_port(int discovery_tcp_port) {
+        DiscoveryTCPPort = discovery_tcp_port;
+    }
+
     void removeInactivDevices();
 
     void stopRemoveInactivyDeviceTask();

@@ -9,16 +9,17 @@
 
 #pragma once
 #include <stdexcept>
-#include <winsock2.h>
-#include <ws2tcpip.h>
+#include "UniversalSocket.h"
+
 
 #include "DiscoveryService/Types/SocketValue.h"
 #include "DiscoveryService/Types/TCPSocketConfig.h"
-#pragma comment(lib, "Ws2_32.lib")
+
 
 
 
 class TCPService {
 public:
-    static SocketValue createSocket(TCPSocketConfig& config);
+    static SocketValue createServerSocket(TCPServerSocketConfig& config);
+    static SocketValue createClientSocket(TCPClientSocketConfig& config);
 };

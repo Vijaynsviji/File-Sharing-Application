@@ -11,13 +11,13 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <winsock2.h>
+#include "UniversalSocket.h"
 
-#include <ws2tcpip.h>
+
 
 #include "DiscoveryService/Models/OnlineDevice.h"
 
-#pragma comment(lib, "Ws2_32.lib")
+
 
 #include "PacketService/Packets/Device.h"
 
@@ -25,11 +25,11 @@
 class OnlineDevice {
     Device device;
     std::string uniqueId;
-    sockaddr_in deviceSocket;
+    SocketType deviceSocket;
     time_t lastHeartBeatTimeStamp;
 public:
 
-    OnlineDevice(const Device& device_value, std::string uniqueId,sockaddr_in& socket):
+    OnlineDevice(const Device& device_value, std::string uniqueId,SocketType& socket):
     device(device_value),
     uniqueId(uniqueId),
     deviceSocket(socket)
@@ -53,11 +53,11 @@ public:
         uniqueId = unique_id;
     }
 
-    sockaddr_in getDeviceSocket() {
+    SocketType getDeviceSocket() {
         return deviceSocket;
     }
 
-    void setDeviceSocket(sockaddr_in socket) {
+    void setDeviceSocket(SocketType& socket) {
         deviceSocket = socket;
     }
 

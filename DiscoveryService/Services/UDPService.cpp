@@ -5,15 +5,15 @@
 #include "UDPService.h"
 
 #include <stdexcept>
-#include <winsock2.h>
-#include <ws2tcpip.h>
-#pragma comment(lib, "Ws2_32.lib")
+#include "UniversalSocket.h"
+
+
 
 
 SocketValue UDPService::createSocket(
     UDPSocketConfig socketParams
 ) {
-    SOCKET udpSocket = socket(AF_INET,SOCK_DGRAM,0);
+    SocketType udpSocket = socket(AF_INET,SOCK_DGRAM,0);
     if (udpSocket == INVALID_SOCKET) {
         throw std::runtime_error("Not able to create Socket for UDP Listen");
     }
@@ -28,8 +28,8 @@ SocketValue UDPService::createSocket(
             sizeof(broadCastValue)
             );
         if (result == SOCKET_ERROR) {
-            int err = WSAGetLastError();
-            closesocket(udpSocket); // Prevent socket leak before throwing
+            int err = CROSS_GET_ERROR();
+            CROSS_CLOSE(udpSocket); // Prevent socket leak before throwing
             throw std::runtime_error("Failed to set SO_BROADCAST. Error Code: " + std::to_string(err));
         }
     }
@@ -44,7 +44,7 @@ SocketValue UDPService::createSocket(
     }else {
         int result = inet_pton(AF_INET,socketParams.listenIPAddress.data(),&address.sin_addr);
         if (result <= 0) {
-            closesocket(udpSocket);
+            CROSS_CLOSE(udpSocket);
             throw std::runtime_error("Invalid IP address format provided: " + socketParams.listenIPAddress);
         }
     }

@@ -10,13 +10,13 @@
 
 #pragma once
 #include <iostream>
-#include <winsock2.h>
+#include "UniversalSocket.h"
 #include <vector>
-#include <ws2tcpip.h>
+
 
 #include "DiscoveryService/Models/OnlineDevice.h"
 
-#pragma comment(lib, "Ws2_32.lib")
+
 
 
 

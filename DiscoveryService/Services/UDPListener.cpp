@@ -5,20 +5,20 @@
 #include "UDPListener.h"
 
 #include <iostream>
-#include <winsock2.h>
+#include "UniversalSocket.h"
 #include <vector>
-#include <ws2tcpip.h>
+
 
 #include "UDPService.h"
 #include "DiscoveryService/Models/OnlineDevice.h"
 #include "DiscoveryService/Types/SocketValue.h"
 #include "DiscoveryService/Types/UDPSocketConfig.h"
 
-#pragma comment(lib, "Ws2_32.lib")
+
 
 
 void UDPListener::listenUDP(std::vector<OnlineDevice>& devices) {
-    // SOCKET listenSocket = socket(AF_INET,SOCK_DGRAM,0);
+    // SocketType listenSocket = socket(AF_INET,SOCK_DGRAM,0);
     // if (listenSocket == INVALID_SOCKET) {
     //     throw std::runtime_error("Not able to create Socket for UDP Listen");
     // }
@@ -34,7 +34,7 @@ void UDPListener::listenUDP(std::vector<OnlineDevice>& devices) {
     udpSocketParams.isListenBroadCastMessage = true;
 
     SocketValue createdSocketValue = UDPService::createSocket(udpSocketParams);
-    SOCKET listenSocket = createdSocketValue.socket;
+    SocketType listenSocket = createdSocketValue.socket;
     sockaddr_in address = createdSocketValue.address;
 
     int bindSocketToAdrress = bind(listenSocket,(struct sockaddr*)&address,sizeof(address));

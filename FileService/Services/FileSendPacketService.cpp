@@ -2,13 +2,13 @@
 // Created by VijayNSadashiva on 19-08-2026.
 //
 
-#include "FileService.h"
+#include "FileSendPacketService.h"
 
 #include <psdk_inc/_socket_types.h>
 #include <stdexcept>
 #include <vector>
 #include<string>
-#include <winsock2.h>
+#include "UniversalSocket.h"
 
 #include "PacketService/Factory/ErrorPacketFactory.h"
 #include "PacketService/Factory/FileRequestPacketFactory.h"
@@ -22,7 +22,7 @@
 
 
 
-void FileService::fileRequest(SOCKET& socket, Device& device) {
+void FileSendPacketService::fileRequest(SocketType& socket, Device& device) {
         if (device.isInvalid()) {
             throw std::invalid_argument("Cannot send invalid File Request.");
         }
@@ -40,7 +40,7 @@ void FileService::fileRequest(SOCKET& socket, Device& device) {
         }
     }
 
-void FileService::fileResponse(SOCKET& socket,std::vector<FileMetadata>& fileMetadataArray,bool isRequestAcceptedOrNot) {
+void FileSendPacketService::fileResponse(SocketType& socket,std::vector<FileMetadata>& fileMetadataArray,bool isRequestAcceptedOrNot) {
         FileResponseProto::FileResponse fileResponseProto = FileResponsePacketFactory::createProto(fileMetadataArray,isRequestAcceptedOrNot);
         std::string serialisedFileResponseProto;
         if (!fileResponseProto.SerializeToString(&serialisedFileResponseProto)) {
@@ -53,7 +53,7 @@ void FileService::fileResponse(SOCKET& socket,std::vector<FileMetadata>& fileMet
         }
     }
 
-void FileService::transferComplete(SOCKET& socket, std::string& uniqueId) {
+void FileSendPacketService::transferComplete(SocketType& socket, std::string& uniqueId) {
         if (uniqueId.empty()) {
             throw std::runtime_error("Cannot Send Transfer Complete Packet");
         }
@@ -71,7 +71,7 @@ void FileService::transferComplete(SOCKET& socket, std::string& uniqueId) {
 
     }
 
-void FileService::sendError(SOCKET& socket,std::string uniqueId,std::string errorDetails) {
+void FileSendPacketService::sendError(SocketType& socket,std::string uniqueId,std::string errorDetails) {
         if (uniqueId.empty() || errorDetails.empty()) {
             throw std::invalid_argument("Cannot send error details.");
         }

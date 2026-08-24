@@ -39,7 +39,7 @@ void DiscoveryService::stopRemoveInactivyDeviceTask() {
 }
 
 void DiscoveryService::DiscoveryRequestListner() {
-    // SOCKET requestListenSocket = socket(AF_INET,SOCK_STREAM,0);
+    // SocketType requestListenSocket = socket(AF_INET,SOCK_STREAM,0);
     // if (requestListenSocket == INVALID_SOCKET) {
     //     throw std::runtime_error("Not able to Create a TCP Socket!!");
     // }
@@ -63,10 +63,10 @@ void DiscoveryService::DiscoveryRequestListner() {
     // if (listenToRequest == SOCKET_ERROR) {
     //     throw std::runtime_error("Not able to Listen for Requests");
     // }
-    TCPSocketConfig socketConfig = TCPSocketConfig(DiscoveryTCPPort,"127.0.0.1");
-    SocketValue tcpSocketValue = TCPService::createSocket(socketConfig);
+    TCPServerSocketConfig socketConfig = TCPServerSocketConfig(DiscoveryTCPPort);
+    SocketValue tcpSocketValue = TCPService::createServerSocket(socketConfig);
     sockaddr_in address = tcpSocketValue.address;
-    SOCKET requestListenSocket = tcpSocketValue.socket;
+    SocketType requestListenSocket = tcpSocketValue.socket;
 
     // accept(requestListenSocket)
 

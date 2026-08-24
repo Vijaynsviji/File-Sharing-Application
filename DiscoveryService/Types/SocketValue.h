@@ -8,12 +8,12 @@
 // #endif //FILESHAREBACKEND_SOCKETVALUE_H
 
 #pragma once
-#include <winsock2.h>
-#include <ws2tcpip.h>
-#pragma comment(lib, "Ws2_32.lib")
+#include "UniversalSocket.h"
+
+
 
 
 struct SocketValue {
-    SOCKET socket;
+    SocketType socket;
     sockaddr_in address;
 };

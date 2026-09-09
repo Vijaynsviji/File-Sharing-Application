@@ -12,12 +12,12 @@
 #include "PacketService/Proto/PacketEnum.pb.h"
 
 
-discoverProto::Discovery DiscoveryConverter::toProto(Discovery discovery) {
+discoveryProto::Discovery DiscoveryConverter::toProto(Discovery discovery) {
     if (discovery.isInvalid()) {
         throw std::invalid_argument("Cannot convert invalid Discovery object to Proto.");
     }
 
-    discoverProto::Discovery discoveryProto;
+    discoveryProto::Discovery discoveryProto;
     discoveryProto.set_packettype(PacketEnum::Discovery);
     discoveryProto.set_uniqueid(discovery.get_unique_id());
 
@@ -34,7 +34,7 @@ discoverProto::Discovery DiscoveryConverter::toProto(Discovery discovery) {
     return discoveryProto;
 }
 
-Discovery DiscoveryConverter::toPacket(discoverProto::Discovery discoveryProto) {
+Discovery DiscoveryConverter::toPacket(discoveryProto::Discovery discoveryProto) {
     std::string uniqueId = discoveryProto.uniqueid();
 
     auto device = DeviceConverter::toDevice(discoveryProto.device());

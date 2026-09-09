@@ -12,17 +12,21 @@
 
 #ifdef _WIN32
     // 🪟 If building for Windows, use Windows headers
+    #ifndef WIN32_LEAN_AND_MEAN
+    #define WIN32_LEAN_AND_MEAN
+    #endif
+
+    #include <windows.h>   // <-- Pulls in UINT_PTR and other base types
     #include <winsock2.h>
     #include <ws2tcpip.h>
-
 
     // Tell Windows to link the networking library
     #pragma comment(lib, "Ws2_32.lib")
 
     // Create universal shortcuts
     typedef SOCKET SocketType;
-    #define CROSS_CLOSE(s) closesocket
-    #define CROSS_GET_ERROR() WSAGetLastError()
+#define CROSS_CLOSE(s) closesocket
+#define CROSS_GET_ERROR() WSAGetLastError()
 #else
 // 🤖 If building for Android, use Android headers
     #include <sys/socket.h>
@@ -53,6 +57,6 @@ inline bool initNetwork() {
 inline void cleanupNetwork() {
 #ifdef _WIN32
     WSACleanup();
-#// Android doesn't need cleanup!
+// Android doesn't need cleanup!
 #endif
 }

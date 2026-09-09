@@ -40,10 +40,10 @@ FileResponseProto::FileResponse FileResponsePacketFactory::createProto(
     }
 
     FileResponseProto::FileResponse fileResponseProto;
-    auto deviceProto = DeviceConverter::toProto(device);
-    if (!deviceProto.has_value()) {
-        throw std::runtime_error("Not able to convert device to proto.");
-    }
+    // auto deviceProto = DeviceConverter::toProto(device);
+    // if (!deviceProto.has_value()) {
+    //     throw std::runtime_error("Not able to convert device to proto.");
+    // }
     for (const auto& fileData : fileMetadata) {
         // 2. Convert your native structural object to a temporary Proto object
         FileMetadataProto::FileMetadata file_metadata_proto = FileMetadataConverter::toProto(fileData);

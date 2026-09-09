@@ -25,6 +25,15 @@ class FileReceiverService {
     std::vector<FileMetadata> allFileMetadata;
     Device receiverDevice;
 public:
+    FileReceiverService() {
+
+    }
+    FileReceiverService(SocketType receiver_socket, const std::vector<FileMetadata> &all_file_metadata,
+        const Device &receiver_device)
+        : receiverSocket(receiver_socket),
+          allFileMetadata(all_file_metadata),
+          receiverDevice(receiver_device) {
+    }
 
     SocketType receiver_socket() const {
         return receiverSocket;

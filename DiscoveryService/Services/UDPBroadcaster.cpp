@@ -50,7 +50,8 @@ void UDPBroadcaster::broadCastUDP() {
     while (true) {
         if (stopServer) break;
 
-        std::vector<char> buffer(bufferSize);
+        std::string msg = "BroadCasting Message";
+        std::vector<char> buffer(msg.begin(), msg.end());
         int sendDiscoveryData = sendto(broadCastSocket,
                                         buffer.data(),
                                         buffer.size(),0,

@@ -94,16 +94,16 @@ void DiscoveryService::DiscoveryRequestListner() {
                 return;
             }
 
-            OnlineDevice onlineDevice(
-               file_request->get_device(),
-               file_request->get_unique_id(),
-               clientSocket
-            );
-
-            std::unique_lock<std::mutex> lock = std::unique_lock<std::mutex>(onlineDeviceMutex);
-            std::string uniqueId = file_request->get_unique_id();
-            onlineDevices.insert({uniqueId,onlineDevice});
-            lock.unlock();
+            // OnlineDevice onlineDevice(
+            //    file_request->get_device(),
+            //    file_request->get_unique_id(),
+            //    clientSocket
+            // );
+            //
+            // std::unique_lock<std::mutex> lock = std::unique_lock<std::mutex>(onlineDeviceMutex);
+            // std::string uniqueId = file_request->get_unique_id();
+            // onlineDevices.insert({uniqueId,onlineDevice});
+            // lock.unlock();
         };
 
     }

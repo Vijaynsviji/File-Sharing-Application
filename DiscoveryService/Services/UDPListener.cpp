@@ -5,6 +5,8 @@
 #include "UDPListener.h"
 
 #include <iostream>
+#include <unordered_map>
+
 #include "UniversalSocket.h"
 #include <vector>
 
@@ -17,7 +19,7 @@
 
 
 
-void UDPListener::listenUDP(std::vector<OnlineDevice>& devices) {
+void UDPListener::listenUDP(std::unordered_map<std::string,OnlineDevice>& onlineDevice) {
     // SocketType listenSocket = socket(AF_INET,SOCK_DGRAM,0);
     // if (listenSocket == INVALID_SOCKET) {
     //     throw std::runtime_error("Not able to create Socket for UDP Listen");
@@ -56,6 +58,10 @@ void UDPListener::listenUDP(std::vector<OnlineDevice>& devices) {
             std::cerr<<"Not able to Connect"<<std::endl;
         }
 
+        std::cout<<"Found a BroadCast Message"<<std::endl;
+        for (auto i:buffer) {
+            std::cout<<i;
+        }
         //TODO 1:  here Sender Discovery Packet Received, and will send one File Request Message.
 
 

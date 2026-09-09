@@ -20,7 +20,13 @@ private:
 
     bool isShutDown = false;
 public:
-    ThreadPool();
+    ThreadPool(int numberOfThreads) {
+        threadArray.resize(numberOfThreads);
+        for (int i=0;i<numberOfThreads;i++) {
+            threadArray.emplace_back(std::thread(&ThreadPool::ExecuteTask,this));
+        }
+    }
+
 
     void addTask(Task task);
     void ExecuteTask();

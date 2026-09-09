@@ -10,6 +10,8 @@
 
 #pragma once
 #include <iostream>
+#include <unordered_map>
+
 #include "UniversalSocket.h"
 #include <vector>
 
@@ -27,7 +29,7 @@ public:
 
     explicit UDPListener(int portValue): listenPortValue(portValue){}
 
-    void listenUDP(std::vector<OnlineDevice>& devices);
+    void listenUDP(std::unordered_map<std::string,OnlineDevice>& onlineDevice);
 
     void stopServer();
 };

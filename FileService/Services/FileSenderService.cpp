@@ -4,7 +4,6 @@
 
 #include "FileSenderService.h"
 
-#include <psdk_inc/_socket_types.h>
 #include <stdexcept>
 #include <vector>
 #include<string>
@@ -15,7 +14,8 @@
 #include "FileService/Models/File.h"
 
 
-void FileSenderService::handleFileResponsePacket(SocketType& socket,bool isRequestAcceptedOrNot) {
+void FileSenderService::handleFileResponsePacket(OnlineDevice& online_device,bool isRequestAcceptedOrNot) {
+    SocketType socket = online_device.getDeviceSocket();
     if (socket == INVALID_SOCKET) {
         throw std::invalid_argument("Socket is Not Valid, Not able to Send File Response Packet");
     }
@@ -26,6 +26,7 @@ void FileSenderService::handleFileResponsePacket(SocketType& socket,bool isReque
         fileMetadataArray.push_back(file.get_file_metadata());
     }
     FileSendPacketService::fileResponse(socket, fileMetadataArray,isRequestAcceptedOrNot);
+    acceptedDevices.push_back(online_device);
 }
 
 

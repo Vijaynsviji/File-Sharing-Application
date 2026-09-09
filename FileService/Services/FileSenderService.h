@@ -10,7 +10,6 @@
 
 #pragma once
 #include <vector>
-#include <psdk_inc/_socket_types.h>
 #include <stdexcept>
 #include <vector>
 #include<string>
@@ -24,7 +23,9 @@ class FileSenderService {
     std::vector<OnlineDevice> acceptedDevices;
     std::vector<File> selectedFiles;
 public:
+    FileSenderService() {
 
+    }
     FileSenderService(std::vector<OnlineDevice>& devices,std::vector<File>& files )
         :acceptedDevices(devices),
         selectedFiles(files) {}
@@ -45,7 +46,7 @@ public:
         selectedFiles = selected_files;
     }
 
-    void handleFileResponsePacket(SocketType& socket,bool isRequestAcceptedOrNot);
+    void handleFileResponsePacket(OnlineDevice& online_device,bool isRequestAcceptedOrNot);
 
     void handleTransferComplete(SocketType& socket,Device& senderDevice);
 

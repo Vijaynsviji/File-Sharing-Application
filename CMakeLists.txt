@@ -6,6 +6,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # 1. Find Protobuf using CONFIG mode (this targets vcpkg directly)
 find_package(protobuf CONFIG REQUIRED)
+find_package(nlohmann_json REQUIRED)
 
 file(GLOB PROTO_FILES "${CMAKE_CURRENT_SOURCE_DIR}/PacketService/Proto/*.proto")
 
@@ -86,7 +87,9 @@ add_executable(FileShareBackend main.cpp
         UniversalSocket.h
         FileService/Services/FileReceiverService.cpp
         FileShareService/FileShareService.h
-        FileShareService/Service/FileService.h)
+        FileShareService/Service/FileService.h
+        Engine.h
+        Engine.cpp)
 
 # 3. Modern generation: Automatically compile the proto and attach it to the target
 # This replaces the old macro and handles all generated file paths for you
@@ -102,6 +105,8 @@ target_include_directories(FileShareBackend PRIVATE
         ${CMAKE_CURRENT_SOURCE_DIR}
         ${CMAKE_CURRENT_BINARY_DIR}
 )
+
+target_compile_options(FileShareBackend PRIVATE -mavx2)
 
 # 5. Link using the modern target (Crucial for x64-mingw-dynamic!)
 # This automatically applies the correct DLL import definitions to your build

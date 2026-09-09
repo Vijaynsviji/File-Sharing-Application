@@ -23,7 +23,7 @@ public:
     );
 
 
-    static discoverProto::Discovery createProto(
+    static discoveryProto::Discovery createProto(
         std::string& uniqueId,
         Device& device
     );

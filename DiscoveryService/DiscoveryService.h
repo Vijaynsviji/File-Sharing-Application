@@ -84,6 +84,22 @@ public:
         DiscoveryTCPPort = discovery_tcp_port;
     }
 
+    void startUdpBroadCasting() {
+        udpBroadCaster.broadCastUDP();
+    }
+
+    void stopUdpBroadCasting() {
+        udpBroadCaster.shutDownServer();
+    }
+
+    void listenToBroadCast() {
+        udpListener.listenUDP(onlineDevices);
+    }
+
+    void stopUdpListening() {
+        udpListener.stopServer();
+    }
+
     void removeInactivDevices();
 
     void stopRemoveInactivyDeviceTask();

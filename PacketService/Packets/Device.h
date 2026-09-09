@@ -16,6 +16,9 @@ class Device {
     std::string DeviceName;
     std::string DeviceType;
 public:
+    Device() {
+
+    }
     Device(std::string device_id, std::string device_name, std::string device_type)
         : DeviceId(device_id),
           DeviceName(device_name),

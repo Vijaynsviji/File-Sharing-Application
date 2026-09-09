@@ -3,7 +3,7 @@
 //
 
 #include "UDPService.h"
-
+#include <iostream>
 #include <stdexcept>
 #include "UniversalSocket.h"
 
@@ -15,7 +15,12 @@ SocketValue UDPService::createSocket(
 ) {
     SocketType udpSocket = socket(AF_INET,SOCK_DGRAM,0);
     if (udpSocket == INVALID_SOCKET) {
-        throw std::runtime_error("Not able to create Socket for UDP Listen");
+        int errorCode = CROSS_GET_ERROR();
+
+        // Print it clearly to the console
+        std::cerr << "FATAL: socket() failed with error code: " << errorCode << std::endl;
+
+        throw std::runtime_error("Not able to create Socket for UDP Listen. Error Code: " + std::to_string(errorCode));
     }
 
     if (socketParams.isBroadCastEnabled) {

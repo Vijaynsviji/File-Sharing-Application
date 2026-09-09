@@ -21,9 +21,9 @@ class DiscoveryConverter {
 
 public:
 
-    static discoverProto::Discovery toProto(Discovery discovery);
+    static discoveryProto::Discovery toProto(Discovery discovery);
 
-    static Discovery toPacket(discoverProto::Discovery discoveryProto);
+    static Discovery toPacket(discoveryProto::Discovery discoveryProto);
 
 
 };

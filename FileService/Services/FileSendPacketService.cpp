@@ -4,7 +4,6 @@
 
 #include "FileSendPacketService.h"
 
-#include <psdk_inc/_socket_types.h>
 #include <stdexcept>
 #include <vector>
 #include<string>

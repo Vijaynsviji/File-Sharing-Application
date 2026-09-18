@@ -1,0 +1,11 @@
+{
+  "@@locale": "en",
+  "helloWorld": "Hello World!",
+  "@helloWorld": {
+    "description": "The conventional newborn programmer greeting"
+  },
+  "welcomeEveryone": "Welcome Everyone",
+  "@welcomeEveryone": {
+    "description": "Greets each user when they open the application"
+  }
+}

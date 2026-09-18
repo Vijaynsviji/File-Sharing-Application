@@ -34,10 +34,17 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
+  sqflite: ^2.4.2+1
+  path: ^1.9.1
+  flutter_localizations:
+    sdk: flutter
+  intl: any
+  provider: ^6.1.5+1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  smart_arb_translator: ^1.8.2
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -51,7 +58,7 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
-
+  generate: true
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
@@ -87,3 +94,17 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+smart_arb_translator:
+  l10n_method: gen-l10n
+  source_dir: lib/core/Language/l10n_source
+  l10n_directory: lib/core/Language/l10n
+  cache_directory: .l10n_cache
+  api_key: api_key.txt
+  language_codes: [ "hi", "bn", "mr", "te", "ta", "gu", "ur", "kn","or", "ml",
+                    "pa", "as", "kok", "ks", "ne", "sa","sd" ]
+  #  generate_dart: true
+  dart_class_name: AppLocalizations
+  dart_output_dir: lib/core/Language/generated
+  translation_service: local_llm
+  local_llm_url: https://generativelanguage.googleapis.com/v1beta/openai/chat/completions
+  local_llm_model: gemini-3.1-flash-lite

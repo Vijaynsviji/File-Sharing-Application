@@ -22,6 +22,21 @@ class PeerDeviceRepository {
     }
   }
 
+  Future<Resource<List<PeerDevice>>> getPeerDevicesByDeviceId(String deviceId) async {
+    try {
+      final List<Map<String, Object?>> peerDeviceData = await database.query(tableName,where: 'deviceUniqueId = ?',whereArgs: [deviceId]);
+
+      // Note: Removed 'await' here because .map and .toList() are synchronous
+      final List<PeerDevice> parsedPeerDeviceData = peerDeviceData.map((data) => PeerDevice.fromMap(data)).toList();
+
+      return ResourceSuccess(parsedPeerDeviceData);
+    } catch(e) {
+      return ResourceFailure('Failed to fetch peer device data', exception: e as Exception);
+    }
+  }
+
+
+
   // INSERT
   Future<Resource<bool>> insertPeerDeviceData(PeerDevice peerDevice) async {
     try {

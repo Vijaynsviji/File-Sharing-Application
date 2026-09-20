@@ -51,7 +51,7 @@ void UDPListener::listenUDP(std::unordered_map<std::string,OnlineDevice>& online
 
         sockaddr_in clientSocket;
         std::vector<char> buffer(bufferSize);
-        int sizeOfClientSocket  = sizeof(clientSocket);
+        socklen_t  sizeOfClientSocket  = sizeof(clientSocket);
         int receiveFromResponse = recvfrom(listenSocket,buffer.data(),buffer.size(),0,(struct sockaddr*)
            &clientSocket, &sizeOfClientSocket);
         if (receiveFromResponse == SOCKET_ERROR) {

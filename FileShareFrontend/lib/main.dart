@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
+import 'native_bridge/engine.dart';
+
 void main() {
+  final engine = Engine();
   runApp(const MyApp());
 }
 

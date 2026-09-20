@@ -12,7 +12,6 @@
 #include <unordered_map>
 #include <string>
 #include <mutex>
-#include <bits/this_thread_sleep.h>
 
 #include "Models/OnlineDevice.h"
 #include "PacketService/Converters/FileRequestConverter.h"

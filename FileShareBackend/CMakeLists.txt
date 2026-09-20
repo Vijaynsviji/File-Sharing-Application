@@ -11,7 +11,7 @@ find_package(nlohmann_json REQUIRED)
 file(GLOB PROTO_FILES "${CMAKE_CURRENT_SOURCE_DIR}/PacketService/Proto/*.proto")
 
 # 2. Define your executable target with just your core C++ files
-add_executable(FileShareBackend main.cpp
+add_library(FileShareCore STATIC
         ThreadPoolService/Models/Task.h
         ThreadPoolService/ThreadPool.h
         ThreadPoolService/ThreadPool.cpp
@@ -91,30 +91,45 @@ add_executable(FileShareBackend main.cpp
         Engine.h
         Engine.cpp)
 
+set_target_properties(FileShareCore PROPERTIES
+        POSITION_INDEPENDENT_CODE ON
+)
+
+add_executable(FileShareBackend
+        main.cpp
+)
+
+target_link_libraries(FileShareBackend PRIVATE
+        FileShareCore
+)
+
 # 3. Modern generation: Automatically compile the proto and attach it to the target
 # This replaces the old macro and handles all generated file paths for you
 protobuf_generate(
-        TARGET FileShareBackend
+        TARGET FileShareCore
         LANGUAGE cpp
         PROTOS ${PROTO_FILES}
         IMPORT_DIRS "${CMAKE_CURRENT_SOURCE_DIR}"
 )
 
 # 4. Include directories
-target_include_directories(FileShareBackend PRIVATE
+target_include_directories(FileShareCore  PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}
         ${CMAKE_CURRENT_BINARY_DIR}
 )
 
-target_compile_options(FileShareBackend PRIVATE -mavx2)
+if(NOT ANDROID)
+    target_compile_options(FileShareCore PRIVATE -mavx2)
+endif()
 
 # 5. Link using the modern target (Crucial for x64-mingw-dynamic!)
 # This automatically applies the correct DLL import definitions to your build
-target_link_libraries(FileShareBackend PRIVATE
+target_link_libraries(FileShareCore PUBLIC
         protobuf::libprotobuf
+        nlohmann_json::nlohmann_json
 )
 
 # Win32 specific linking for Winsock2 (Required for UDP/TCP sockets)
 if(WIN32)
-    target_link_libraries(FileShareBackend PRIVATE ws2_32)
+    target_link_libraries(FileShareCore  PUBLIC ws2_32)
 endif()

@@ -8,17 +8,39 @@ class AppSettingsNotifier extends ChangeNotifier {
   final AppSettingsRepository _repository;
 
   // 🌟 The single source of truth holds all current setting values
-  AppSettings _settings;
+  late AppSettings _settings;
+  bool _isLoading = true;
+  bool _isError = false;
 
   AppSettingsNotifier({
-    required AppSettings initialSettings,
     required AppSettingsRepository repository,
-  })  : _settings = initialSettings,
-        _repository = repository;
+  })  :_repository = repository{
+    _loadSettingsFromDB();
+  }
 
   // 🚪 Getters to keep your existing UI code working exactly as before
   ThemeMode get currentTheme => _settings.currentTheme;
   String get currentLanguage => _settings.currentLanguage;
+  bool get isLoading => _isLoading;
+  bool get isError => _isError;
+
+  Future<void> _loadSettingsFromDB() async{
+    try{
+      final settingsData = await _repository.getAppSettings();
+      if(settingsData is ResourceFailure){
+        throw("Not able to fetch Settings Data");
+      }
+
+      final succededData = settingsData as ResourceSuccess<AppSettings>;
+      final parsedData = succededData.data;
+      _settings = parsedData;
+    }catch(e){
+      _isError = true;
+    }finally{
+      _isLoading = false;
+      notifyListeners();
+    }
+  }
 
   /// Private helper that saves the internal model state to the SQLite DB
   Future<void> _saveToDatabase() async {
@@ -27,6 +49,10 @@ class AppSettingsNotifier extends ChangeNotifier {
     if (result is ResourceFailure) {
       debugPrint('Error persisting settings: ${result}');
     }
+  }
+
+  bool isSettingsDataInitialised(){
+    return !_isLoading && !_isError;
   }
 
   /// Toggles between Dark and Light mode

@@ -9,7 +9,7 @@ class UserRepository {
 
   UserRepository({required this.database});
 
-  Future<Resource<List<User>>> getUserData() async {
+  Future<Resource<User>> getUserData() async {
     try{
       // final db = await database;
 
@@ -17,7 +17,7 @@ class UserRepository {
 
       final List<User> usersData = userMaps.map((map) => User.fromMap(map)).toList();
 
-      return ResourceSuccess(usersData);
+      return ResourceSuccess(usersData.first);
     }catch(e){
       return ResourceFailure('Failed to fetch user data', exception: e as Exception);
     }

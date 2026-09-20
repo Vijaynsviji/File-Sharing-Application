@@ -1,10 +1,44 @@
+import 'package:file_share_application_frontend/repository/app_settings_repository.dart';
+import 'package:file_share_application_frontend/repository/database_helper.dart';
+import 'package:file_share_application_frontend/repository/peer_device_repository.dart';
+import 'package:file_share_application_frontend/repository/user_repository.dart';
 import 'package:flutter/material.dart';
+import 'package:sqflite/sqflite.dart';
+import 'package:provider/provider.dart';
 
+import 'global/Providers/EngineNotifier.dart';
+import 'global/Providers/FileNotifiers.dart';
+import 'global/Providers/FileTransferNotifier.dart';
 import 'native_bridge/engine.dart';
 
-void main() {
-  final engine = Engine();
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  DatabaseHelper databaseHelper = DatabaseHelper.instance;
+  Database database = await databaseHelper.database;
+  AppSettingsRepository settingsRepo = AppSettingsRepository(database: database);
+  UserRepository userRepo = UserRepository(database: database);
+  PeerDeviceRepository peerDeviceRepository = PeerDeviceRepository(database: database);
+
+
+  runApp(
+    MultiProvider(
+      providers: [
+        Provider<AppSettingsRepository>.value(value: settingsRepo),
+        Provider<UserRepository>.value(value: userRepo),
+        Provider<PeerDeviceRepository>.value(value: peerDeviceRepository),
+        ChangeNotifierProvider<Filenotifiers>(
+          create: (context) => Filenotifiers(),
+        ),
+        ChangeNotifierProvider<Filetransfernotifier>(
+          create: (context) => Filetransfernotifier(),
+        ),
+        ChangeNotifierProvider<EngineNotifier>(
+          create: (context) => EngineNotifier(),
+        ),
+      ],
+      child: const MyApp(), // Your main App widget
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {

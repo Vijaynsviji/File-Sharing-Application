@@ -17,20 +17,22 @@
 
 #include "FileSendPacketService.h"
 #include "DiscoveryService/Services/TCPService.h"
+#include "EventService/EventEmitter.h"
 #include "PacketService/Packets/FileMetadata.h"
 #include "Utils/utils.h"
 
 class FileReceiverService {
+    DartEventEmitter& eventEmitter;
     SocketType receiverSocket;
     std::vector<FileMetadata> allFileMetadata;
     Device receiverDevice;
 public:
-    FileReceiverService() {
-
+    FileReceiverService(DartEventEmitter& eventEmitter) : eventEmitter(eventEmitter) {
     }
+
     FileReceiverService(SocketType receiver_socket, const std::vector<FileMetadata> &all_file_metadata,
-        const Device &receiver_device)
-        : receiverSocket(receiver_socket),
+                        const Device &receiver_device,DartEventEmitter& eventEmitter)
+        : eventEmitter(eventEmitter), receiverSocket(receiver_socket),
           allFileMetadata(all_file_metadata),
           receiverDevice(receiver_device) {
     }

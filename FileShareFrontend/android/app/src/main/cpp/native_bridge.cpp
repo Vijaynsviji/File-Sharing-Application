@@ -55,4 +55,11 @@ void engine_addUserSelectedFiles(
     engine->addUserSelectedFiles(jsonString);
 }
 
+void engine_initialiseDartEventPortId(
+        Engine* engine,
+        int dartPortId
+        ){
+    engine->initialiseDartPortId(dartPortId);
+}
+
 }

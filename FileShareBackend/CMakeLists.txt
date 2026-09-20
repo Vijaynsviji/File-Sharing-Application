@@ -97,6 +97,8 @@ set_target_properties(FileShareCore PROPERTIES
 
 add_executable(FileShareBackend
         main.cpp
+        EventService/EventEmitter.h
+        EventService/EventEmitter.cpp
 )
 
 target_link_libraries(FileShareBackend PRIVATE

@@ -130,3 +130,8 @@ void Engine::addUserSelectedFiles(const char* jsonString) {
     }
 }
 
+void Engine::initialiseDartPortId(int dartPortId) {
+    eventEmitter.initialize(dartPortId);
+}
+
+

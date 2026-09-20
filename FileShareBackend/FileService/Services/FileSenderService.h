@@ -17,18 +17,22 @@
 
 #include "FileSendPacketService.h"
 #include "DiscoveryService/Models/OnlineDevice.h"
+#include "EventService/EventEmitter.h"
 #include "FileService/Models/File.h"
 
 class FileSenderService {
+    DartEventEmitter& eventEmitter;
     std::vector<OnlineDevice> acceptedDevices;
     std::vector<File> selectedFiles;
 public:
-    FileSenderService() {
-
+    FileSenderService(DartEventEmitter& eventEmitter) : eventEmitter(eventEmitter) {
     }
-    FileSenderService(std::vector<OnlineDevice>& devices,std::vector<File>& files )
+
+    FileSenderService(std::vector<OnlineDevice>& devices,std::vector<File>& files,DartEventEmitter& eventEmitter )
         :acceptedDevices(devices),
-        selectedFiles(files) {}
+        selectedFiles(files),
+        eventEmitter(eventEmitter)
+    {}
 
     std::vector<OnlineDevice> accepted_devices() const {
         return acceptedDevices;

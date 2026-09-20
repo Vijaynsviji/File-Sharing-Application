@@ -12,6 +12,7 @@
 #pragma once
 #include <nlohmann/json.hpp>
 #include "DiscoveryService/DiscoveryService.h"
+#include "EventService/EventEmitter.h"
 #include "FileService/Services/FileReceiverService.h"
 #include "FileService/Services/FileSenderService.h"
 #include "ThreadPoolService/ThreadPool.h"
@@ -19,6 +20,7 @@
 
 
 class Engine {
+    DartEventEmitter eventEmitter;
     DiscoveryService discoveryService;
     FileSenderService fileSenderService;
     FileReceiverService fileReceiverService;
@@ -26,9 +28,10 @@ class Engine {
 
 public:
     Engine()
-       : discoveryService(1024, 3125, 8085),
-         fileSenderService(),
-         fileReceiverService(),
+       : eventEmitter(),
+        discoveryService(1024, 3125, 8085,eventEmitter),
+         fileSenderService(eventEmitter),
+         fileReceiverService(eventEmitter),
          threadPool(5)
     {
         // The constructor body is now clean and empty!
@@ -63,5 +66,6 @@ public:
 
     void addUserSelectedFiles(const char* jsonString);
 
+    void initialiseDartPortId(int dartPortId);
 
 };

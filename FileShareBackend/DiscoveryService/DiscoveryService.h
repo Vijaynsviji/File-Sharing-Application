@@ -13,6 +13,7 @@
 #include <string>
 #include <mutex>
 
+#include "EventService/EventEmitter.h"
 #include "Models/OnlineDevice.h"
 #include "PacketService/Converters/FileRequestConverter.h"
 #include "PacketService/Packets/FileRequest.h"
@@ -24,6 +25,7 @@
 
 
 class DiscoveryService {
+    DartEventEmitter& eventEmitter;
     std::unordered_map<std::string,OnlineDevice> onlineDevices;
     UDPBroadcaster udpBroadCaster;
     UDPListener udpListener;
@@ -32,8 +34,9 @@ class DiscoveryService {
     bool stopDiscoveryListenServer = false;
     int DiscoveryTCPPort;
 public:
-    DiscoveryService(long long bufferSize, int portValue,int discoveryTCPPort):
-    udpBroadCaster(portValue,bufferSize),udpListener(portValue),DiscoveryTCPPort(discoveryTCPPort){}
+    DiscoveryService(long long bufferSize, int portValue,int discoveryTCPPort,DartEventEmitter& eventEmitter):
+    udpBroadCaster(portValue,bufferSize),udpListener(portValue),DiscoveryTCPPort(discoveryTCPPort),
+    eventEmitter(eventEmitter){}
 
     std::unordered_map<std::string, OnlineDevice> online_devices() const {
         return onlineDevices;

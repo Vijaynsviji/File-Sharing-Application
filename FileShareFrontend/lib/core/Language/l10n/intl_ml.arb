@@ -1,0 +1,649 @@
+{
+  "@@locale": "ml",
+  "homeTitle": "ഹോം",
+  "@homeTitle": {
+    "description": "Title of the main home screen where the user starts the file sharing process"
+  },
+  "availableCloudStorage": "ലഭ്യമായ ക്ലൗഡ് സ്റ്റോറേജ്",
+  "@availableCloudStorage": {
+    "description": "Header indicating the total amount of cloud storage space available to the user's account"
+  },
+  "storageUsedOfTotal": "{total}-ൽ {used} ഉപയോഗിച്ചു",
+  "@storageUsedOfTotal": {
+    "description": "Text showing how much cloud storage the user has consumed out of their total limit. {used} is the consumed amount (e.g., 4.5GB), {total} is the maximum limit (e.g., 5GB)",
+    "placeholders": {
+      "used": {
+        "type": "String",
+        "example": "4.5GB"
+      },
+      "total": {
+        "type": "String",
+        "example": "5GB"
+      }
+    }
+  },
+  "viewDetails": "വിശദാംശങ്ങൾ കാണുക",
+  "@viewDetails": {
+    "description": "Text on a button that the user taps to see a detailed breakdown of their storage usage"
+  },
+  "send": "അയയ്ക്കുക",
+  "@send": {
+    "description": "Primary action button text used to initiate sending files to another nearby device"
+  },
+  "receive": "സ്വീകരിക്കുക",
+  "@receive": {
+    "description": "Primary action button text used to prepare the device to receive files from someone else"
+  },
+  "shareToPc": "PC-യിലേക്ക് പങ്കിടുക",
+  "@shareToPc": {
+    "description": "Button text to trigger sharing files from the mobile device to a desktop computer or PC"
+  },
+  "webShare": "വെബ് പങ്കിടൽ",
+  "@webShare": {
+    "description": "Button text to trigger sharing files via a web browser link over the internet"
+  },
+  "shareWithFriends": "സുഹൃത്തുക്കളുമായി പങ്കിടുക",
+  "@shareWithFriends": {
+    "description": "Section header above a horizontal list of recent friends the user has shared files with"
+  },
+  "latestActivities": "ഏറ്റവും പുതിയ പ്രവർത്തനങ്ങൾ",
+  "@latestActivities": {
+    "description": "Section header above a list of recent file transfer history and logs"
+  },
+  "seeAll": "എല്ലാം കാണുക",
+  "@seeAll": {
+    "description": "Button text to expand a shortened list and view all items in the history"
+  },
+  "sendToUser": "{name}-ന് അയയ്ക്കുക",
+  "@sendToUser": {
+    "description": "Activity log title indicating files were sent to a specific person. {name} is the recipient's name",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "John"
+      }
+    }
+  },
+  "archiveFilesCount": "ആർക്കൈവ് - {count} ഫയലുകൾ",
+  "@archiveFilesCount": {
+    "description": "Activity log subtitle showing the transfer was a zip/archive containing multiple files. {count} is the number of files",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "10"
+      }
+    }
+  },
+  "scanToConnect": "കണക്റ്റുചെയ്യാൻ സ്കാൻ ചെയ്യുക",
+  "@scanToConnect": {
+    "description": "Button text prompting the user to open their camera to scan a QR code or search for nearby devices"
+  },
+  "manageStorage": "സ്റ്റോറേജ് നിയന്ത്രിക്കുക",
+  "@manageStorage": {
+    "description": "Screen title for the page where users can manage, clean, and upgrade their device or cloud storage"
+  },
+  "usedSpace": "ഉപയോഗിച്ച സ്ഥലം",
+  "@usedSpace": {
+    "description": "Label for the metric showing how much storage space is currently occupied by files"
+  },
+  "freeSpace": "ഒഴിവുള്ള സ്ഥലം",
+  "@freeSpace": {
+    "description": "Label for the metric showing how much storage space is currently empty and available"
+  },
+  "upgradeToPremium": "പ്രീമിയത്തിലേക്ക് അപ്‌ഗ്രേഡ് ചെയ്യുക",
+  "@upgradeToPremium": {
+    "description": "Title of a promotional banner urging the user to buy a paid premium subscription"
+  },
+  "upgradeToPremiumSubtitle": "കൂടാതെ അൺലിമിറ്റഡ് ക്ലൗഡ് സ്റ്റോറേജ് നേടുക",
+  "@upgradeToPremiumSubtitle": {
+    "description": "Subtitle of the promotional banner explaining the benefit of buying the premium subscription"
+  },
+  "learnMore": "കൂടുതലറിയുക",
+  "@learnMore": {
+    "description": "Button text on the promotional banner to read more details about the premium tier"
+  },
+  "fileType": "ഫയൽ തരം",
+  "@fileType": {
+    "description": "Section header categorizing the storage usage by the type of files (e.g., photos, videos, music)"
+  },
+  "photos": "ഫോട്ടോകൾ",
+  "@photos": {
+    "description": "Category name for image and picture files"
+  },
+  "videos": "വീഡിയോകൾ",
+  "@videos": {
+    "description": "Category name for video and movie files"
+  },
+  "music": "സംഗീതം",
+  "@music": {
+    "description": "Category name for audio, songs, and music files"
+  },
+  "filesCount": "{count} ഫയലുകൾ",
+  "@filesCount": {
+    "description": "Label showing the total number of files inside a specific category. {count} is the numerical amount",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "123"
+      }
+    }
+  },
+  "cleanJunk": "ജങ്ക് മായ്‌ക്കുക",
+  "@cleanJunk": {
+    "description": "Button text to initiate a scan that deletes temporary or unnecessary files to free up phone space"
+  },
+  "skip": "ഒഴിവാക്കുക",
+  "@skip": {
+    "description": "Text button in the top corner allowing the user to bypass the current onboarding step without completing it"
+  },
+  "pickYourAvatar": "നിങ്ങളുടെ അവതാർ തിരഞ്ഞെടുക്കുക",
+  "@pickYourAvatar": {
+    "description": "Title of the onboarding screen asking the user to choose a profile picture or cartoon avatar"
+  },
+  "pickAvatarSubtitle": "നിങ്ങൾ ഫയലുകൾ അയയ്‌ക്കുമ്പോഴോ സ്വീകരിക്കുമ്പോഴോ സുഹൃത്തുക്കൾക്ക് നിങ്ങളെ തിരിച്ചറിയാൻ ഒരു ഫോട്ടോ തിരഞ്ഞെടുക്കുക.",
+  "@pickAvatarSubtitle": {
+    "description": "Explanation text telling the user that picking a profile photo helps their friends recognize them during nearby file transfers"
+  },
+  "tapToUploadPhoto": "ഒരു ഫോട്ടോ അപ്‌ലോഡ് ചെയ്യാൻ ടാപ്പ് ചെയ്യുക",
+  "@tapToUploadPhoto": {
+    "description": "Instructional text under a camera icon prompting the user to tap and upload a real photo from their gallery"
+  },
+  "orPickAStyle": "അല്ലെങ്കിൽ ഒരു സ്റ്റൈൽ തിരഞ്ഞെടുക്കുക",
+  "@orPickAStyle": {
+    "description": "Divider text offering pre-made cartoon animal avatars as an alternative to uploading a real photo"
+  },
+  "continueButton": "തുടരുക",
+  "@continueButton": {
+    "description": "Primary button text to save the current selection and move forward to the next screen"
+  },
+  "illDoThisLater": "ഞാൻ ഇത് പിന്നീട് ചെയ്യാം",
+  "@illDoThisLater": {
+    "description": "Secondary text button allowing the user to skip setting up an avatar and do it at another time"
+  },
+  "tellUsAboutYou": "നിങ്ങളെക്കുറിച്ച് ഞങ്ങളോട് പറയുക",
+  "@tellUsAboutYou": {
+    "description": "Title of the profile setup screen asking for the user's name and personal bio"
+  },
+  "tellUsAboutYouSubtitle": "നിങ്ങൾ ഫയലുകൾ പങ്കിടുമ്പോഴോ സ്വീകരിക്കുമ്പോഴോ ഇത് നിങ്ങളുടെ പ്രൊഫൈലിൽ ദൃശ്യമാകും.",
+  "@tellUsAboutYouSubtitle": {
+    "description": "Explanation text clarifying that the name and bio will be publicly visible to people they share files with nearby"
+  },
+  "changePhoto": "ഫോട്ടോ മാറ്റുക",
+  "@changePhoto": {
+    "description": "Button text to edit or replace the currently selected profile picture"
+  },
+  "yourName": "നിങ്ങളുടെ പേര്",
+  "@yourName": {
+    "description": "Label for the text input field where the user types their real name or nickname"
+  },
+  "bio": "ബയോ",
+  "@bio": {
+    "description": "Label for the text input field where the user types a short biography or status message"
+  },
+  "showOnYourProfile": "നിങ്ങളുടെ പ്രൊഫൈലിൽ കാണിക്കുക",
+  "@showOnYourProfile": {
+    "description": "Label above a group of toggle tags asking what statistics the user wants to display publicly"
+  },
+  "filesSent": "അയച്ച ഫയലുകൾ",
+  "@filesSent": {
+    "description": "Tag option allowing the user to display the total number of files they have sent over time on their public profile"
+  },
+  "storageUsed": "ഉപയോഗിച്ച സ്റ്റോറേജ്",
+  "@storageUsed": {
+    "description": "Tag option allowing the user to display their current cloud storage usage on their public profile"
+  },
+  "friends": "സുഹൃത്തുക്കൾ",
+  "@friends": {
+    "description": "Tag option allowing the user to display their friend count on their public profile"
+  },
+  "finishSetup": "സെറ്റപ്പ് പൂർത്തിയാക്കുക",
+  "@finishSetup": {
+    "description": "Primary button text to finalize the onboarding process and enter the main application"
+  },
+  "editAnytimeNote": "നിങ്ങൾക്ക് ക്രമീകരണങ്ങളിൽ നിന്ന് എപ്പോൾ വേണമെങ്കിലും ഇത് എഡിറ്റ് ചെയ്യാം",
+  "@editAnytimeNote": {
+    "description": "Small footer text reassuring the user that they can change these profile settings later in the app's settings menu"
+  },
+  "cancel": "റദ്ദാക്കുക",
+  "@cancel": {
+    "description": "Button text to abort the current action (like scanning for devices) and go back to the previous screen"
+  },
+  "findingPeopleNearby": "സമീപമുള്ള ആളുകളെ തിരയുന്നു",
+  "@findingPeopleNearby": {
+    "description": "Screen title displayed while the app actively searches for other devices using Bluetooth or Wi-Fi"
+  },
+  "findingPeopleNearbySubtitle": "ആപ്പ് തുറന്നിടുക — പങ്കിടൽ ഓണാക്കിയിട്ടുള്ള സമീപത്തുള്ള ആരെയും ഞങ്ങൾ പട്ടികപ്പെടുത്തും.",
+  "@findingPeopleNearbySubtitle": {
+    "description": "Instructional text telling the user to keep the screen open while it searches for receivers"
+  },
+  "scanningForDevices": "സമീപമുള്ള ഉപകരണങ്ങൾക്കായി സ്കാൻ ചെയ്യുന്നു",
+  "@scanningForDevices": {
+    "description": "Status text accompanied by a radar animation indicating the search for other phones is actively running"
+  },
+  "foundNearby": "സമീപത്ത് കണ്ടെത്തി",
+  "@foundNearby": {
+    "description": "Section header above the list of people successfully discovered nearby"
+  },
+  "foundCount": "{count} കണ്ടെത്തി",
+  "@foundCount": {
+    "description": "Badge text showing the total number of people discovered on the radar. {count} is the number of people",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "4"
+      }
+    }
+  },
+  "deviceDistanceProtocol": "{distance} അകലെ · {protocol}",
+  "@deviceDistanceProtocol": {
+    "description": "Subtitle under a discovered person's name showing how far away they are and what technology connects them. {distance} is physical distance (e.g., '3 m'), {protocol} is the network type (e.g., 'Wi-Fi Direct')",
+    "placeholders": {
+      "distance": {
+        "type": "String",
+        "example": "3 m"
+      },
+      "protocol": {
+        "type": "String",
+        "example": "Wi-Fi Direct"
+      }
+    }
+  },
+  "wifiDirect": "Wi-Fi ഡയറക്റ്റ്",
+  "@wifiDirect": {
+    "description": "Technical term for a direct high-speed Wi-Fi connection between two devices without needing a router"
+  },
+  "bluetooth": "ബ്ലൂടൂത്ത്",
+  "@bluetooth": {
+    "description": "Technical term for a Bluetooth wireless connection"
+  },
+  "connect": "കണക്റ്റുചെയ്യുക",
+  "@connect": {
+    "description": "Button text to send a connection request to a discovered person"
+  },
+  "pending": "പെൻഡിംഗ്",
+  "@pending": {
+    "description": "Button text state indicating a connection request has been sent and the app is waiting for the other person to accept"
+  },
+  "stopScanning": "സ്കാനിംഗ് നിർത്തുക",
+  "@stopScanning": {
+    "description": "Button text to halt the active radar search for nearby devices"
+  },
+  "bluetoothWifiHint": "ബ്ലൂടൂത്തും Wi-Fi-യും ഓണാണെന്ന് ഉറപ്പാക്കുക",
+  "@bluetoothWifiHint": {
+    "description": "Helpful hint at the bottom of the screen reminding the user to ensure their wireless antennas are turned on if no one is found"
+  },
+  "selectFiles": "ഫയലുകൾ തിരഞ്ഞെടുക്കുക",
+  "@selectFiles": {
+    "description": "Screen title for the file picker interface where the sender chooses what to share"
+  },
+  "imagesOrVideos": "ചിത്രങ്ങൾ അല്ലെങ്കിൽ വീഡിയോകൾ",
+  "@imagesOrVideos": {
+    "description": "Tab label to filter the file picker to show only pictures and video clips"
+  },
+  "audio": "ഓഡിയോ",
+  "@audio": {
+    "description": "Tab label to filter the file picker to show only songs, music, and sound recordings"
+  },
+  "mediaCategoryFiles": "ഫയലുകൾ",
+  "@mediaCategoryFiles": {
+    "description": "Tab label to filter the file picker to show generic documents (PDFs, text) and miscellaneous files"
+  },
+  "apps": "ആപ്പുകൾ",
+  "@apps": {
+    "description": "Tab label to filter the file picker to show installed Android applications (APKs) that can be shared"
+  },
+  "contacts": "കോൺടാക്റ്റുകൾ",
+  "@contacts": {
+    "description": "Tab label to filter the file picker to show address book contacts (vCards)"
+  },
+  "allItems": "എല്ലാ ഇനങ്ങളും",
+  "@allItems": {
+    "description": "Dropdown menu option to show everything without any filters applied"
+  },
+  "myDevice": "എൻ്റെ ഉപകരണം",
+  "@myDevice": {
+    "description": "Header indicating the files currently being viewed are located on the user's local phone storage"
+  },
+  "groupedDevices": "ഗ്രൂപ്പുചെയ്‌ത ഉപകരണങ്ങൾ",
+  "@groupedDevices": {
+    "description": "Subtitle indicating that multiple connected devices are grouped together in a single category"
+  },
+  "selectedItemsSummary": "{count} ഇനങ്ങൾ / {size}",
+  "@selectedItemsSummary": {
+    "description": "Bottom bar text summarizing the user's selection before sending. {count} is the number of files selected, {size} is the total combined file size (e.g., 3.83 MB)",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "3"
+      },
+      "size": {
+        "type": "String",
+        "example": "3.83 MB"
+      }
+    }
+  },
+  "sendAction": "അയയ്ക്കുക",
+  "@sendAction": {
+    "description": "Button text on the file picker to confirm the selection and immediately begin the transfer"
+  },
+  "transferProcess": "ട്രാൻസ്ഫർ പ്രക്രിയ",
+  "@transferProcess": {
+    "description": "Screen title showing the active progress of a file transfer"
+  },
+  "sendingFiles": "ഫയലുകൾ അയയ്ക്കുന്നു",
+  "@sendingFiles": {
+    "description": "Screen title showing that files are currently being transmitted to multiple people simultaneously"
+  },
+  "sendingAs": "{name} ആയി അയയ്ക്കുന്നു",
+  "@sendingAs": {
+    "description": "Indicator showing the user's own profile name during the transfer. {name} is the user's name",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "Ananya Rao"
+      }
+    }
+  },
+  "sendingToPeople": "{count} ആളുകൾക്ക് അയയ്ക്കുന്നു",
+  "@sendingToPeople": {
+    "description": "Header showing how many recipients are receiving the files in a group broadcast. {count} is the number of recipients",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "4"
+      }
+    }
+  },
+  "transferStatusBreakdown": "{done} പൂർത്തിയായി · {sending} അയയ്ക്കുന്നു · {queued} ക്യൂവിലുണ്ട്",
+  "@transferStatusBreakdown": {
+    "description": "Detailed status showing how many transfers are finished, active, or waiting. {done} is finished, {sending} is actively transmitting, {queued} is waiting to start",
+    "placeholders": {
+      "done": {
+        "type": "int",
+        "example": "2"
+      },
+      "sending": {
+        "type": "int",
+        "example": "1"
+      },
+      "queued": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "sameFilesToEveryone": "എല്ലാവർക്കും ഒരേ {count} ഫയലുകൾ · {size}",
+  "@sameFilesToEveryone": {
+    "description": "Subtitle confirming that a single batch of files is being broadcast to all recipients. {count} is file count, {size} is total batch size",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "3"
+      },
+      "size": {
+        "type": "String",
+        "example": "98 MB"
+      }
+    }
+  },
+  "sendingFileTo": "ഫയൽ അയയ്ക്കുന്നത്:",
+  "@sendingFileTo": {
+    "description": "Header indicating the name of the specific person currently receiving the file"
+  },
+  "filesLabel": "ഫയലുകൾ",
+  "@filesLabel": {
+    "description": "Short label for the column or metric representing the total number of files"
+  },
+  "totalSize": "മൊത്തം വലിപ്പം",
+  "@totalSize": {
+    "description": "Label for the metric showing the combined file size of all files in the transfer"
+  },
+  "sizeLabel": "വലിപ്പം",
+  "@sizeLabel": {
+    "description": "Short label for the column or metric representing data size"
+  },
+  "speedLabel": "വേഗത",
+  "@speedLabel": {
+    "description": "Label for the metric showing the active network transfer speed in megabytes per second"
+  },
+  "fileDetails": "ഫയൽ വിശദാംശങ്ങൾ",
+  "@fileDetails": {
+    "description": "Section header above the list of individual files being transferred"
+  },
+  "filesBeingSent": "അയയ്ക്കുന്ന ഫയലുകൾ",
+  "@filesBeingSent": {
+    "description": "Section header above the master list of files included in a group broadcast"
+  },
+  "recipients": "സ്വീകർത്താക്കൾ",
+  "@recipients": {
+    "description": "Section header above the list of people receiving the files"
+  },
+  "recipientsTapToView": "സ്വീകർത്താക്കൾ — ഫയലുകൾ കാണാൻ ടാപ്പ് ചെയ്യുക",
+  "@recipientsTapToView": {
+    "description": "Instructional header telling the user they can tap a recipient's name to expand an inline list of which specific files are transferring to them"
+  },
+  "recipientsTapForStatus": "സ്വീകർത്താക്കൾ — ഫയൽ സ്റ്റാറ്റസ് കാണാൻ ടാപ്പ് ചെയ്യുക",
+  "@recipientsTapForStatus": {
+    "description": "Instructional header telling the user they can tap a recipient to view their individual file progress chips"
+  },
+  "recipientsTapForDetails": "സ്വീകർത്താക്കൾ — ഫയൽ വിശദാംശങ്ങൾക്കായി ടാപ്പ് ചെയ്യുക",
+  "@recipientsTapForDetails": {
+    "description": "Instructional header telling the user they can tap a recipient to open a completely new dedicated screen for that person's transfer"
+  },
+  "statusDone": "പൂർത്തിയായി",
+  "@statusDone": {
+    "description": "Status badge text indicating a file or transfer has successfully completed"
+  },
+  "statusQueued": "ക്യൂവിലുണ്ട്",
+  "@statusQueued": {
+    "description": "Status badge text indicating a file or transfer is waiting in line to start transmitting"
+  },
+  "filesCompletedRatio": "{total}-ൽ {completed} പൂർത്തിയായി",
+  "@filesCompletedRatio": {
+    "description": "Text showing how many files out of the total batch are finished. {completed} is the finished amount, {total} is the total amount",
+    "placeholders": {
+      "completed": {
+        "type": "int",
+        "example": "4"
+      },
+      "total": {
+        "type": "int",
+        "example": "4"
+      }
+    }
+  },
+  "moreFilesCount": "+{count} കൂടി",
+  "@moreFilesCount": {
+    "description": "Truncation text showing how many extra files are hidden from view to save screen space. {count} is the number of hidden files",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "viewAction": "കാണുക",
+  "@viewAction": {
+    "description": "Text link action to open a full list or larger view of hidden items"
+  },
+  "cancelRemaining": "ബാക്കിയുള്ളവ റദ്ദാക്കുക",
+  "@cancelRemaining": {
+    "description": "Button text to abort all transfers in the queue that haven't finished yet"
+  },
+  "cancelForThisPerson": "ഈ വ്യക്തിക്ക് റദ്ദാക്കുക",
+  "@cancelForThisPerson": {
+    "description": "Button text to abort the file transfer only for the currently viewed recipient"
+  },
+  "editProfile": "പ്രൊഫൈൽ എഡിറ്റ് ചെയ്യുക",
+  "@editProfile": {
+    "description": "Screen title for the settings page where the user can update their personal information"
+  },
+  "deviceName": "ഉപകരണത്തിൻ്റെ പേര്",
+  "@deviceName": {
+    "description": "Label for the input field where the user sets their phone's broadcast name on the network (e.g., 'Ananya's iPhone')"
+  },
+  "deviceNameHelper": "പങ്കിടുമ്പോൾ അടുത്തുള്ള ആളുകൾ ഇത് കാണും",
+  "@deviceNameHelper": {
+    "description": "Help text explaining that the Device Name is what strangers will see on the radar screen"
+  },
+  "visibleToNearbyDevices": "സമീപമുള്ള ഉപകരണങ്ങൾക്ക് ദൃശ്യമാകും",
+  "@visibleToNearbyDevices": {
+    "description": "Toggle switch label to turn the device's discoverability on or off for other users"
+  },
+  "visibleToNearbySubtitle": "കണ്ടെത്തലിൽ നിന്ന് മറയ്ക്കാൻ ഓഫാക്കുക",
+  "@visibleToNearbySubtitle": {
+    "description": "Explanation for the discoverability toggle switch explaining that turning it off hides the phone"
+  },
+  "saveReceivedFilesAuto": "ലഭിച്ച ഫയലുകൾ സ്വയമേവ സേവ് ചെയ്യുക",
+  "@saveReceivedFilesAuto": {
+    "description": "Toggle switch label to automatically accept incoming files without requiring a manual confirmation popup"
+  },
+  "saveReceivedFilesAutoSubtitle": "സ്വീകരിക്കുമ്പോൾ സ്ഥിരീകരിക്കൽ ഘട്ടം ഒഴിവാക്കുക",
+  "@saveReceivedFilesAutoSubtitle": {
+    "description": "Explanation for the automatic save toggle switch"
+  },
+  "saveChanges": "മാറ്റങ്ങൾ സേവ് ചെയ്യുക",
+  "@saveChanges": {
+    "description": "Button text to commit and save the edits made to the profile screen"
+  },
+  "appearanceAndLanguage": "രൂപവും ഭാഷയും",
+  "@appearanceAndLanguage": {
+    "description": "Screen title for the visual and localization settings page"
+  },
+  "theme": "തീം",
+  "@theme": {
+    "description": "Section header for choosing the app's visual color scheme"
+  },
+  "themeLight": "ലൈറ്റ്",
+  "@themeLight": {
+    "description": "Option to force the app to use a bright white color scheme"
+  },
+  "themeDark": "ഡാർക്ക്",
+  "@themeDark": {
+    "description": "Option to force the app to use a dark or black color scheme"
+  },
+  "themeSystem": "സിസ്റ്റം",
+  "@themeSystem": {
+    "description": "Option to make the app automatically match the phone's global OS system theme"
+  },
+  "language": "ഭാഷ",
+  "@language": {
+    "description": "Section header for choosing the app's localized display language"
+  },
+  "applyChanges": "മാറ്റങ്ങൾ പ്രയോഗിക്കുക",
+  "@applyChanges": {
+    "description": "Button text to save and immediately activate the newly selected theme and language"
+  },
+  "visibleNearbyStatus": "സമീപമുള്ളവർക്ക് ദൃശ്യമാകും",
+    "@visibleNearbyStatus": {
+      "description": "Status text showing the device is visible to others"
+    },
+    "statSent": "അയച്ചു",
+    "@statSent": {
+      "description": "Statistic label for sent items"
+    },
+    "statReceived": "സ്വീകരിച്ചു",
+    "@statReceived": {
+      "description": "Statistic label for received items"
+    },
+    "statShared": "പങ്കിട്ടു",
+    "@statShared": {
+      "description": "Statistic label for shared items"
+    },
+    "account": "അക്കൗണ്ട്",
+    "@account": {
+      "description": "Menu label for the user account section"
+    },
+    "editProfileMenu": "പ്രൊഫൈൽ എഡിറ്റ് ചെയ്യുക",
+    "@editProfileMenu": {
+      "description": "Menu item to edit the user profile"
+    },
+    "editProfileMenuSub": "പേര്, ഫോട്ടോ, ഉപകരണത്തിൻ്റെ പേര്",
+    "@editProfileMenuSub": {
+      "description": "Subtitle for the edit profile menu item"
+    },
+    "settings": "ക്രമീകരണങ്ങൾ",
+    "@settings": {
+      "description": "Menu label for settings"
+    },
+    "settingsMenuSub": "തീമും ഭാഷയും",
+    "@settingsMenuSub": {
+      "description": "Subtitle for the settings menu item"
+    },
+    "appVersion": "പതിപ്പ് {version}",
+    "@appVersion": {
+      "description": "Displays the current app version",
+      "placeholders": {
+        "version": {
+          "type": "String",
+          "example": "1.0.0"
+        }
+      }
+    },
+    "activityReceivedFrom": "{name}-ൽ നിന്ന് സ്വീകരിക്കുക",
+    "@activityReceivedFrom": {
+      "description": "Activity log entry for receiving files from someone",
+      "placeholders": {
+        "name": {
+          "type": "String",
+          "example": "John"
+        }
+      }
+    },
+    "activityFileSummary": "{label} - {count, plural, =1{1 ഫയൽ} other{{count} ഫയലുകൾ}}",
+    "@activityFileSummary": {
+      "description": "Summary of files in an activity log entry",
+      "placeholders": {
+        "label": {
+          "type": "String",
+          "example": "Archive"
+        },
+        "count": {
+          "type": "int",
+          "example": "3"
+        }
+      }
+    },
+    "activityMeta": "{count} ഫയലുകൾ - {size}",
+    "@activityMeta": {
+      "description": "Metadata showing file count and total size",
+      "placeholders": {
+        "count": {
+          "type": "int",
+          "example": "5"
+        },
+        "size": {
+          "type": "String",
+          "example": "12 MB"
+        }
+      }
+    },
+    "addFriend": "ഒരു സുഹൃത്തിനെ ചേർക്കുക",
+    "@addFriend": {
+      "description": "Button text to add a new friend"
+    },
+    "fileTypePhotos": "ഫോട്ടോകൾ",
+    "@fileTypePhotos": {
+      "description": "Category for photo files"
+    },
+    "fileTypeVideos": "വീഡിയോകൾ",
+    "@fileTypeVideos": {
+      "description": "Category for video files"
+    },
+    "fileTypeMusic": "സംഗീതം",
+    "@fileTypeMusic": {
+      "description": "Category for music files"
+    },
+    "statSending": "അയയ്ക്കുന്നു",
+    "@statSending": {
+      "description": "Status text for active sending transfer"
+    },
+    "noTransfersTitle": "ഇതുവരെ ട്രാൻസ്ഫറുകളൊന്നുമില്ല",
+    "@noTransfersTitle": {
+      "description": "Title for empty state when there are no transfers"
+    },
+    "noTransfersBody": "നിങ്ങൾ അയയ്‌ക്കുന്നതോ സ്വീകരിക്കുന്നതോ ആയ ഫയലുകൾ ഇവിടെ ദൃശ്യമാകും.",
+    "@noTransfersBody": {
+      "description": "Body text for empty state explaining where transfers will appear"
+    }
+}

@@ -5,7 +5,7 @@ import 'package:sqflite/sqflite.dart';
 
 class AppSettingsRepository {
   final Database database;
-  final String tableName = "AppSettings";
+  final String tableName = "app_settings";
 
   AppSettingsRepository({required this.database});
 
@@ -23,14 +23,20 @@ class AppSettingsRepository {
         final defaultSettings = AppSettings(
           currentTheme: ThemeMode.system,
           currentLanguage: 'en',
+          isFirstTime: true,
         );
         return ResourceSuccess(defaultSettings);
       }
 
-      final AppSettings parsedSettings = AppSettings.fromMap(settingsData.first);
+      final AppSettings parsedSettings = AppSettings.fromMap(
+        settingsData.first,
+      );
       return ResourceSuccess(parsedSettings);
     } catch (e) {
-      return ResourceFailure('Failed to fetch app settings data', exception: e as Exception);
+      return ResourceFailure(
+        'Failed to fetch app settings data',
+        exception: e as Exception,
+      );
     }
   }
 
@@ -46,11 +52,14 @@ class AppSettingsRepository {
 
       return ResourceSuccess(true);
     } catch (e) {
-      return ResourceFailure('Failed to save app settings data', exception: e as Exception);
+      return ResourceFailure(
+        'Failed to save app settings data',
+        exception: e as Exception,
+      );
     }
   }
 
-// HELPER MIGRATION/CREATION BLOCK (For reference inside your database open helper code)
-// SQL Statement to run when setting up tables:
-// CREATE TABLE AppSettings (id INTEGER PRIMARY KEY, currentTheme TEXT, currentLanguage TEXT)
+  // HELPER MIGRATION/CREATION BLOCK (For reference inside your database open helper code)
+  // SQL Statement to run when setting up tables:
+  // CREATE TABLE AppSettings (id INTEGER PRIMARY KEY, currentTheme TEXT, currentLanguage TEXT)
 }

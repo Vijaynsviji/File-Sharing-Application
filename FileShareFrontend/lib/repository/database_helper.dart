@@ -18,7 +18,7 @@ class DatabaseHelper {
 
     return await openDatabase(
       path,
-      version: 1,
+      version: 3,
       onConfigure: _onConfigure,
       onCreate: _onCreate,
     );
@@ -92,6 +92,15 @@ class DatabaseHelper {
         created_at INTEGER,
         completed_at INTEGER,
         FOREIGN KEY (transfer_id) REFERENCES transfer (id) ON DELETE CASCADE
+      )
+    ''');
+
+    batch.execute('''
+      CREATE TABLE app_settings (
+        id INTEGER PRIMARY KEY,
+        currentTheme TEXT NOT NULL,
+        currentLanguage TEXT NOT NULL,
+        isFirstTime INTEGER NOT NULL DEFAULT 1
       )
     ''');
 

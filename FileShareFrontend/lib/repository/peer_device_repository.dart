@@ -4,7 +4,7 @@ import 'package:sqflite/sqflite.dart';
 
 class PeerDeviceRepository {
   final Database database;
-  final String tableName = "PeerDevice";
+  final String tableName = "peer_device";
 
   PeerDeviceRepository({required this.database});
 

@@ -4,7 +4,7 @@ import 'package:sqflite/sqflite.dart';
 
 class TransferRepository {
   final Database database;
-  final String tableName = "Transfer";
+  final String tableName = "transfer";
 
   TransferRepository({required this.database});
 

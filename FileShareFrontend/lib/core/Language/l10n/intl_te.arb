@@ -1,0 +1,649 @@
+{
+  "@@locale": "te",
+  "homeTitle": "హోమ్",
+  "@homeTitle": {
+    "description": "Title of the main home screen where the user starts the file sharing process"
+  },
+  "availableCloudStorage": "అందుబాటులో ఉన్న క్లౌడ్ స్టోరేజ్",
+  "@availableCloudStorage": {
+    "description": "Header indicating the total amount of cloud storage space available to the user's account"
+  },
+  "storageUsedOfTotal": "{total} లో {used} వాడబడింది",
+  "@storageUsedOfTotal": {
+    "description": "Text showing how much cloud storage the user has consumed out of their total limit. {used} is the consumed amount (e.g., 4.5GB), {total} is the maximum limit (e.g., 5GB)",
+    "placeholders": {
+      "used": {
+        "type": "String",
+        "example": "4.5GB"
+      },
+      "total": {
+        "type": "String",
+        "example": "5GB"
+      }
+    }
+  },
+  "viewDetails": "వివరాలను చూడండి",
+  "@viewDetails": {
+    "description": "Text on a button that the user taps to see a detailed breakdown of their storage usage"
+  },
+  "send": "పంపండి",
+  "@send": {
+    "description": "Primary action button text used to initiate sending files to another nearby device"
+  },
+  "receive": "స్వీకరించండి",
+  "@receive": {
+    "description": "Primary action button text used to prepare the device to receive files from someone else"
+  },
+  "shareToPc": "PCకి షేర్ చేయండి",
+  "@shareToPc": {
+    "description": "Button text to trigger sharing files from the mobile device to a desktop computer or PC"
+  },
+  "webShare": "వెబ్ షేర్",
+  "@webShare": {
+    "description": "Button text to trigger sharing files via a web browser link over the internet"
+  },
+  "shareWithFriends": "స్నేహితులతో షేర్ చేయండి",
+  "@shareWithFriends": {
+    "description": "Section header above a horizontal list of recent friends the user has shared files with"
+  },
+  "latestActivities": "తాజా కార్యకలాపాలు",
+  "@latestActivities": {
+    "description": "Section header above a list of recent file transfer history and logs"
+  },
+  "seeAll": "అన్నీ చూడండి",
+  "@seeAll": {
+    "description": "Button text to expand a shortened list and view all items in the history"
+  },
+  "sendToUser": "{name}కి పంపండి",
+  "@sendToUser": {
+    "description": "Activity log title indicating files were sent to a specific person. {name} is the recipient's name",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "John"
+      }
+    }
+  },
+  "archiveFilesCount": "ఆర్కైవ్ - {count} ఫైళ్లు",
+  "@archiveFilesCount": {
+    "description": "Activity log subtitle showing the transfer was a zip/archive containing multiple files. {count} is the number of files",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "10"
+      }
+    }
+  },
+  "scanToConnect": "కనెక్ట్ చేయడానికి స్కాన్ చేయండి",
+  "@scanToConnect": {
+    "description": "Button text prompting the user to open their camera to scan a QR code or search for nearby devices"
+  },
+  "manageStorage": "స్టోరేజ్‌ని నిర్వహించండి",
+  "@manageStorage": {
+    "description": "Screen title for the page where users can manage, clean, and upgrade their device or cloud storage"
+  },
+  "usedSpace": "వాడిన స్పేస్",
+  "@usedSpace": {
+    "description": "Label for the metric showing how much storage space is currently occupied by files"
+  },
+  "freeSpace": "ఖాళీ స్పేస్",
+  "@freeSpace": {
+    "description": "Label for the metric showing how much storage space is currently empty and available"
+  },
+  "upgradeToPremium": "ప్రీమియంకు అప్‌గ్రేడ్ చేయండి",
+  "@upgradeToPremium": {
+    "description": "Title of a promotional banner urging the user to buy a paid premium subscription"
+  },
+  "upgradeToPremiumSubtitle": "మరియు అపరిమిత క్లౌడ్ స్టోరేజ్‌ను పొందండి",
+  "@upgradeToPremiumSubtitle": {
+    "description": "Subtitle of the promotional banner explaining the benefit of buying the premium subscription"
+  },
+  "learnMore": "మరింత తెలుసుకోండి",
+  "@learnMore": {
+    "description": "Button text on the promotional banner to read more details about the premium tier"
+  },
+  "fileType": "ఫైల్ రకం",
+  "@fileType": {
+    "description": "Section header categorizing the storage usage by the type of files (e.g., photos, videos, music)"
+  },
+  "photos": "ఫోటోలు",
+  "@photos": {
+    "description": "Category name for image and picture files"
+  },
+  "videos": "వీడియోలు",
+  "@videos": {
+    "description": "Category name for video and movie files"
+  },
+  "music": "సంగీతం",
+  "@music": {
+    "description": "Category name for audio, songs, and music files"
+  },
+  "filesCount": "{count} ఫైళ్లు",
+  "@filesCount": {
+    "description": "Label showing the total number of files inside a specific category. {count} is the numerical amount",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "123"
+      }
+    }
+  },
+  "cleanJunk": "జంక్ క్లీన్ చేయండి",
+  "@cleanJunk": {
+    "description": "Button text to initiate a scan that deletes temporary or unnecessary files to free up phone space"
+  },
+  "skip": "దాటవేయి",
+  "@skip": {
+    "description": "Text button in the top corner allowing the user to bypass the current onboarding step without completing it[cite: 1]"
+  },
+  "pickYourAvatar": "మీ అవతార్‌ను ఎంచుకోండి",
+  "@pickYourAvatar": {
+    "description": "Title of the onboarding screen asking the user to choose a profile picture or cartoon avatar[cite: 1]"
+  },
+  "pickAvatarSubtitle": "మీరు ఫైళ్లను పంపేటప్పుడు లేదా స్వీకరించేటప్పుడు స్నేహితులు మిమ్మల్ని గుర్తించడానికి ఒక ఫోటోను ఎంచుకోండి.",
+  "@pickAvatarSubtitle": {
+    "description": "Explanation text telling the user that picking a profile photo helps their friends recognize them during nearby file transfers[cite: 1]"
+  },
+  "tapToUploadPhoto": "ఫోటో అప్‌లోడ్ చేయడానికి ట్యాప్ చేయండి",
+  "@tapToUploadPhoto": {
+    "description": "Instructional text under a camera icon prompting the user to tap and upload a real photo from their gallery[cite: 1]"
+  },
+  "orPickAStyle": "లేదా ఒక స్టైల్‌ని ఎంచుకోండి",
+  "@orPickAStyle": {
+    "description": "Divider text offering pre-made cartoon animal avatars as an alternative to uploading a real photo[cite: 1]"
+  },
+  "continueButton": "కొనసాగించు",
+  "@continueButton": {
+    "description": "Primary button text to save the current selection and move forward to the next screen[cite: 1]"
+  },
+  "illDoThisLater": "నేను దీన్ని తర్వాత చేస్తాను",
+  "@illDoThisLater": {
+    "description": "Secondary text button allowing the user to skip setting up an avatar and do it at another time[cite: 1]"
+  },
+  "tellUsAboutYou": "మీ గురించి మాకు చెప్పండి",
+  "@tellUsAboutYou": {
+    "description": "Title of the profile setup screen asking for the user's name and personal bio[cite: 1]"
+  },
+  "tellUsAboutYouSubtitle": "మీరు ఫైళ్లను షేర్ చేసినప్పుడు లేదా స్వీకరించినప్పుడు ఇది మీ ప్రొఫైల్‌లో కనిపిస్తుంది.",
+  "@tellUsAboutYouSubtitle": {
+    "description": "Explanation text clarifying that the name and bio will be publicly visible to people they share files with nearby[cite: 1]"
+  },
+  "changePhoto": "ఫోటో మార్చండి",
+  "@changePhoto": {
+    "description": "Button text to edit or replace the currently selected profile picture[cite: 1]"
+  },
+  "yourName": "మీ పేరు",
+  "@yourName": {
+    "description": "Label for the text input field where the user types their real name or nickname[cite: 1]"
+  },
+  "bio": "బయో",
+  "@bio": {
+    "description": "Label for the text input field where the user types a short biography or status message[cite: 1]"
+  },
+  "showOnYourProfile": "మీ ప్రొఫైల్‌లో చూపించు",
+  "@showOnYourProfile": {
+    "description": "Label above a group of toggle tags asking what statistics the user wants to display publicly[cite: 1]"
+  },
+  "filesSent": "పంపిన ఫైళ్లు",
+  "@filesSent": {
+    "description": "Tag option allowing the user to display the total number of files they have sent over time on their public profile[cite: 1]"
+  },
+  "storageUsed": "వాడిన స్టోరేజ్",
+  "@storageUsed": {
+    "description": "Tag option allowing the user to display their current cloud storage usage on their public profile[cite: 1]"
+  },
+  "friends": "స్నేహితులు",
+  "@friends": {
+    "description": "Tag option allowing the user to display their friend count on their public profile[cite: 1]"
+  },
+  "finishSetup": "సెటప్ పూర్తి చేయండి",
+  "@finishSetup": {
+    "description": "Primary button text to finalize the onboarding process and enter the main application[cite: 1]"
+  },
+  "editAnytimeNote": "మీరు సెట్టింగ్‌ల నుండి ఎప్పుడైనా దీన్ని ఎడిట్ చేయవచ్చు",
+  "@editAnytimeNote": {
+    "description": "Small footer text reassuring the user that they can change these profile settings later in the app's settings menu[cite: 1]"
+  },
+  "cancel": "రద్దు చేయి",
+  "@cancel": {
+    "description": "Button text to abort the current action (like scanning for devices) and go back to the previous screen[cite: 1]"
+  },
+  "findingPeopleNearby": "సమీపంలోని వ్యక్తులను వెతుకుతోంది",
+  "@findingPeopleNearby": {
+    "description": "Screen title displayed while the app actively searches for other devices using Bluetooth or Wi-Fi[cite: 1]"
+  },
+  "findingPeopleNearbySubtitle": "యాప్‌ను తెరిచి ఉంచండి — షేరింగ్ ఆన్‌లో ఉన్న సమీప వ్యక్తుల జాబితాను మేము చూపుతాము.",
+  "@findingPeopleNearbySubtitle": {
+    "description": "Instructional text telling the user to keep the screen open while it searches for receivers[cite: 1]"
+  },
+  "scanningForDevices": "సమీప పరికరాల కోసం స్కాన్ చేస్తోంది",
+  "@scanningForDevices": {
+    "description": "Status text accompanied by a radar animation indicating the search for other phones is actively running[cite: 1]"
+  },
+  "foundNearby": "సమీపంలో కనుగొనబడింది",
+  "@foundNearby": {
+    "description": "Section header above the list of people successfully discovered nearby[cite: 1]"
+  },
+  "foundCount": "{count} కనుగొనబడ్డాయి",
+  "@foundCount": {
+    "description": "Badge text showing the total number of people discovered on the radar. {count} is the number of people[cite: 1]",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "4"
+      }
+    }
+  },
+  "deviceDistanceProtocol": "{distance} దూరంలో · {protocol}",
+  "@deviceDistanceProtocol": {
+    "description": "Subtitle under a discovered person's name showing how far away they are and what technology connects them. {distance} is physical distance (e.g., '3 m'), {protocol} is the network type (e.g., 'Wi-Fi Direct')[cite: 1]",
+    "placeholders": {
+      "distance": {
+        "type": "String",
+        "example": "3 m"
+      },
+      "protocol": {
+        "type": "String",
+        "example": "Wi-Fi Direct"
+      }
+    }
+  },
+  "wifiDirect": "Wi-Fi డైరెక్ట్",
+  "@wifiDirect": {
+    "description": "Technical term for a direct high-speed Wi-Fi connection between two devices without needing a router[cite: 1]"
+  },
+  "bluetooth": "బ్లూటూత్",
+  "@bluetooth": {
+    "description": "Technical term for a Bluetooth wireless connection[cite: 1]"
+  },
+  "connect": "కనెక్ట్ చేయండి",
+  "@connect": {
+    "description": "Button text to send a connection request to a discovered person[cite: 1]"
+  },
+  "pending": "పెండింగ్‌లో ఉంది",
+  "@pending": {
+    "description": "Button text state indicating a connection request has been sent and the app is waiting for the other person to accept[cite: 1]"
+  },
+  "stopScanning": "స్కాన్ చేయడం ఆపివేయి",
+  "@stopScanning": {
+    "description": "Button text to halt the active radar search for nearby devices[cite: 1]"
+  },
+  "bluetoothWifiHint": "బ్లూటూత్ మరియు Wi-Fi ఆన్‌లో ఉన్నాయని నిర్ధారించుకోండి",
+  "@bluetoothWifiHint": {
+    "description": "Helpful hint at the bottom of the screen reminding the user to ensure their wireless antennas are turned on if no one is found[cite: 1]"
+  },
+  "selectFiles": "ఫైళ్లను ఎంచుకోండి",
+  "@selectFiles": {
+    "description": "Screen title for the file picker interface where the sender chooses what to share[cite: 1]"
+  },
+  "imagesOrVideos": "చిత్రాలు లేదా వీడియోలు",
+  "@imagesOrVideos": {
+    "description": "Tab label to filter the file picker to show only pictures and video clips[cite: 1]"
+  },
+  "audio": "ఆడియో",
+  "@audio": {
+    "description": "Tab label to filter the file picker to show only songs, music, and sound recordings[cite: 1]"
+  },
+  "mediaCategoryFiles": "ఫైళ్లు",
+  "@mediaCategoryFiles": {
+    "description": "Tab label to filter the file picker to show generic documents (PDFs, text) and miscellaneous files[cite: 1]"
+  },
+  "apps": "యాప్‌లు",
+  "@apps": {
+    "description": "Tab label to filter the file picker to show installed Android applications (APKs) that can be shared[cite: 1]"
+  },
+  "contacts": "కాంటాక్ట్స్",
+  "@contacts": {
+    "description": "Tab label to filter the file picker to show address book contacts (vCards)[cite: 1]"
+  },
+  "allItems": "అన్ని ఐటెమ్‌లు",
+  "@allItems": {
+    "description": "Dropdown menu option to show everything without any filters applied[cite: 1]"
+  },
+  "myDevice": "నా పరికరం",
+  "@myDevice": {
+    "description": "Header indicating the files currently being viewed are located on the user's local phone storage[cite: 1]"
+  },
+  "groupedDevices": "గ్రూప్ చేయబడిన పరికరాలు",
+  "@groupedDevices": {
+    "description": "Subtitle indicating that multiple connected devices are grouped together in a single category[cite: 1]"
+  },
+  "selectedItemsSummary": "{count} ఐటెమ్‌లు / {size}",
+  "@selectedItemsSummary": {
+    "description": "Bottom bar text summarizing the user's selection before sending. {count} is the number of files selected, {size} is the total combined file size (e.g., 3.83 MB)[cite: 1]",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "3"
+      },
+      "size": {
+        "type": "String",
+        "example": "3.83 MB"
+      }
+    }
+  },
+  "sendAction": "పంపండి",
+  "@sendAction": {
+    "description": "Button text on the file picker to confirm the selection and immediately begin the transfer[cite: 1]"
+  },
+  "transferProcess": "బదిలీ ప్రక్రియ",
+  "@transferProcess": {
+    "description": "Screen title showing the active progress of a file transfer[cite: 1]"
+  },
+  "sendingFiles": "ఫైళ్లు పంపబడుతున్నాయి",
+  "@sendingFiles": {
+    "description": "Screen title showing that files are currently being transmitted to multiple people simultaneously[cite: 1]"
+  },
+  "sendingAs": "{name} వలె పంపుతోంది",
+  "@sendingAs": {
+    "description": "Indicator showing the user's own profile name during the transfer. {name} is the user's name[cite: 1]",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "Ananya Rao"
+      }
+    }
+  },
+  "sendingToPeople": "{count} వ్యక్తులకు పంపుతోంది",
+  "@sendingToPeople": {
+    "description": "Header showing how many recipients are receiving the files in a group broadcast. {count} is the number of recipients[cite: 1]",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "4"
+      }
+    }
+  },
+  "transferStatusBreakdown": "{done} పూర్తయ్యాయి · {sending} పంపబడుతున్నాయి · {queued} క్యూలో ఉన్నాయి",
+  "@transferStatusBreakdown": {
+    "description": "Detailed status showing how many transfers are finished, active, or waiting. {done} is finished, {sending} is actively transmitting, {queued} is waiting to start[cite: 1]",
+    "placeholders": {
+      "done": {
+        "type": "int",
+        "example": "2"
+      },
+      "sending": {
+        "type": "int",
+        "example": "1"
+      },
+      "queued": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "sameFilesToEveryone": "అందరికీ ఒకే {count} ఫైళ్లు · {size}",
+  "@sameFilesToEveryone": {
+    "description": "Subtitle confirming that a single batch of files is being broadcast to all recipients. {count} is file count, {size} is total batch size[cite: 1]",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "3"
+      },
+      "size": {
+        "type": "String",
+        "example": "98 MB"
+      }
+    }
+  },
+  "sendingFileTo": "ఫైల్‌ని ఇక్కడికి పంపుతోంది:",
+  "@sendingFileTo": {
+    "description": "Header indicating the name of the specific person currently receiving the file[cite: 1]"
+  },
+  "filesLabel": "ఫైళ్లు",
+  "@filesLabel": {
+    "description": "Short label for the column or metric representing the total number of files[cite: 1]"
+  },
+  "totalSize": "మొత్తం పరిమాణం",
+  "@totalSize": {
+    "description": "Label for the metric showing the combined file size of all files in the transfer[cite: 1]"
+  },
+  "sizeLabel": "పరిమాణం",
+  "@sizeLabel": {
+    "description": "Short label for the column or metric representing data size[cite: 1]"
+  },
+  "speedLabel": "వేగం",
+  "@speedLabel": {
+    "description": "Label for the metric showing the active network transfer speed in megabytes per second[cite: 1]"
+  },
+  "fileDetails": "ఫైల్ వివరాలు",
+  "@fileDetails": {
+    "description": "Section header above the list of individual files being transferred[cite: 1]"
+  },
+  "filesBeingSent": "పంపబడుతున్న ఫైళ్లు",
+  "@filesBeingSent": {
+    "description": "Section header above the master list of files included in a group broadcast[cite: 1]"
+  },
+  "recipients": "స్వీకర్తలు",
+  "@recipients": {
+    "description": "Section header above the list of people receiving the files[cite: 1]"
+  },
+  "recipientsTapToView": "స్వీకర్తలు — ఫైళ్లను చూడటానికి ట్యాప్ చేయండి",
+  "@recipientsTapToView": {
+    "description": "Instructional header telling the user they can tap a recipient's name to expand an inline list of which specific files are transferring to them[cite: 1]"
+  },
+  "recipientsTapForStatus": "స్వీకర్తలు — ఫైల్ స్టేటస్ చూడటానికి ట్యాప్ చేయండి",
+  "@recipientsTapForStatus": {
+    "description": "Instructional header telling the user they can tap a recipient to view their individual file progress chips[cite: 1]"
+  },
+  "recipientsTapForDetails": "స్వీకర్తలు — ఫైల్ వివరాల కోసం ట్యాప్ చేయండి",
+  "@recipientsTapForDetails": {
+    "description": "Instructional header telling the user they can tap a recipient to open a completely new dedicated screen for that person's transfer[cite: 1]"
+  },
+  "statusDone": "పూర్తయింది",
+  "@statusDone": {
+    "description": "Status badge text indicating a file or transfer has successfully completed[cite: 1]"
+  },
+  "statusQueued": "క్యూలో ఉంది",
+  "@statusQueued": {
+    "description": "Status badge text indicating a file or transfer is waiting in line to start transmitting[cite: 1]"
+  },
+  "filesCompletedRatio": "{total}లో {completed} పూర్తయ్యాయి",
+  "@filesCompletedRatio": {
+    "description": "Text showing how many files out of the total batch are finished. {completed} is the finished amount, {total} is the total amount[cite: 1]",
+    "placeholders": {
+      "completed": {
+        "type": "int",
+        "example": "4"
+      },
+      "total": {
+        "type": "int",
+        "example": "4"
+      }
+    }
+  },
+  "moreFilesCount": "మరో +{count}",
+  "@moreFilesCount": {
+    "description": "Truncation text showing how many extra files are hidden from view to save screen space. {count} is the number of hidden files[cite: 1]",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "viewAction": "చూడండి",
+  "@viewAction": {
+    "description": "Text link action to open a full list or larger view of hidden items[cite: 1]"
+  },
+  "cancelRemaining": "మిగిలినవి రద్దు చేయి",
+  "@cancelRemaining": {
+    "description": "Button text to abort all transfers in the queue that haven't finished yet[cite: 1]"
+  },
+  "cancelForThisPerson": "ఈ వ్యక్తికి రద్దు చేయి",
+  "@cancelForThisPerson": {
+    "description": "Button text to abort the file transfer only for the currently viewed recipient[cite: 1]"
+  },
+  "editProfile": "ప్రొఫైల్‌ను ఎడిట్ చేయండి",
+  "@editProfile": {
+    "description": "Screen title for the settings page where the user can update their personal information[cite: 1]"
+  },
+  "deviceName": "పరికరం పేరు",
+  "@deviceName": {
+    "description": "Label for the input field where the user sets their phone's broadcast name on the network (e.g., 'Ananya's iPhone')[cite: 1]"
+  },
+  "deviceNameHelper": "షేర్ చేసేటప్పుడు సమీపంలోని వ్యక్తులకు ఇది కనిపిస్తుంది",
+  "@deviceNameHelper": {
+    "description": "Help text explaining that the Device Name is what strangers will see on the radar screen[cite: 1]"
+  },
+  "visibleToNearbyDevices": "సమీప పరికరాలకు కనిపిస్తుంది",
+  "@visibleToNearbyDevices": {
+    "description": "Toggle switch label to turn the device's discoverability on or off for other users[cite: 1]"
+  },
+  "visibleToNearbySubtitle": "డిస్కవరీ నుండి దాచడానికి ఆఫ్ చేయండి",
+  "@visibleToNearbySubtitle": {
+    "description": "Explanation for the discoverability toggle switch explaining that turning it off hides the phone[cite: 1]"
+  },
+  "saveReceivedFilesAuto": "స్వీకరించిన ఫైళ్లను ఆటోమేటిక్‌గా సేవ్ చేయి",
+  "@saveReceivedFilesAuto": {
+    "description": "Toggle switch label to automatically accept incoming files without requiring a manual confirmation popup[cite: 1]"
+  },
+  "saveReceivedFilesAutoSubtitle": "స్వీకరించేటప్పుడు నిర్ధారణ దశను దాటవేయి",
+  "@saveReceivedFilesAutoSubtitle": {
+    "description": "Explanation for the automatic save toggle switch[cite: 1]"
+  },
+  "saveChanges": "మార్పులను సేవ్ చేయి",
+  "@saveChanges": {
+    "description": "Button text to commit and save the edits made to the profile screen[cite: 1]"
+  },
+  "appearanceAndLanguage": "స్వరూపం & భాష",
+  "@appearanceAndLanguage": {
+    "description": "Screen title for the visual and localization settings page[cite: 1]"
+  },
+  "theme": "థీమ్",
+  "@theme": {
+    "description": "Section header for choosing the app's visual color scheme[cite: 1]"
+  },
+  "themeLight": "లైట్",
+  "@themeLight": {
+    "description": "Option to force the app to use a bright white color scheme[cite: 1]"
+  },
+  "themeDark": "డార్క్",
+  "@themeDark": {
+    "description": "Option to force the app to use a dark or black color scheme[cite: 1]"
+  },
+  "themeSystem": "సిస్టమ్",
+  "@themeSystem": {
+    "description": "Option to make the app automatically match the phone's global OS system theme[cite: 1]"
+  },
+  "language": "భాష",
+  "@language": {
+    "description": "Section header for choosing the app's localized display language[cite: 1]"
+  },
+  "applyChanges": "మార్పులను వర్తింపజేయి",
+  "@applyChanges": {
+    "description": "Button text to save and immediately activate the newly selected theme and language[cite: 1]"
+  },
+  "visibleNearbyStatus": "సమీపంలోని వారికి కనిపిస్తుంది",
+    "@visibleNearbyStatus": {
+      "description": "Status text showing the device is visible to others"
+    },
+    "statSent": "పంపబడింది",
+    "@statSent": {
+      "description": "Statistic label for sent items"
+    },
+    "statReceived": "స్వీకరించబడింది",
+    "@statReceived": {
+      "description": "Statistic label for received items"
+    },
+    "statShared": "షేర్ చేయబడింది",
+    "@statShared": {
+      "description": "Statistic label for shared items"
+    },
+    "account": "ఖాతా",
+    "@account": {
+      "description": "Menu label for the user account section"
+    },
+    "editProfileMenu": "ప్రొఫైల్‌ను సవరించండి",
+    "@editProfileMenu": {
+      "description": "Menu item to edit the user profile"
+    },
+    "editProfileMenuSub": "పేరు, ఫోటో, పరికరం పేరు",
+    "@editProfileMenuSub": {
+      "description": "Subtitle for the edit profile menu item"
+    },
+    "settings": "సెట్టింగ్‌లు",
+    "@settings": {
+      "description": "Menu label for settings"
+    },
+    "settingsMenuSub": "థీమ్ మరియు భాష",
+    "@settingsMenuSub": {
+      "description": "Subtitle for the settings menu item"
+    },
+    "appVersion": "వెర్షన్ {version}",
+    "@appVersion": {
+      "description": "Displays the current app version",
+      "placeholders": {
+        "version": {
+          "type": "String",
+          "example": "1.0.0"
+        }
+      }
+    },
+    "activityReceivedFrom": "{name} నుండి స్వీకరించండి",
+    "@activityReceivedFrom": {
+      "description": "Activity log entry for receiving files from someone",
+      "placeholders": {
+        "name": {
+          "type": "String",
+          "example": "John"
+        }
+      }
+    },
+    "activityFileSummary": "{label} - {count, plural, =1{1 ఫైల్} other{{count} ఫైల్‌లు}}",
+    "@activityFileSummary": {
+      "description": "Summary of files in an activity log entry",
+      "placeholders": {
+        "label": {
+          "type": "String",
+          "example": "Archive"
+        },
+        "count": {
+          "type": "int",
+          "example": "3"
+        }
+      }
+    },
+    "activityMeta": "{count} ఫైల్‌లు - {size}",
+    "@activityMeta": {
+      "description": "Metadata showing file count and total size",
+      "placeholders": {
+        "count": {
+          "type": "int",
+          "example": "5"
+        },
+        "size": {
+          "type": "String",
+          "example": "12 MB"
+        }
+      }
+    },
+    "addFriend": "స్నేహితుడిని జోడించండి",
+    "@addFriend": {
+      "description": "Button text to add a new friend"
+    },
+    "fileTypePhotos": "ఫోటోలు",
+    "@fileTypePhotos": {
+      "description": "Category for photo files"
+    },
+    "fileTypeVideos": "వీడియోలు",
+    "@fileTypeVideos": {
+      "description": "Category for video files"
+    },
+    "fileTypeMusic": "సంగీతం",
+    "@fileTypeMusic": {
+      "description": "Category for music files"
+    },
+    "statSending": "పంపబడుతోంది",
+    "@statSending": {
+      "description": "Status text for active sending transfer"
+    },
+    "noTransfersTitle": "ఇంకా బదిలీలు ఏమీ లేవు",
+    "@noTransfersTitle": {
+      "description": "Title for empty state when there are no transfers"
+    },
+    "noTransfersBody": "మీరు పంపే లేదా స్వీకరించే ఫైల్‌లు ఇక్కడ కనిపిస్తాయి.",
+    "@noTransfersBody": {
+      "description": "Body text for empty state explaining where transfers will appear"
+    }
+}

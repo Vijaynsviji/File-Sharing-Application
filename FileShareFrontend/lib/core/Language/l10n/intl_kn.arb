@@ -1,0 +1,649 @@
+{
+  "@@locale": "kn",
+  "homeTitle": "ಮುಖಪುಟ",
+  "@homeTitle": {
+    "description": "Title of the main home screen where the user starts the file sharing process"
+  },
+  "availableCloudStorage": "ಲಭ್ಯವಿರುವ ಕ್ಲೌಡ್ ಸ್ಟೋರೇಜ್",
+  "@availableCloudStorage": {
+    "description": "Header indicating the total amount of cloud storage space available to the user's account"
+  },
+  "storageUsedOfTotal": "{total} ನಲ್ಲಿ {used} ಬಳಸಲಾಗಿದೆ",
+  "@storageUsedOfTotal": {
+    "description": "Text showing how much cloud storage the user has consumed out of their total limit. {used} is the consumed amount (e.g., 4.5GB), {total} is the maximum limit (e.g., 5GB)",
+    "placeholders": {
+      "used": {
+        "type": "String",
+        "example": "4.5GB"
+      },
+      "total": {
+        "type": "String",
+        "example": "5GB"
+      }
+    }
+  },
+  "viewDetails": "ವಿವರಗಳನ್ನು ವೀಕ್ಷಿಸಿ",
+  "@viewDetails": {
+    "description": "Text on a button that the user taps to see a detailed breakdown of their storage usage"
+  },
+  "send": "ಕಳುಹಿಸಿ",
+  "@send": {
+    "description": "Primary action button text used to initiate sending files to another nearby device"
+  },
+  "receive": "ಸ್ವೀಕರಿಸಿ",
+  "@receive": {
+    "description": "Primary action button text used to prepare the device to receive files from someone else"
+  },
+  "shareToPc": "PC ಗೆ ಶೇರ್ ಮಾಡಿ",
+  "@shareToPc": {
+    "description": "Button text to trigger sharing files from the mobile device to a desktop computer or PC"
+  },
+  "webShare": "ವೆಬ್ ಶೇರ್",
+  "@webShare": {
+    "description": "Button text to trigger sharing files via a web browser link over the internet"
+  },
+  "shareWithFriends": "ಸ್ನೇಹಿತರೊಂದಿಗೆ ಶೇರ್ ಮಾಡಿ",
+  "@shareWithFriends": {
+    "description": "Section header above a horizontal list of recent friends the user has shared files with"
+  },
+  "latestActivities": "ಇತ್ತೀಚಿನ ಚಟುವಟಿಕೆಗಳು",
+  "@latestActivities": {
+    "description": "Section header above a list of recent file transfer history and logs"
+  },
+  "seeAll": "ಎಲ್ಲವನ್ನೂ ವೀಕ್ಷಿಸಿ",
+  "@seeAll": {
+    "description": "Button text to expand a shortened list and view all items in the history"
+  },
+  "sendToUser": "{name} ಗೆ ಕಳುಹಿಸಿ",
+  "@sendToUser": {
+    "description": "Activity log title indicating files were sent to a specific person. {name} is the recipient's name",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "John"
+      }
+    }
+  },
+  "archiveFilesCount": "ಆರ್ಕೈವ್ - {count} ಫೈಲ್‌ಗಳು",
+  "@archiveFilesCount": {
+    "description": "Activity log subtitle showing the transfer was a zip/archive containing multiple files. {count} is the number of files",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "10"
+      }
+    }
+  },
+  "scanToConnect": "ಕನೆಕ್ಟ್ ಮಾಡಲು ಸ್ಕ್ಯಾನ್ ಮಾಡಿ",
+  "@scanToConnect": {
+    "description": "Button text prompting the user to open their camera to scan a QR code or search for nearby devices"
+  },
+  "manageStorage": "ಸ್ಟೋರೇಜ್ ನಿರ್ವಹಿಸಿ",
+  "@manageStorage": {
+    "description": "Screen title for the page where users can manage, clean, and upgrade their device or cloud storage"
+  },
+  "usedSpace": "ಬಳಸಿದ ಸ್ಪೇಸ್",
+  "@usedSpace": {
+    "description": "Label for the metric showing how much storage space is currently occupied by files"
+  },
+  "freeSpace": "ಖಾಲಿ ಸ್ಪೇಸ್",
+  "@freeSpace": {
+    "description": "Label for the metric showing how much storage space is currently empty and available"
+  },
+  "upgradeToPremium": "ಪ್ರೀಮಿಯಂಗೆ ಅಪ್‌ಗ್ರೇಡ್ ಮಾಡಿ",
+  "@upgradeToPremium": {
+    "description": "Title of a promotional banner urging the user to buy a paid premium subscription"
+  },
+  "upgradeToPremiumSubtitle": "ಮತ್ತು ಅನಿಯಮಿತ ಕ್ಲೌಡ್ ಸ್ಟೋರೇಜ್ ಪಡೆಯಿರಿ",
+  "@upgradeToPremiumSubtitle": {
+    "description": "Subtitle of the promotional banner explaining the benefit of buying the premium subscription"
+  },
+  "learnMore": "ಇನ್ನಷ್ಟು ತಿಳಿಯಿರಿ",
+  "@learnMore": {
+    "description": "Button text on the promotional banner to read more details about the premium tier"
+  },
+  "fileType": "ಫೈಲ್ ಪ್ರಕಾರ",
+  "@fileType": {
+    "description": "Section header categorizing the storage usage by the type of files (e.g., photos, videos, music)"
+  },
+  "photos": "ಫೋಟೋಗಳು",
+  "@photos": {
+    "description": "Category name for image and picture files"
+  },
+  "videos": "ವೀಡಿಯೊಗಳು",
+  "@videos": {
+    "description": "Category name for video and movie files"
+  },
+  "music": "ಸಂಗೀತ",
+  "@music": {
+    "description": "Category name for audio, songs, and music files"
+  },
+  "filesCount": "{count} ಫೈಲ್‌ಗಳು",
+  "@filesCount": {
+    "description": "Label showing the total number of files inside a specific category. {count} is the numerical amount",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "123"
+      }
+    }
+  },
+  "cleanJunk": "ಜಂಕ್ ಕ್ಲೀನ್ ಮಾಡಿ",
+  "@cleanJunk": {
+    "description": "Button text to initiate a scan that deletes temporary or unnecessary files to free up phone space"
+  },
+  "skip": "ಸ್ಕಿಪ್ ಮಾಡಿ",
+  "@skip": {
+    "description": "Text button in the top corner allowing the user to bypass the current onboarding step without completing it"
+  },
+  "pickYourAvatar": "ನಿಮ್ಮ ಅವತಾರ್ ಆಯ್ಕೆಮಾಡಿ",
+  "@pickYourAvatar": {
+    "description": "Title of the onboarding screen asking the user to choose a profile picture or cartoon avatar"
+  },
+  "pickAvatarSubtitle": "ನೀವು ಫೈಲ್‌ಗಳನ್ನು ಕಳುಹಿಸುವಾಗ ಅಥವಾ ಸ್ವೀಕರಿಸುವಾಗ ಸ್ನೇಹಿತರು ನಿಮ್ಮನ್ನು ಗುರುತಿಸಲು ಫೋಟೋವನ್ನು ಆಯ್ಕೆಮಾಡಿ.",
+  "@pickAvatarSubtitle": {
+    "description": "Explanation text telling the user that picking a profile photo helps their friends recognize them during nearby file transfers"
+  },
+  "tapToUploadPhoto": "ಫೋಟೋ ಅಪ್‌ಲೋಡ್ ಮಾಡಲು ಟ್ಯಾಪ್ ಮಾಡಿ",
+  "@tapToUploadPhoto": {
+    "description": "Instructional text under a camera icon prompting the user to tap and upload a real photo from their gallery"
+  },
+  "orPickAStyle": "ಅಥವಾ ಶೈಲಿಯನ್ನು ಆಯ್ಕೆಮಾಡಿ",
+  "@orPickAStyle": {
+    "description": "Divider text offering pre-made cartoon animal avatars as an alternative to uploading a real photo"
+  },
+  "continueButton": "ಮುಂದುವರಿಸಿ",
+  "@continueButton": {
+    "description": "Primary button text to save the current selection and move forward to the next screen"
+  },
+  "illDoThisLater": "ನಾನು ಇದನ್ನು ಆಮೇಲೆ ಮಾಡುತ್ತೇನೆ",
+  "@illDoThisLater": {
+    "description": "Secondary text button allowing the user to skip setting up an avatar and do it at another time"
+  },
+  "tellUsAboutYou": "ನಿಮ್ಮ ಬಗ್ಗೆ ನಮಗೆ ತಿಳಿಸಿ",
+  "@tellUsAboutYou": {
+    "description": "Title of the profile setup screen asking for the user's name and personal bio"
+  },
+  "tellUsAboutYouSubtitle": "ನೀವು ಫೈಲ್‌ಗಳನ್ನು ಹಂಚಿಕೊಳ್ಳುವಾಗ ಅಥವಾ ಸ್ವೀಕರಿಸುವಾಗ ಇದು ನಿಮ್ಮ ಪ್ರೊಫೈಲ್‌ನಲ್ಲಿ ಕಾಣಿಸಿಕೊಳ್ಳುತ್ತದೆ.",
+  "@tellUsAboutYouSubtitle": {
+    "description": "Explanation text clarifying that the name and bio will be publicly visible to people they share files with nearby"
+  },
+  "changePhoto": "ಫೋಟೋ ಬದಲಾಯಿಸಿ",
+  "@changePhoto": {
+    "description": "Button text to edit or replace the currently selected profile picture"
+  },
+  "yourName": "ನಿಮ್ಮ ಹೆಸರು",
+  "@yourName": {
+    "description": "Label for the text input field where the user types their real name or nickname"
+  },
+  "bio": "ಬಯೋ",
+  "@bio": {
+    "description": "Label for the text input field where the user types a short biography or status message"
+  },
+  "showOnYourProfile": "ನಿಮ್ಮ ಪ್ರೊಫೈಲ್‌ನಲ್ಲಿ ತೋರಿಸಿ",
+  "@showOnYourProfile": {
+    "description": "Label above a group of toggle tags asking what statistics the user wants to display publicly"
+  },
+  "filesSent": "ಕಳುಹಿಸಿದ ಫೈಲ್‌ಗಳು",
+  "@filesSent": {
+    "description": "Tag option allowing the user to display the total number of files they have sent over time on their public profile"
+  },
+  "storageUsed": "ಬಳಸಿದ ಸ್ಟೋರೇಜ್",
+  "@storageUsed": {
+    "description": "Tag option allowing the user to display their current cloud storage usage on their public profile"
+  },
+  "friends": "ಸ್ನೇಹಿತರು",
+  "@friends": {
+    "description": "Tag option allowing the user to display their friend count on their public profile"
+  },
+  "finishSetup": "ಸೆಟಪ್ ಪೂರ್ಣಗೊಳಿಸಿ",
+  "@finishSetup": {
+    "description": "Primary button text to finalize the onboarding process and enter the main application"
+  },
+  "editAnytimeNote": "ನೀವು ಸೆಟ್ಟಿಂಗ್‌ಗಳಿಂದ ಇದನ್ನು ಯಾವಾಗ ಬೇಕಾದರೂ ಎಡಿಟ್ ಮಾಡಬಹುದು",
+  "@editAnytimeNote": {
+    "description": "Small footer text reassuring the user that they can change these profile settings later in the app's settings menu"
+  },
+  "cancel": "ರದ್ದುಮಾಡಿ",
+  "@cancel": {
+    "description": "Button text to abort the current action (like scanning for devices) and go back to the previous screen"
+  },
+  "findingPeopleNearby": "ಹತ್ತಿರದ ಜನರನ್ನು ಹುಡುಕಲಾಗುತ್ತಿದೆ",
+  "@findingPeopleNearby": {
+    "description": "Screen title displayed while the app actively searches for other devices using Bluetooth or Wi-Fi"
+  },
+  "findingPeopleNearbySubtitle": "ಆ್ಯಪ್ ತೆರೆದಿಡಿ — ಶೇರಿಂಗ್ ಆನ್ ಮಾಡಿರುವ ಹತ್ತಿರದವರನ್ನು ನಾವು ಪಟ್ಟಿ ಮಾಡುತ್ತೇವೆ.",
+  "@findingPeopleNearbySubtitle": {
+    "description": "Instructional text telling the user to keep the screen open while it searches for receivers"
+  },
+  "scanningForDevices": "ಹತ್ತಿರದ ಸಾಧನಗಳಿಗಾಗಿ ಸ್ಕ್ಯಾನ್ ಮಾಡಲಾಗುತ್ತಿದೆ",
+  "@scanningForDevices": {
+    "description": "Status text accompanied by a radar animation indicating the search for other phones is actively running"
+  },
+  "foundNearby": "ಹತ್ತಿರದಲ್ಲಿ ಕಂಡುಬಂದಿವೆ",
+  "@foundNearby": {
+    "description": "Section header above the list of people successfully discovered nearby"
+  },
+  "foundCount": "{count} ಕಂಡುಬಂದಿವೆ",
+  "@foundCount": {
+    "description": "Badge text showing the total number of people discovered on the radar. {count} is the number of people",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "4"
+      }
+    }
+  },
+  "deviceDistanceProtocol": "{distance} ದೂರದಲ್ಲಿದೆ · {protocol}",
+  "@deviceDistanceProtocol": {
+    "description": "Subtitle under a discovered person's name showing how far away they are and what technology connects them. {distance} is physical distance (e.g., '3 m'), {protocol} is the network type (e.g., 'Wi-Fi Direct')",
+    "placeholders": {
+      "distance": {
+        "type": "String",
+        "example": "3 m"
+      },
+      "protocol": {
+        "type": "String",
+        "example": "Wi-Fi Direct"
+      }
+    }
+  },
+  "wifiDirect": "Wi-Fi ಡೈರೆಕ್ಟ್",
+  "@wifiDirect": {
+    "description": "Technical term for a direct high-speed Wi-Fi connection between two devices without needing a router"
+  },
+  "bluetooth": "ಬ್ಲೂಟೂತ್",
+  "@bluetooth": {
+    "description": "Technical term for a Bluetooth wireless connection"
+  },
+  "connect": "ಕನೆಕ್ಟ್ ಮಾಡಿ",
+  "@connect": {
+    "description": "Button text to send a connection request to a discovered person"
+  },
+  "pending": "ಬಾಕಿ ಇದೆ",
+  "@pending": {
+    "description": "Button text state indicating a connection request has been sent and the app is waiting for the other person to accept"
+  },
+  "stopScanning": "ಸ್ಕ್ಯಾನ್ ಮಾಡುವುದನ್ನು ನಿಲ್ಲಿಸಿ",
+  "@stopScanning": {
+    "description": "Button text to halt the active radar search for nearby devices"
+  },
+  "bluetoothWifiHint": "ಬ್ಲೂಟೂತ್ ಮತ್ತು Wi-Fi ಆನ್ ಆಗಿವೆಯೇ ಎಂದು ಖಚಿತಪಡಿಸಿಕೊಳ್ಳಿ",
+  "@bluetoothWifiHint": {
+    "description": "Helpful hint at the bottom of the screen reminding the user to ensure their wireless antennas are turned on if no one is found"
+  },
+  "selectFiles": "ಫೈಲ್‌ಗಳನ್ನು ಆಯ್ಕೆಮಾಡಿ",
+  "@selectFiles": {
+    "description": "Screen title for the file picker interface where the sender chooses what to share"
+  },
+  "imagesOrVideos": "ಚಿತ್ರಗಳು ಅಥವಾ ವೀಡಿಯೊಗಳು",
+  "@imagesOrVideos": {
+    "description": "Tab label to filter the file picker to show only pictures and video clips"
+  },
+  "audio": "ಆಡಿಯೊ",
+  "@audio": {
+    "description": "Tab label to filter the file picker to show only songs, music, and sound recordings"
+  },
+  "mediaCategoryFiles": "ಫೈಲ್‌ಗಳು",
+  "@mediaCategoryFiles": {
+    "description": "Tab label to filter the file picker to show generic documents (PDFs, text) and miscellaneous files"
+  },
+  "apps": "ಆ್ಯಪ್‌ಗಳು",
+  "@apps": {
+    "description": "Tab label to filter the file picker to show installed Android applications (APKs) that can be shared"
+  },
+  "contacts": "ಸಂಪರ್ಕಗಳು",
+  "@contacts": {
+    "description": "Tab label to filter the file picker to show address book contacts (vCards)"
+  },
+  "allItems": "ಎಲ್ಲಾ ಐಟಂಗಳು",
+  "@allItems": {
+    "description": "Dropdown menu option to show everything without any filters applied"
+  },
+  "myDevice": "ನನ್ನ ಸಾಧನ",
+  "@myDevice": {
+    "description": "Header indicating the files currently being viewed are located on the user's local phone storage"
+  },
+  "groupedDevices": "ಗುಂಪು ಮಾಡಿದ ಸಾಧನಗಳು",
+  "@groupedDevices": {
+    "description": "Subtitle indicating that multiple connected devices are grouped together in a single category"
+  },
+  "selectedItemsSummary": "{count} ಐಟಂಗಳು / {size}",
+  "@selectedItemsSummary": {
+    "description": "Bottom bar text summarizing the user's selection before sending. {count} is the number of files selected, {size} is the total combined file size (e.g., 3.83 MB)",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "3"
+      },
+      "size": {
+        "type": "String",
+        "example": "3.83 MB"
+      }
+    }
+  },
+  "sendAction": "ಕಳುಹಿಸಿ",
+  "@sendAction": {
+    "description": "Button text on the file picker to confirm the selection and immediately begin the transfer"
+  },
+  "transferProcess": "ವರ್ಗಾವಣೆ ಪ್ರಕ್ರಿಯೆ",
+  "@transferProcess": {
+    "description": "Screen title showing the active progress of a file transfer"
+  },
+  "sendingFiles": "ಫೈಲ್‌ಗಳನ್ನು ಕಳುಹಿಸಲಾಗುತ್ತಿದೆ",
+  "@sendingFiles": {
+    "description": "Screen title showing that files are currently being transmitted to multiple people simultaneously"
+  },
+  "sendingAs": "{name} ಎಂದು ಕಳುಹಿಸಲಾಗುತ್ತಿದೆ",
+  "@sendingAs": {
+    "description": "Indicator showing the user's own profile name during the transfer. {name} is the user's name",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "Ananya Rao"
+      }
+    }
+  },
+  "sendingToPeople": "{count} ಜನರಿಗೆ ಕಳುಹಿಸಲಾಗುತ್ತಿದೆ",
+  "@sendingToPeople": {
+    "description": "Header showing how many recipients are receiving the files in a group broadcast. {count} is the number of recipients",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "4"
+      }
+    }
+  },
+  "transferStatusBreakdown": "{done} ಪೂರ್ಣಗೊಂಡಿದೆ · {sending} ಕಳುಹಿಸಲಾಗುತ್ತಿದೆ · {queued} ಕ್ಯೂನಲ್ಲಿದೆ",
+  "@transferStatusBreakdown": {
+    "description": "Detailed status showing how many transfers are finished, active, or waiting. {done} is finished, {sending} is actively transmitting, {queued} is waiting to start",
+    "placeholders": {
+      "done": {
+        "type": "int",
+        "example": "2"
+      },
+      "sending": {
+        "type": "int",
+        "example": "1"
+      },
+      "queued": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "sameFilesToEveryone": "ಎಲ್ಲರಿಗೂ ಒಂದೇ {count} ಫೈಲ್‌ಗಳು · {size}",
+  "@sameFilesToEveryone": {
+    "description": "Subtitle confirming that a single batch of files is being broadcast to all recipients. {count} is file count, {size} is total batch size",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "3"
+      },
+      "size": {
+        "type": "String",
+        "example": "98 MB"
+      }
+    }
+  },
+  "sendingFileTo": "ಇವರಿಗೆ ಫೈಲ್ ಕಳುಹಿಸಲಾಗುತ್ತಿದೆ:",
+  "@sendingFileTo": {
+    "description": "Header indicating the name of the specific person currently receiving the file"
+  },
+  "filesLabel": "ಫೈಲ್‌ಗಳು",
+  "@filesLabel": {
+    "description": "Short label for the column or metric representing the total number of files"
+  },
+  "totalSize": "ಒಟ್ಟು ಗಾತ್ರ",
+  "@totalSize": {
+    "description": "Label for the metric showing the combined file size of all files in the transfer"
+  },
+  "sizeLabel": "ಗಾತ್ರ",
+  "@sizeLabel": {
+    "description": "Short label for the column or metric representing data size"
+  },
+  "speedLabel": "ವೇಗ",
+  "@speedLabel": {
+    "description": "Label for the metric showing the active network transfer speed in megabytes per second"
+  },
+  "fileDetails": "ಫೈಲ್ ವಿವರಗಳು",
+  "@fileDetails": {
+    "description": "Section header above the list of individual files being transferred"
+  },
+  "filesBeingSent": "ಕಳುಹಿಸಲಾಗುತ್ತಿರುವ ಫೈಲ್‌ಗಳು",
+  "@filesBeingSent": {
+    "description": "Section header above the master list of files included in a group broadcast"
+  },
+  "recipients": "ಸ್ವೀಕರಿಸುವವರು",
+  "@recipients": {
+    "description": "Section header above the list of people receiving the files"
+  },
+  "recipientsTapToView": "ಸ್ವೀಕರಿಸುವವರು — ಫೈಲ್‌ಗಳನ್ನು ವೀಕ್ಷಿಸಲು ಟ್ಯಾಪ್ ಮಾಡಿ",
+  "@recipientsTapToView": {
+    "description": "Instructional header telling the user they can tap a recipient's name to expand an inline list of which specific files are transferring to them"
+  },
+  "recipientsTapForStatus": "ಸ್ವೀಕರಿಸುವವರು — ಫೈಲ್ ಸ್ಥಿತಿಯನ್ನು ವೀಕ್ಷಿಸಲು ಟ್ಯಾಪ್ ಮಾಡಿ",
+  "@recipientsTapForStatus": {
+    "description": "Instructional header telling the user they can tap a recipient to view their individual file progress chips"
+  },
+  "recipientsTapForDetails": "ಸ್ವೀಕರಿಸುವವರು — ಫೈಲ್ ವಿವರಗಳಿಗಾಗಿ ಟ್ಯಾಪ್ ಮಾಡಿ",
+  "@recipientsTapForDetails": {
+    "description": "Instructional header telling the user they can tap a recipient to open a completely new dedicated screen for that person's transfer"
+  },
+  "statusDone": "ಪೂರ್ಣಗೊಂಡಿದೆ",
+  "@statusDone": {
+    "description": "Status badge text indicating a file or transfer has successfully completed"
+  },
+  "statusQueued": "ಕ್ಯೂನಲ್ಲಿದೆ",
+  "@statusQueued": {
+    "description": "Status badge text indicating a file or transfer is waiting in line to start transmitting"
+  },
+  "filesCompletedRatio": "{total} ರಲ್ಲಿ {completed} ಪೂರ್ಣಗೊಂಡಿದೆ",
+  "@filesCompletedRatio": {
+    "description": "Text showing how many files out of the total batch are finished. {completed} is the finished amount, {total} is the total amount",
+    "placeholders": {
+      "completed": {
+        "type": "int",
+        "example": "4"
+      },
+      "total": {
+        "type": "int",
+        "example": "4"
+      }
+    }
+  },
+  "moreFilesCount": "ಇನ್ನಷ್ಟು +{count}",
+  "@moreFilesCount": {
+    "description": "Truncation text showing how many extra files are hidden from view to save screen space. {count} is the number of hidden files",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "viewAction": "ವೀಕ್ಷಿಸಿ",
+  "@viewAction": {
+    "description": "Text link action to open a full list or larger view of hidden items"
+  },
+  "cancelRemaining": "ಉಳಿದವುಗಳನ್ನು ರದ್ದುಮಾಡಿ",
+  "@cancelRemaining": {
+    "description": "Button text to abort all transfers in the queue that haven't finished yet"
+  },
+  "cancelForThisPerson": "ಈ ವ್ಯಕ್ತಿಗೆ ರದ್ದುಮಾಡಿ",
+  "@cancelForThisPerson": {
+    "description": "Button text to abort the file transfer only for the currently viewed recipient"
+  },
+  "editProfile": "ಪ್ರೊಫೈಲ್ ಎಡಿಟ್ ಮಾಡಿ",
+  "@editProfile": {
+    "description": "Screen title for the settings page where the user can update their personal information"
+  },
+  "deviceName": "ಸಾಧನದ ಹೆಸರು",
+  "@deviceName": {
+    "description": "Label for the input field where the user sets their phone's broadcast name on the network (e.g., 'Ananya's iPhone')"
+  },
+  "deviceNameHelper": "ಹಂಚಿಕೊಳ್ಳುವಾಗ ಹತ್ತಿರದ ಜನರಿಗೆ ಇದು ಕಾಣಿಸುತ್ತದೆ",
+  "@deviceNameHelper": {
+    "description": "Help text explaining that the Device Name is what strangers will see on the radar screen"
+  },
+  "visibleToNearbyDevices": "ಹತ್ತಿರದ ಸಾಧನಗಳಿಗೆ ಕಾಣಿಸುತ್ತದೆ",
+  "@visibleToNearbyDevices": {
+    "description": "Toggle switch label to turn the device's discoverability on or off for other users"
+  },
+  "visibleToNearbySubtitle": "ಡಿಸ್ಕವರಿಯಿಂದ ಮರೆಮಾಡಲು ಆಫ್ ಮಾಡಿ",
+  "@visibleToNearbySubtitle": {
+    "description": "Explanation for the discoverability toggle switch explaining that turning it off hides the phone"
+  },
+  "saveReceivedFilesAuto": "ಸ್ವೀಕರಿಸಿದ ಫೈಲ್‌ಗಳನ್ನು ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಸೇವ್ ಮಾಡಿ",
+  "@saveReceivedFilesAuto": {
+    "description": "Toggle switch label to automatically accept incoming files without requiring a manual confirmation popup"
+  },
+  "saveReceivedFilesAutoSubtitle": "ಸ್ವೀಕರಿಸುವಾಗ ದೃಢೀಕರಣ ಹಂತವನ್ನು ಬಿಟ್ಟುಬಿಡಿ",
+  "@saveReceivedFilesAutoSubtitle": {
+    "description": "Explanation for the automatic save toggle switch"
+  },
+  "saveChanges": "ಬದಲಾವಣೆಗಳನ್ನು ಸೇವ್ ಮಾಡಿ",
+  "@saveChanges": {
+    "description": "Button text to commit and save the edits made to the profile screen"
+  },
+  "appearanceAndLanguage": "ಗೋಚರತೆ ಮತ್ತು ಭಾಷೆ",
+  "@appearanceAndLanguage": {
+    "description": "Screen title for the visual and localization settings page"
+  },
+  "theme": "ಥೀಮ್",
+  "@theme": {
+    "description": "Section header for choosing the app's visual color scheme"
+  },
+  "themeLight": "ಲೈಟ್",
+  "@themeLight": {
+    "description": "Option to force the app to use a bright white color scheme"
+  },
+  "themeDark": "ಡಾರ್ಕ್",
+  "@themeDark": {
+    "description": "Option to force the app to use a dark or black color scheme"
+  },
+  "themeSystem": "ಸಿಸ್ಟಂ",
+  "@themeSystem": {
+    "description": "Option to make the app automatically match the phone's global OS system theme"
+  },
+  "language": "ಭಾಷೆ",
+  "@language": {
+    "description": "Section header for choosing the app's localized display language"
+  },
+  "applyChanges": "ಬದಲಾವಣೆಗಳನ್ನು ಅನ್ವಯಿಸಿ",
+  "@applyChanges": {
+    "description": "Button text to save and immediately activate the newly selected theme and language"
+  },
+  "visibleNearbyStatus": "ಹತ್ತಿರದವರಿಗೆ ಕಾಣಿಸುತ್ತದೆ",
+    "@visibleNearbyStatus": {
+      "description": "Status text showing the device is visible to others"
+    },
+    "statSent": "ಕಳುಹಿಸಲಾಗಿದೆ",
+    "@statSent": {
+      "description": "Statistic label for sent items"
+    },
+    "statReceived": "ಸ್ವೀಕರಿಸಲಾಗಿದೆ",
+    "@statReceived": {
+      "description": "Statistic label for received items"
+    },
+    "statShared": "ಹಂಚಿಕೊಳ್ಳಲಾಗಿದೆ",
+    "@statShared": {
+      "description": "Statistic label for shared items"
+    },
+    "account": "ಖಾತೆ",
+    "@account": {
+      "description": "Menu label for the user account section"
+    },
+    "editProfileMenu": "ಪ್ರೊಫೈಲ್ ಎಡಿಟ್ ಮಾಡಿ",
+    "@editProfileMenu": {
+      "description": "Menu item to edit the user profile"
+    },
+    "editProfileMenuSub": "ಹೆಸರು, ಫೋಟೋ, ಸಾಧನದ ಹೆಸರು",
+    "@editProfileMenuSub": {
+      "description": "Subtitle for the edit profile menu item"
+    },
+    "settings": "ಸೆಟ್ಟಿಂಗ್‌ಗಳು",
+    "@settings": {
+      "description": "Menu label for settings"
+    },
+    "settingsMenuSub": "ಥೀಮ್ ಮತ್ತು ಭಾಷೆ",
+    "@settingsMenuSub": {
+      "description": "Subtitle for the settings menu item"
+    },
+    "appVersion": "ಆವೃತ್ತಿ {version}",
+    "@appVersion": {
+      "description": "Displays the current app version",
+      "placeholders": {
+        "version": {
+          "type": "String",
+          "example": "1.0.0"
+        }
+      }
+    },
+    "activityReceivedFrom": "{name} ಅವರಿಂದ ಸ್ವೀಕರಿಸಿ",
+    "@activityReceivedFrom": {
+      "description": "Activity log entry for receiving files from someone",
+      "placeholders": {
+        "name": {
+          "type": "String",
+          "example": "John"
+        }
+      }
+    },
+    "activityFileSummary": "{label} - {count, plural, =1{1 ಫೈಲ್} other{{count} ಫೈಲ್‌ಗಳು}}",
+    "@activityFileSummary": {
+      "description": "Summary of files in an activity log entry",
+      "placeholders": {
+        "label": {
+          "type": "String",
+          "example": "Archive"
+        },
+        "count": {
+          "type": "int",
+          "example": "3"
+        }
+      }
+    },
+    "activityMeta": "{count} ಫೈಲ್‌ಗಳು - {size}",
+    "@activityMeta": {
+      "description": "Metadata showing file count and total size",
+      "placeholders": {
+        "count": {
+          "type": "int",
+          "example": "5"
+        },
+        "size": {
+          "type": "String",
+          "example": "12 MB"
+        }
+      }
+    },
+    "addFriend": "ಸ್ನೇಹಿತರನ್ನು ಸೇರಿಸಿ",
+    "@addFriend": {
+      "description": "Button text to add a new friend"
+    },
+    "fileTypePhotos": "ಫೋಟೋಗಳು",
+    "@fileTypePhotos": {
+      "description": "Category for photo files"
+    },
+    "fileTypeVideos": "ವೀಡಿಯೊಗಳು",
+    "@fileTypeVideos": {
+      "description": "Category for video files"
+    },
+    "fileTypeMusic": "ಸಂಗೀತ",
+    "@fileTypeMusic": {
+      "description": "Category for music files"
+    },
+    "statSending": "ಕಳುಹಿಸಲಾಗುತ್ತಿದೆ",
+    "@statSending": {
+      "description": "Status text for active sending transfer"
+    },
+    "noTransfersTitle": "ಇನ್ನೂ ಯಾವುದೇ ವರ್ಗಾವಣೆಗಳಿಲ್ಲ",
+    "@noTransfersTitle": {
+      "description": "Title for empty state when there are no transfers"
+    },
+    "noTransfersBody": "ನೀವು ಕಳುಹಿಸುವ ಅಥವಾ ಸ್ವೀಕರಿಸುವ ಫೈಲ್‌ಗಳು ಇಲ್ಲಿ ಕಾಣಿಸುತ್ತವೆ.",
+    "@noTransfersBody": {
+      "description": "Body text for empty state explaining where transfers will appear"
+    }
+}

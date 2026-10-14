@@ -89,7 +89,10 @@ add_library(FileShareCore STATIC
         FileShareService/FileShareService.h
         FileShareService/Service/FileService.h
         Engine.h
-        Engine.cpp)
+        Engine.cpp
+        EventService/EventEmitter.h
+        EventService/EventEmitter.cpp
+)
 
 set_target_properties(FileShareCore PROPERTIES
         POSITION_INDEPENDENT_CODE ON
@@ -97,8 +100,6 @@ set_target_properties(FileShareCore PROPERTIES
 
 add_executable(FileShareBackend
         main.cpp
-        EventService/EventEmitter.h
-        EventService/EventEmitter.cpp
 )
 
 target_link_libraries(FileShareBackend PRIVATE

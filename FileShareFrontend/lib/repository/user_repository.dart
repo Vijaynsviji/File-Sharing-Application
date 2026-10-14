@@ -5,7 +5,7 @@ import 'package:sqflite/sqflite.dart';
 
 class UserRepository {
   final Database database;
-  final String tableName = "User";
+  final String tableName = "current_user";
 
   UserRepository({required this.database});
 

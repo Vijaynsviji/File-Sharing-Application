@@ -2,50 +2,50 @@ import 'package:flutter/material.dart';
 
 class AppColors extends ThemeExtension<AppColors> {
   // Backgrounds & Surfaces
-  final LinearGradient? bgPage;
-  final Color? card;
-  final Color? cardAlt;
-  final Color? cardAlt2;
+  final LinearGradient bgPage;
+  final Color card;
+  final Color cardAlt;
+  final Color cardAlt2;
 
   // Typography & Borders
-  final Color? ink;
-  final Color? sub;
-  final Color? line;
-  final Color? track;
+  final Color ink;
+  final Color sub;
+  final Color line;
+  final Color track;
 
   // Brand
-  final Color? indigo;
-  final Color? blue;
-  final LinearGradient? grad;
+  final Color indigo;
+  final Color blue;
+  final LinearGradient grad;
 
   // Semantic
-  final Color? success;
-  final Color? danger;
-  final Color? warning;
+  final Color success;
+  final Color danger;
+  final Color warning;
 
   // States
-  final Color? disabledBg;
-  final Color? disabledInk;
-  final Color? scrim;
+  final Color disabledBg;
+  final Color disabledInk;
+  final Color scrim;
 
   const AppColors({
-    this.bgPage,
-    this.card,
-    this.cardAlt,
-    this.cardAlt2,
-    this.ink,
-    this.sub,
-    this.line,
-    this.track,
-    this.indigo,
-    this.blue,
-    this.grad,
-    this.success,
-    this.danger,
-    this.warning,
-    this.disabledBg,
-    this.disabledInk,
-    this.scrim,
+    required this.bgPage,
+    required this.card,
+    required this.cardAlt,
+    required this.cardAlt2,
+    required this.ink,
+    required this.sub,
+    required this.line,
+    required this.track,
+    required this.indigo,
+    required this.blue,
+    required this.grad,
+    required this.success,
+    required this.danger,
+    required this.warning,
+    required this.disabledBg,
+    required this.disabledInk,
+    required this.scrim,
   });
 
   @override
@@ -93,23 +93,23 @@ class AppColors extends ThemeExtension<AppColors> {
   AppColors lerp(ThemeExtension<AppColors>? other, double t) {
     if (other is! AppColors) return this;
     return AppColors(
-      bgPage: LinearGradient.lerp(bgPage, other.bgPage, t),
-      card: Color.lerp(card, other.card, t),
-      cardAlt: Color.lerp(cardAlt, other.cardAlt, t),
-      cardAlt2: Color.lerp(cardAlt2, other.cardAlt2, t),
-      ink: Color.lerp(ink, other.ink, t),
-      sub: Color.lerp(sub, other.sub, t),
-      line: Color.lerp(line, other.line, t),
-      track: Color.lerp(track, other.track, t),
-      indigo: Color.lerp(indigo, other.indigo, t),
-      blue: Color.lerp(blue, other.blue, t),
-      grad: LinearGradient.lerp(grad, other.grad, t),
-      success: Color.lerp(success, other.success, t),
-      danger: Color.lerp(danger, other.danger, t),
-      warning: Color.lerp(warning, other.warning, t),
-      disabledBg: Color.lerp(disabledBg, other.disabledBg, t),
-      disabledInk: Color.lerp(disabledInk, other.disabledInk, t),
-      scrim: Color.lerp(scrim, other.scrim, t),
+      bgPage: LinearGradient.lerp(bgPage, other.bgPage, t) ?? bgPage,
+      card: Color.lerp(card, other.card, t) ?? card,
+      cardAlt: Color.lerp(cardAlt, other.cardAlt, t) ?? cardAlt,
+      cardAlt2: Color.lerp(cardAlt2, other.cardAlt2, t) ?? cardAlt2,
+      ink: Color.lerp(ink, other.ink, t) ?? ink,
+      sub: Color.lerp(sub, other.sub, t) ?? sub,
+      line: Color.lerp(line, other.line, t) ?? line,
+      track: Color.lerp(track, other.track, t) ?? track,
+      indigo: Color.lerp(indigo, other.indigo, t) ?? indigo,
+      blue: Color.lerp(blue, other.blue, t) ?? blue,
+      grad: LinearGradient.lerp(grad, other.grad, t) ?? grad,
+      success: Color.lerp(success, other.success, t) ?? success,
+      danger: Color.lerp(danger, other.danger, t) ?? danger,
+      warning: Color.lerp(warning, other.warning, t) ?? warning,
+      disabledBg: Color.lerp(disabledBg, other.disabledBg, t) ?? disabledBg,
+      disabledInk: Color.lerp(disabledInk, other.disabledInk, t) ?? disabledInk,
+      scrim: Color.lerp(scrim, other.scrim, t) ?? scrim,
     );
   }
 
@@ -121,11 +121,7 @@ class AppColors extends ThemeExtension<AppColors> {
       begin: Alignment.topCenter,
       end: Alignment.bottomRight,
       stops: [0.0, 0.5, 1.0],
-      colors: [
-        Color(0xFFDBE9FF),
-        Color(0xFFEEF4FF),
-        Color(0xFFE3F3FF),
-      ],
+      colors: [Color(0xFFDBE9FF), Color(0xFFEEF4FF), Color(0xFFE3F3FF)],
     ),
     card: Color(0xFFFFFFFF),
     cardAlt: Color(0xFFF3F5FC),
@@ -139,17 +135,14 @@ class AppColors extends ThemeExtension<AppColors> {
     grad: LinearGradient(
       begin: Alignment.topLeft,
       end: Alignment.bottomRight,
-      colors: [
-        Color(0xFF5D78E7),
-        Color(0xFF35C2FD),
-      ],
+      colors: [Color(0xFF5D78E7), Color(0xFF35C2FD)],
     ),
     success: Color(0xFF3BC79A),
     danger: Color(0xFFEF5B6B),
     warning: Color(0xFFF5A623),
     disabledBg: Color(0xFFEDEFF7),
     disabledInk: Color(0xFFB7BBD6),
-    scrim: Color(0x730F142D), // rgba(15,20,45,.45)
+    scrim: Color(0x730F142D),
   );
 
   // ==========================================
@@ -160,11 +153,7 @@ class AppColors extends ThemeExtension<AppColors> {
       begin: Alignment.topCenter,
       end: Alignment.bottomRight,
       stops: [0.0, 0.45, 1.0],
-      colors: [
-        Color(0xFF0B0E22),
-        Color(0xFF10122A),
-        Color(0xFF141433),
-      ],
+      colors: [Color(0xFF0B0E22), Color(0xFF10122A), Color(0xFF141433)],
     ),
     card: Color(0xFF181A34),
     cardAlt: Color(0xFF20223F),
@@ -178,16 +167,72 @@ class AppColors extends ThemeExtension<AppColors> {
     grad: LinearGradient(
       begin: Alignment.topLeft,
       end: Alignment.bottomRight,
-      colors: [
-        Color(0xFF5D78E7),
-        Color(0xFF35C2FD),
-      ],
+      colors: [Color(0xFF5D78E7), Color(0xFF35C2FD)],
     ),
     success: Color(0xFF3BC79A),
     danger: Color(0xFFEF5B6B),
     warning: Color(0xFFF5A623),
     disabledBg: Color(0xFF23253F),
     disabledInk: Color(0xFF4A4D74),
-    scrim: Color(0x99000000), // rgba(0,0,0,.6)
+    scrim: Color(0x99000000),
   );
+
+  // ==========================================
+  // LIGHT THEME INSTANCE V2
+  // ==========================================
+  static const AppColors lightV2 = AppColors(
+    bgPage: LinearGradient(colors: [Color(0xFFEEF4FF), Color(0xFFEEF4FF)]),
+    card: Color(0xFFFFFFFF),
+    cardAlt: Color(0xFFF3F5FC),
+    cardAlt2: Color(0xFFFAFBFF),
+    ink: Color(0xFF1B1D3A),
+    sub: Color(0xFF8A8FA8),
+    line: Color(0xFFEEF0FA),
+    track: Color(0xFFEDEFFA),
+    indigo: Color(0xFF5D78E7),
+    blue: Color(0xFF35C2FD),
+    grad: LinearGradient(
+      begin: Alignment.topLeft,
+      end: Alignment.bottomRight,
+      colors: [Color(0xFF5D78E7), Color(0xFF35C2FD)],
+    ),
+    success: Color(0xFF3BC79A),
+    danger: Color(0xFFEF5B6B),
+    warning: Color(0xFFF5A623),
+    disabledBg: Color(0xFFEDEFF7),
+    disabledInk: Color(0xFFB7BBD6),
+    scrim: Color(0x730F142D),
+  );
+
+  // ==========================================
+  // DARK THEME INSTANCE V2
+  // ==========================================
+  static const AppColors darkV2 = AppColors(
+    bgPage: LinearGradient(colors: [Color(0xFF10122A), Color(0xFF10122A)]),
+    card: Color(0xFF181A34),
+    cardAlt: Color(0xFF20223F),
+    cardAlt2: Color(0xFF1C1E3A),
+    ink: Color(0xFFF1F2FB),
+    sub: Color(0xFF8B8FB8),
+    line: Color(0xFF2A2C4E),
+    track: Color(0xFF2A2C4E),
+    indigo: Color(0xFF5D78E7),
+    blue: Color(0xFF35C2FD),
+    grad: LinearGradient(
+      begin: Alignment.topLeft,
+      end: Alignment.bottomRight,
+      colors: [Color(0xFF5D78E7), Color(0xFF35C2FD)],
+    ),
+    success: Color(0xFF3BC79A),
+    danger: Color(0xFFEF5B6B),
+    warning: Color(0xFFF5A623),
+    disabledBg: Color(0xFF23253F),
+    disabledInk: Color(0xFF4A4D74),
+    scrim: Color(0x99000000),
+  );
+}
+
+extension AppColorsBuildContext on BuildContext {
+  /// Provides direct, short access to your custom theme colors via context.colors
+  AppColors get colors => Theme.of(this).extension<AppColors>()!;
 }

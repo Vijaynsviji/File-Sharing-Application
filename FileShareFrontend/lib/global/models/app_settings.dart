@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class AppSettings {
   final int id;
+  final bool isFirstTime;
   final ThemeMode currentTheme;
   final String currentLanguage;
 
@@ -9,24 +10,28 @@ class AppSettings {
     this.id = 1, // Fixed ID ensures we only overwrite a single row of settings
     required this.currentTheme,
     required this.currentLanguage,
+    required this.isFirstTime,
   });
 
   factory AppSettings.fromMap(Map<String, Object?> map) {
     return AppSettings(
       id: map['id'] as int? ?? 1,
       currentTheme: ThemeMode.values.firstWhere(
-            (e) => e.name == (map['currentTheme'] as String? ?? 'system'),
+        (e) => e.name == (map['currentTheme'] as String? ?? 'system'),
         orElse: () => ThemeMode.system,
       ),
       currentLanguage: map['currentLanguage'] as String? ?? 'en',
+      isFirstTime: (map['isFirstTime'] as int? ?? 1) == 1,
     );
   }
 
   Map<String, Object?> toMap() {
     return {
       'id': id,
-      'currentTheme': currentTheme.name, // Saves theme as 'system', 'light', or 'dark'
+      'currentTheme':
+          currentTheme.name, // Saves theme as 'system', 'light', or 'dark'
       'currentLanguage': currentLanguage,
+      'isFirstTime': isFirstTime,
     };
   }
 }

@@ -9,6 +9,7 @@ class CircularAvatar extends StatelessWidget {
   final ProfileImageModel imageModel;
   final double width;
   final double borderWidth;
+  final double imagePadding;
 
   const CircularAvatar({
     super.key,
@@ -16,6 +17,7 @@ class CircularAvatar extends StatelessWidget {
         120, // 🟢 Set a default larger width matching your profile setup size
     required this.imageModel,
     this.borderWidth = 2.0, // 🟢 Thin border ring matching your image layout
+    this.imagePadding = 15,
   });
 
   @override
@@ -30,18 +32,18 @@ class CircularAvatar extends StatelessWidget {
         shape: BoxShape.circle,
       ),
       child: Container(
-        padding: const EdgeInsets.all(24),
+        padding: EdgeInsets.all(imagePadding),
         // 🟢 Adjusts the white/transparent spacing area around the emoji face
         decoration: BoxDecoration(
           color: context.colors.card,
           // 🟢 Soft solid background container fill color inside the ring
           shape: BoxShape.circle,
         ),
-        child: CircleAvatar(
-          backgroundColor: Colors.transparent, // Prevents background bleed
-          backgroundImage: imageModel.isAsset
-              ? AssetImage(imageModel.path)
-              : FileImage(File(imageModel.path)) as ImageProvider,
+        child: ClipOval(
+          child: ImageView(
+            sourceType: imageModel.sourceType,
+            imagePath: imageModel.path,
+          ),
         ),
       ),
     );

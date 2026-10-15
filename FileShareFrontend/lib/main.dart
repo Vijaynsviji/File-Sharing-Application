@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 import 'core/Language/generated/app_localizations.dart';
+import 'core/notifications/notification_service.dart';
 import 'global/Providers/app_providers.dart';
 import 'global/models/app_colors.dart';
 import 'global/models/app_dependencies.dart';
@@ -80,6 +81,8 @@ class MyApp extends StatelessWidget {
       themeMode: appSettings.currentTheme,
       themeAnimationDuration: const Duration(milliseconds: 400),
       themeAnimationCurve: Curves.fastOutSlowIn,
+      scaffoldMessengerKey: NotificationService.scaffoldMessengerKey,
+      navigatorKey: NotificationService.navigatorKey,
       // themeMode: ThemeMode.light,
       localizationsDelegates: [
         AppLocalizations.delegate, // Add this line

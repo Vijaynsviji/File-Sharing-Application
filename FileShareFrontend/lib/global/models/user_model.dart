@@ -33,6 +33,28 @@ class User {
     };
   }
 
+  User copyWith({
+    String? id,
+    String? name,
+    String? deviceName,
+    String? deviceType,
+    String? profileImage,
+    String? bio,
+    String? deviceUniqueId,
+    DateTime? createdAt,
+  }) {
+    return User(
+      id: id ?? this.id,
+      name: name ?? this.name,
+      deviceName: deviceName ?? this.deviceName,
+      deviceType: deviceType ?? this.deviceType,
+      profileImage: profileImage ?? this.profileImage,
+      bio: bio ?? this.bio,
+      deviceUniqueId: deviceUniqueId ?? this.deviceUniqueId,
+      createdAt: createdAt ?? this.createdAt,
+    );
+  }
+
   static User get dummy => User(
     id: "usr_94820a8f",
     name: "Alex Mercer",

@@ -4,6 +4,7 @@ import 'package:file_share_application_frontend/global/Providers/AppSettingsNoti
 import 'package:file_share_application_frontend/ui/AppScaffold.dart';
 import 'package:file_share_application_frontend/ui/settings/settings_enums.dart';
 import 'package:file_share_application_frontend/ui/settings/settings_view_model.dart';
+import 'package:file_share_application_frontend/ui/settings/widget/setting_profile_view.dart';
 import 'package:file_share_application_frontend/ui/settings/widget/settings_theme_lang_view.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -26,6 +27,8 @@ class SettingsView extends StatelessWidget {
       currentSettings: currentSettings.appSettings,
     );
 
+    final isProfileSettingsView = currentView == SettingsViewEnum.profileView;
+
     return AppScaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -38,7 +41,9 @@ class SettingsView extends StatelessWidget {
       ),
       body: ChangeNotifierProvider.value(
         value: settingViewModel,
-        child: const SettingsThemeLangView(),
+        child: isProfileSettingsView
+            ? SettingProfileView()
+            : SettingsThemeLangView(),
       ),
     );
   }

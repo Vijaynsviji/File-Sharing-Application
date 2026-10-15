@@ -8,25 +8,23 @@ import '../profile_image_model.dart';
 import '../profile_setup_view_model.dart';
 
 class ProfileSetupInfoviewImage extends StatelessWidget {
-  const ProfileSetupInfoviewImage({super.key});
+  final ProfileImageModel profileImageModel;
+  final void Function() handleOnClick;
+  const ProfileSetupInfoviewImage({
+    super.key,
+    required this.profileImageModel,
+    required this.handleOnClick,
+  });
 
   @override
   Widget build(BuildContext context) {
-    final profileImageModel = context
-        .select<ProfileSetupViewModel, ProfileImageModel>(
-          (viewModel) => viewModel.selectedProfile,
-        );
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       spacing: 10,
       children: [
         CircularAvatar(imageModel: profileImageModel, width: 100),
         GestureDetector(
-          onTap: () => {
-            context
-                .read<ProfileSetupViewModel>()
-                .handleProfileImageSelectFromGallery(),
-          },
+          onTap: handleOnClick,
           child: Text(context.strings.changePhoto, style: context.styles.link),
         ),
       ],

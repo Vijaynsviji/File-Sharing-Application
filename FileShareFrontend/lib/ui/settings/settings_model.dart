@@ -2,19 +2,25 @@ import 'package:file_share_application_frontend/core/enums/languageEnums.dart';
 import 'package:flutter/material.dart';
 
 class SettingsModel {
-  String name;
-  String bio;
-  String deviceName;
-  ThemeMode themeMode;
-  LanguageEnums languageEnums;
-  String profileImage;
+  final ThemeMode themeMode;
+  final LanguageEnums languageEnums;
+  final String profileImage;
 
   SettingsModel({
-    required this.name,
-    required this.bio,
-    required this.deviceName,
     required this.themeMode,
     required this.languageEnums,
     required this.profileImage,
   });
+
+  SettingsModel copyWith({
+    ThemeMode? themeMode,
+    LanguageEnums? languageEnums,
+    String? profileImage,
+  }) {
+    return SettingsModel(
+      themeMode: themeMode ?? this.themeMode,
+      languageEnums: languageEnums ?? this.languageEnums,
+      profileImage: profileImage ?? this.profileImage,
+    );
+  }
 }

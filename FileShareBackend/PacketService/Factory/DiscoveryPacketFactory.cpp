@@ -9,20 +9,23 @@
 #include <string>
 
 #include "PacketService/Converters/DeviceConverter.h"
+#include "PacketService/Converters/UserConverter.h"
 #include "PacketService/Packets/Discovery.h"
 #include "PacketService/Proto/Discovery.pb.h"
 
 
 Discovery DiscoveryPacketFactory::createPacket(
     std::string &uniqueId,
-    Device &device
+    Device &device,
+    User& user
 ) {
     if (uniqueId.empty() || device.isInvalid()) {
         throw std::invalid_argument("Cannot Create Discovery Packet.");
     }
     Discovery discovery(
         uniqueId,
-        device
+        device,
+        user
     );
     return discovery;
 }
@@ -30,9 +33,10 @@ Discovery DiscoveryPacketFactory::createPacket(
 
 discoveryProto::Discovery DiscoveryPacketFactory::createProto(
     std::string& uniqueId,
-    Device& device
+    Device& device,
+    User& user
 ) {
-    if (uniqueId.empty() || device.isInvalid()) {
+    if (uniqueId.empty() || device.isInvalid() || user.isInvalid()) {
         throw std::invalid_argument("Cannot Create Discovery Proto.");
     }
 
@@ -42,7 +46,10 @@ discoveryProto::Discovery DiscoveryPacketFactory::createProto(
         throw std::runtime_error("Not able to convert device to proto.");
     }
 
+    auto userProto = UserConverter::toProto(user);
+
     *discoveryProto.mutable_device() = *deviceProto;
+    *discoveryProto.mutable_user() = *userProto;
     discoveryProto.set_uniqueid(uniqueId);
     discoveryProto.set_packettype(PacketEnum::Discovery);
 

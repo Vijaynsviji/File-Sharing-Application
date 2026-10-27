@@ -49,6 +49,7 @@ class AppSettingsNotifier extends ChangeNotifier {
   Future<void> saveToDatabase(AppSettings settings) async {
     final result = await _repository.saveAppSettings(settings);
     _settings = settings;
+    _isLoading = false;
     notifyListeners();
     if (result is ResourceFailure) {
       debugPrint('Error persisting settings: ${result}');

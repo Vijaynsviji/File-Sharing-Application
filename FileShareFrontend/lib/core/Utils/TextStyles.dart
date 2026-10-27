@@ -18,6 +18,8 @@ class AppStyles extends ThemeExtension<AppStyles> {
   final TextStyle link; // Change photo, View, Connect
   final TextStyle buttonPrimary; // text on filled indigo buttons
   final TextStyle buttonSecondary; // ghost buttons (I'll do this later)
+  final TextStyle ringValue;
+  final TextStyle toast;
 
   AppStyles({
     required this.header,
@@ -35,6 +37,8 @@ class AppStyles extends ThemeExtension<AppStyles> {
     required this.link,
     required this.buttonPrimary,
     required this.buttonSecondary,
+    required this.ringValue,
+    required this.toast,
   });
 
   factory AppStyles.fromColors(AppColors colors) {
@@ -67,6 +71,16 @@ class AppStyles extends ThemeExtension<AppStyles> {
       link: t(12, colors.indigo, weight: FontWeight.w700),
       buttonPrimary: t(14.5, Colors.white, weight: FontWeight.w700),
       buttonSecondary: t(13.5, colors.sub, weight: FontWeight.w600),
+      ringValue: t(
+        26,
+        colors.ink,
+        weight: FontWeight.w800,
+      ), // big numbers: "80%", connected count
+      toast: t(
+        13,
+        colors.ink,
+        weight: FontWeight.w600,
+      ), // snackbar / toast messages
     );
   }
 
@@ -87,6 +101,8 @@ class AppStyles extends ThemeExtension<AppStyles> {
     TextStyle? link,
     TextStyle? buttonPrimary,
     TextStyle? buttonSecondary,
+    TextStyle? ringValue,
+    TextStyle? toast,
   }) {
     return AppStyles(
       header: header ?? this.header,
@@ -104,6 +120,8 @@ class AppStyles extends ThemeExtension<AppStyles> {
       link: link ?? this.link,
       buttonPrimary: buttonPrimary ?? this.buttonPrimary,
       buttonSecondary: buttonSecondary ?? this.buttonSecondary,
+      ringValue: ringValue ?? this.ringValue,
+      toast: toast ?? this.toast,
     );
   }
 
@@ -134,6 +152,8 @@ class AppStyles extends ThemeExtension<AppStyles> {
         other.buttonSecondary,
         t,
       )!,
+      ringValue: TextStyle.lerp(ringValue, other.ringValue, t)!,
+      toast: TextStyle.lerp(toast, other.toast, t)!,
     );
   }
 }

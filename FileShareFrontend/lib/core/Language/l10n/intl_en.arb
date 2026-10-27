@@ -646,5 +646,189 @@
     "noTransfersBody": "Files you send or receive will show up here.",
     "@noTransfersBody": {
       "description": "Body text for empty state explaining where transfers will appear[cite: 1]"
-    }
+    },
+    "settingsSaved": "Settings saved successfully",
+      "@settingsSaved": {
+        "description": "Message shown when user settings are successfully updated"
+      },
+
+      "settingsSaveFailed": "Couldn't save settings. Try again.",
+      "@settingsSaveFailed": {
+        "description": "Error message shown when settings fail to save"
+      },
+
+      "galleryReadFailed": "Couldn't read that file from your gallery. Choose another file.",
+      "@galleryReadFailed": {
+        "description": "Error message when a selected gallery file cannot be accessed"
+      },
+
+      "profileSaved": "Profile saved successfully",
+      "@profileSaved": {
+        "description": "Message shown when the user profile is updated"
+      },
+
+      "profileSaveFailed": "Couldn't save your profile. Try again.",
+      "@profileSaveFailed": {
+        "description": "Error message when profile update fails"
+      },
+
+      "myGroupTitle": "My Group",
+      "@myGroupTitle": {
+        "description": "Title for the group created by the sender"
+      },
+
+      "groupActive": "Group active",
+      "@groupActive": {
+        "description": "Status indicating the sender's group is active and ready for connections"
+      },
+
+      "groupSubtitle": "Wi-Fi Direct · no internet needed",
+      "@groupSubtitle": {
+        "description": "Subtitle explaining the connection technology being used"
+      },
+
+      "groupConnectedCount": "connected",
+      "@groupConnectedCount": {
+        "description": "Label for the number of connected devices"
+      },
+
+      "devices": "Devices",
+      "@devices": {
+        "description": "Header for the list of connected devices"
+      },
+
+      "refresh": "Refresh",
+      "@refresh": {
+        "description": "Button label to refresh the connection or list"
+      },
+
+      "remove": "Remove",
+      "@remove": {
+        "description": "Button label to remove a device from the group"
+      },
+
+      "retry": "Retry",
+      "@retry": {
+        "description": "Button label to retry a failed action"
+      },
+
+      "statusConnected": "Connected",
+      "@statusConnected": {
+        "description": "Status indicating a successful connection"
+      },
+
+      "statusConnecting": "Connecting…",
+      "@statusConnecting": {
+        "description": "Status indicating an ongoing connection attempt"
+      },
+
+      "statusCouldntConnect": "Couldn't connect",
+      "@statusCouldntConnect": {
+        "description": "Status indicating a failed connection attempt"
+      },
+
+      "sendFiles": "Send files",
+      "@sendFiles": {
+        "description": "Button label to initiate file sending"
+      },
+
+      "endGroup": "End group",
+      "@endGroup": {
+        "description": "Button label to terminate the current group"
+      },
+
+      "waitingForDevices": "Waiting for devices",
+      "@waitingForDevices": {
+        "description": "Status indicating the sender is waiting for receivers to join"
+      },
+
+      "waitingForDevicesBody": "Ask others to open Receive on their phone and pick this device under Nearby Groups.",
+      "@waitingForDevicesBody": {
+        "description": "Instruction for the sender to tell receivers what to do"
+      },
+
+      "endGroupTitle": "End this group?",
+      "@endGroupTitle": {
+        "description": "Dialog title when attempting to end the group"
+      },
+
+      "endGroupBody": "{count, plural, =1{1 device will} other{{count} devices will}} be disconnected. Anything still sending will stop.",
+      "@endGroupBody": {
+        "description": "Warning message before ending the group",
+        "placeholders": {
+          "count": {
+            "type": "int"
+          }
+        }
+      },
+
+      "keepGroup": "Keep group",
+      "@keepGroup": {
+        "description": "Button label to cancel ending the group"
+      },
+
+      "discoverGroupsTitle": "Discover Groups",
+      "@discoverGroupsTitle": {
+        "description": "Title for the receiver's screen looking for groups"
+      },
+
+      "connectedTo": "Connected to",
+      "@connectedTo": {
+        "description": "Label showing which group or device the receiver is connected to"
+      },
+
+      "leaveGroup": "Leave group",
+      "@leaveGroup": {
+        "description": "Button label for the receiver to disconnect from a group"
+      },
+
+      "nearbyGroups": "Nearby Groups",
+      "@nearbyGroups": {
+        "description": "Header for the list of available groups to join"
+      },
+
+      "statusAvailable": "Available",
+      "@statusAvailable": {
+        "description": "Status indicating a group can be joined"
+      },
+
+      "join": "Join",
+      "@join": {
+        "description": "Button label to join a group"
+      },
+
+      "statusJoining": "Joining…",
+      "@statusJoining": {
+        "description": "Status indicating the receiver is attempting to join a group"
+      },
+
+      "statusCouldntJoin": "Couldn't join",
+      "@statusCouldntJoin": {
+        "description": "Status indicating the receiver failed to join a group"
+      },
+
+      "scanningShort": "Scanning…",
+      "@scanningShort": {
+        "description": "Status indicating the device is looking for nearby groups"
+      },
+
+      "notConnectedTitle": "Not connected to a group",
+      "@notConnectedTitle": {
+        "description": "Status when the receiver has not joined any group"
+      },
+
+      "notConnectedBody": "Pick a nearby sender below to start receiving files.",
+      "@notConnectedBody": {
+        "description": "Instruction for the receiver to select a sender"
+      },
+
+      "noGroupsTitle": "No groups nearby",
+      "@noGroupsTitle": {
+        "description": "Status when no senders are found nearby"
+      },
+
+      "noGroupsBody": "Ask the sender to start a group, and make sure Wi-Fi and location are on. Stay within a few meters.",
+      "@noGroupsBody": {
+        "description": "Troubleshooting instruction when no groups are found"
+      }
 }

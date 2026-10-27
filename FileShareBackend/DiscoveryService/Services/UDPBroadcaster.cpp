@@ -8,15 +8,25 @@
 #include <iostream>
 #include "UniversalSocket.h"
 #include <vector>
+// #include <bits/this_thread_sleep.h>
+#include <thread>
 
 
 #include "UDPService.h"
 #include "DiscoveryService/Types/SocketValue.h"
 #include "DiscoveryService/Types/UDPSocketConfig.h"
+#include "PacketService/Converters/DeviceConverter.h"
+#include "PacketService/Converters/UserConverter.h"
+#include "PacketService/Factory/DiscoveryPacketFactory.h"
+#include "PacketService/Packets/Discovery.h"
+#include "PacketService/Packets/User.h"
+#include "Utils/utils.h"
 
 
-
-void UDPBroadcaster::broadCastUDP() {
+void UDPBroadcaster::broadCastUDP(
+        Device& device,
+        User& user
+    ) {
     // SocketType broadCastSocket = socket(AF_INET,SOCK_DGRAM,0);
     // if (broadCastSocket == INVALID_SOCKET) {
     //     throw std::runtime_error("Not able to create Socket for UDP Listen");
@@ -46,21 +56,55 @@ void UDPBroadcaster::broadCastUDP() {
     sockaddr_in address = createdSocketValue.address;
 
     // inet_pton(AF_INET,"255.255.255.255",&address.sin_addr);
+    stopServer.store(false);
 
-    while (true) {
-        if (stopServer) break;
+    while (!stopServer.load()) {
+        // if (stopServer) {
+        //     if (broadCastSocket != INVALID_SOCKET) {
+        //         CROSS_CLOSE(broadCastSocket);
+        //     }
+        //     break;
+        // }
 
         std::string msg = "BroadCasting Message";
-        std::vector<char> buffer(msg.begin(), msg.end());
+        std::cout<<"Started BroadCasing"<<std::endl;
+        auto uniqueId = Utility::generateGUID();
+        auto discoveryProto = DiscoveryPacketFactory::createProto(uniqueId,device,user);
+
+        std::string bufferStr;
+        if (!discoveryProto.SerializeToString(&bufferStr)) {
+            throw std::runtime_error("Cannot covert Discovery Packet to buffer String");
+        }
+
         int sendDiscoveryData = sendto(broadCastSocket,
-                                        buffer.data(),
-                                        buffer.size(),0,
+                                        bufferStr.data(),
+                                        bufferStr.size(),0,
                                         (struct sockaddr*)&address,
                                         sizeof(address)
                                         );
+        std::cout << "sendto returned: "
+          << sendDiscoveryData << std::endl;
         if (sendDiscoveryData == SOCKET_ERROR) {
             throw std::runtime_error("Not able to broadcast Discovery Packet.");
         }
+
+        // std::this_thread::sleep_for(std::chrono::seconds(5));
+
+        std::unique_lock<std::mutex> lock(stopMutex);
+
+        if (stopCondition.wait_for(
+            lock,
+            std::chrono::seconds(5),
+            [this] { return stopServer.load(); })) {
+        break;
+            }
+        }
+
+    // The worker owns socket cleanup.
+    if (broadCastSocket != INVALID_SOCKET) {
+        CROSS_CLOSE(broadCastSocket);
+        broadCastSocket = INVALID_SOCKET;
+    }
 
         // TODO 1: Create Discovery Packet and Convert that Packet to PROTO.
 
@@ -69,10 +113,7 @@ void UDPBroadcaster::broadCastUDP() {
 
     }
 
-
-
-}
-
 void UDPBroadcaster::shutDownServer() {
-    stopServer = true;
+    stopServer.store(true);
+    stopCondition.notify_all();
 }

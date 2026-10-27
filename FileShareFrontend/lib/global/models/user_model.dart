@@ -33,6 +33,21 @@ class User {
     };
   }
 
+  Map<String, dynamic> toJson() {
+    return {
+      // Omit 'id' so SQLite's AUTOINCREMENT can do its job
+      'id': id,
+      'name': name,
+      'device_name': deviceName, // 👈 Match SQLite column
+      'device_type': deviceType, // 👈 Match SQLite column
+      'profile_image': profileImage, // 👈 Match SQLite column
+      'bio': bio,
+      'device_unique_id': deviceUniqueId, // 👈 Match SQLite column
+      'created_at': createdAt
+          .millisecondsSinceEpoch, // 👈 Convert DateTime to SQLite INTEGER
+    };
+  }
+
   User copyWith({
     String? id,
     String? name,

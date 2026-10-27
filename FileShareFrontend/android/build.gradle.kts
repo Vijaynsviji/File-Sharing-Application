@@ -16,6 +16,20 @@ subprojects {
     project.layout.buildDirectory.value(newSubprojectBuildDir)
 }
 subprojects {
+    afterEvaluate {
+        val project = this
+        if (project.plugins.hasPlugin("com.android.library")) {
+            project.extensions.configure<com.android.build.gradle.LibraryExtension>("android") {
+                // Dynamically sets the plugin's compileSdk to whatever your Flutter SDK defines
+                compileSdk = rootProject.findProject(":app")
+                    ?.extensions
+                    ?.findByType(com.android.build.api.dsl.ApplicationExtension::class.java)
+                    ?.compileSdk ?: compileSdk
+            }
+        }
+    }
+}
+subprojects {
     project.evaluationDependsOn(":app")
 }
 

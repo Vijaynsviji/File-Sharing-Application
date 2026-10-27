@@ -7,6 +7,8 @@
 
 #include "DeviceConverter.h"
 #include "DiscoveryConverter.h"
+
+#include "UserConverter.h"
 #include "PacketService/Packets/Discovery.h"
 #include "PacketService/Proto/Discovery.pb.h"
 #include "PacketService/Proto/PacketEnum.pb.h"
@@ -26,8 +28,13 @@ discoveryProto::Discovery DiscoveryConverter::toProto(Discovery discovery) {
         throw std::invalid_argument("Cannot convert invalid Discovery Device object to Device Proto.");
     }
 
-    if (deviceProto) {
-        *discoveryProto.mutable_device() = *deviceProto;
+    auto userProto = UserConverter::toProto(discovery.get_user());
+    if (!userProto.has_value()) {
+        throw std::invalid_argument("Cannot convert invalid Discovery User object to User Proto.");
+    }
+
+    if (userProto) {
+        *discoveryProto.mutable_user() = *userProto;
     }
 
     // discoveryProto.set_allocated_device(deviceProto);
@@ -43,6 +50,11 @@ Discovery DiscoveryConverter::toPacket(discoveryProto::Discovery discoveryProto)
         throw std::invalid_argument("Cannot convert invalid Discovery Device Proto to Device.");
     }
 
-    Discovery discovery(uniqueId,device.value());
+    auto user = UserConverter::toUser(discoveryProto.user());
+    if (!user.has_value()) {
+        throw std::invalid_argument("Cannot convert invalid Discovery User Proto to User.");
+    }
+
+    Discovery discovery(uniqueId,device.value(),user.value());
     return discovery;
 }

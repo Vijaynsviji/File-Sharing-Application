@@ -15,6 +15,8 @@
 #include "EventService/EventEmitter.h"
 #include "FileService/Services/FileReceiverService.h"
 #include "FileService/Services/FileSenderService.h"
+#include "PacketService/Packets/User.h"
+#include "PacketService/Packets/Device.h"
 #include "ThreadPoolService/ThreadPool.h"
 
 
@@ -25,6 +27,8 @@ class Engine {
     FileSenderService fileSenderService;
     FileReceiverService fileReceiverService;
     ThreadPool threadPool;
+    User currentUser;
+    Device currentDevice;
 
 public:
     Engine()
@@ -36,6 +40,8 @@ public:
     {
         // The constructor body is now clean and empty!
     }
+
+    void intialiseCurrentUserAndDevice(const char* jsonString);
 
     void startBroadCast();
 
@@ -66,6 +72,6 @@ public:
 
     void addUserSelectedFiles(const char* jsonString);
 
-    void initialiseDartPortId(int dartPortId);
+    void initialiseDartPortId(int64_t dartPortId);
 
 };

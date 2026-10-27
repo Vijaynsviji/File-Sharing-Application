@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../global/models/app_colors.dart';
+
 // Import your theme extension file here to resolve context.colors
 
 class AppScaffold extends StatelessWidget {
@@ -8,6 +9,8 @@ class AppScaffold extends StatelessWidget {
   final Widget body;
   final Widget? drawer;
   final Widget? bottomNavigationBar;
+  final EdgeInsets? paddingValue;
+  final Widget? bottomSheet;
 
   const AppScaffold({
     super.key,
@@ -15,6 +18,8 @@ class AppScaffold extends StatelessWidget {
     required this.body,
     this.drawer,
     this.bottomNavigationBar,
+    this.paddingValue = const EdgeInsets.all(16),
+    this.bottomSheet,
   });
 
   @override
@@ -28,7 +33,7 @@ class AppScaffold extends StatelessWidget {
       body: LayoutBuilder(
         builder: (context, constraints) {
           return Container(
-            padding: const EdgeInsets.all(16.0),
+            padding: paddingValue,
             width: double.infinity,
             constraints: BoxConstraints(minHeight: constraints.maxHeight),
             decoration: BoxDecoration(
@@ -39,6 +44,7 @@ class AppScaffold extends StatelessWidget {
           );
         },
       ),
+      bottomSheet: bottomSheet,
     );
   }
 }

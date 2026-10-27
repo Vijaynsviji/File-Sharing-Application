@@ -46,3 +46,5 @@ app.*.map.json
 api_key
 .l10n_cache
 .idea
+# Widget Preview related
+.widget_preview/

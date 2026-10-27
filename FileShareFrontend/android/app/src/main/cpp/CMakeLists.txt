@@ -26,6 +26,8 @@ add_library(
         file_share_engine
         SHARED
         native_bridge.cpp
+        android_log_redirect.cpp
+
 )
 
 target_link_libraries(
@@ -33,3 +35,13 @@ target_link_libraries(
         PRIVATE
         FileShareCore
 )
+
+if(ANDROID)
+    find_library(log-lib log)
+
+    target_link_libraries(
+        file_share_engine
+        PRIVATE
+        ${log-lib}
+    )
+endif()

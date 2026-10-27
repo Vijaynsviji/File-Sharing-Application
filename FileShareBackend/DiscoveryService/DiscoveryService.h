@@ -22,6 +22,8 @@
 #include "Services/UDPBroadcaster.h"
 #include "Services/UDPListener.h"
 #include "Types/SocketValue.h"
+#include "PacketService/Packets/User.h"
+#include "PacketService/Packets/Device.h"
 
 
 class DiscoveryService {
@@ -35,7 +37,7 @@ class DiscoveryService {
     int DiscoveryTCPPort;
 public:
     DiscoveryService(long long bufferSize, int portValue,int discoveryTCPPort,DartEventEmitter& eventEmitter):
-    udpBroadCaster(portValue,bufferSize),udpListener(portValue),DiscoveryTCPPort(discoveryTCPPort),
+    udpBroadCaster(portValue,bufferSize),udpListener(portValue,eventEmitter),DiscoveryTCPPort(discoveryTCPPort),
     eventEmitter(eventEmitter){}
 
     std::unordered_map<std::string, OnlineDevice> online_devices() const {
@@ -46,21 +48,21 @@ public:
         onlineDevices = online_devices;
     }
 
-    UDPBroadcaster udp_broad_caster() const {
+    UDPBroadcaster& udp_broad_caster() {
         return udpBroadCaster;
     }
 
-    void set_udp_broad_caster(UDPBroadcaster udp_broad_caster) {
-        udpBroadCaster = udp_broad_caster;
-    }
+    // void set_udp_broad_caster(UDPBroadcaster udp_broad_caster) {
+    //     udpBroadCaster = udp_broad_caster;
+    // }
 
-    UDPListener udp_listener() const {
-        return udpListener;
-    }
+    // UDPListener udp_listener() const {
+    //     return udpListener;
+    // }
 
-    void set_udp_listener(UDPListener udp_listener) {
-        udpListener = udp_listener;
-    }
+    // void set_udp_listener(UDPListener& udp_listener) {
+    //     udpListener = udp_listener;
+    // }
 
     bool stop_remove_inactive_task() const {
         return stopRemoveInactiveTask;
@@ -86,8 +88,9 @@ public:
         DiscoveryTCPPort = discovery_tcp_port;
     }
 
-    void startUdpBroadCasting() {
-        udpBroadCaster.broadCastUDP();
+    void startUdpBroadCasting(Device& device,
+        User& user) {
+        udpBroadCaster.broadCastUDP(device,user);
     }
 
     void stopUdpBroadCasting() {

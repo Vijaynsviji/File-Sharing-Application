@@ -50,6 +50,6 @@ public:
     }
 
     bool isInvalid() const {
-        return DeviceId.empty() || !DeviceType.empty() || DeviceName.empty();
+        return DeviceId.empty() || DeviceType.empty() || DeviceName.empty();
     }
 };

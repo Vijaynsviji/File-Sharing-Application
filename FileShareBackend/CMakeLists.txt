@@ -43,6 +43,7 @@ add_library(FileShareCore STATIC
         PacketService/Converters/TransferCompleteConverter.cpp
         PacketService/Converters/ErrorConverter.h
         PacketService/Converters/ErrorConverter.cpp
+        PacketService/Packets/User.h
         DiscoveryService/Models/OnlineDevice.h
         DiscoveryService/Services/UDPListener.h
         DiscoveryService/Services/UDPListener.cpp
@@ -92,6 +93,9 @@ add_library(FileShareCore STATIC
         Engine.cpp
         EventService/EventEmitter.h
         EventService/EventEmitter.cpp
+        PacketService/Converters/UserConverter.h
+        PacketService/Converters/UserConverter.cpp
+        EventService/include/dart_api_dl.c
 )
 
 set_target_properties(FileShareCore PROPERTIES
@@ -119,6 +123,7 @@ protobuf_generate(
 target_include_directories(FileShareCore  PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}
         ${CMAKE_CURRENT_BINARY_DIR}
+        ${CMAKE_CURRENT_SOURCE_DIR}/EventService/include
 )
 
 if(NOT ANDROID)

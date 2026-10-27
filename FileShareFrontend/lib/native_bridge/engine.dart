@@ -11,6 +11,8 @@ class Engine {
   // --- C++ Function Signatures ---
   late final int Function(Pointer<Void>) _initializeDartApi;
   late final void Function(Pointer<Void>) _destroy;
+  late final void Function(Pointer<Void>, Pointer<Utf8>)
+  _intialiseCurrentUserAndDevice;
   late final void Function(Pointer<Void>) _startBroadcast;
   late final void Function(Pointer<Void>) _startListening;
   late final void Function(Pointer<Void>) _stopBroadcasting;
@@ -27,28 +29,80 @@ class Engine {
   Engine() {
     _library = _loadLibrary();
 
-    final create = _library.lookupFunction<
-        Pointer<Void> Function(),
-        Pointer<Void> Function()
-    >('engine_create');
+    _bindDartApi();
+
+    final create = _library
+        .lookupFunction<Pointer<Void> Function(), Pointer<Void> Function()>(
+          'engine_create',
+        );
+
+    _library
+        .lookup<NativeFunction<Void Function()>>('redirectCppLogsToLogcat')
+        .asFunction<void Function()>()();
 
     _engine = create();
 
-    _destroy = _library.lookup<NativeFunction<Void Function(Pointer<Void>)>>('engine_destroy').asFunction();
-    _startBroadcast = _library.lookup<NativeFunction<Void Function(Pointer<Void>)>>('engine_startBroadCast').asFunction();
-    _startListening = _library.lookup<NativeFunction<Void Function(Pointer<Void>)>>('engine_startListening').asFunction();
-    _stopBroadcasting = _library.lookup<NativeFunction<Void Function(Pointer<Void>)>>('engine_stopBroadCasting').asFunction();
-    _stopListening = _library.lookup<NativeFunction<Void Function(Pointer<Void>)>>('engine_stopListening').asFunction();
-    _startTcpListening = _library.lookup<NativeFunction<Void Function(Pointer<Void>)>>('engine_startTCPListening').asFunction();
-    _stopTcpListening = _library.lookup<NativeFunction<Void Function(Pointer<Void>)>>('engine_stopTCPListening').asFunction();
+    _destroy = _library
+        .lookup<NativeFunction<Void Function(Pointer<Void>)>>('engine_destroy')
+        .asFunction();
+    _intialiseCurrentUserAndDevice = _library
+        .lookup<NativeFunction<Void Function(Pointer<Void>, Pointer<Utf8>)>>(
+          'intialiseCurrentUserAndDevice',
+        )
+        .asFunction();
+    _startBroadcast = _library
+        .lookup<NativeFunction<Void Function(Pointer<Void>)>>(
+          'engine_startBroadCast',
+        )
+        .asFunction();
+    _startListening = _library
+        .lookup<NativeFunction<Void Function(Pointer<Void>)>>(
+          'engine_startListening',
+        )
+        .asFunction();
+    _stopBroadcasting = _library
+        .lookup<NativeFunction<Void Function(Pointer<Void>)>>(
+          'engine_stopBroadCasting',
+        )
+        .asFunction();
+    _stopListening = _library
+        .lookup<NativeFunction<Void Function(Pointer<Void>)>>(
+          'engine_stopListening',
+        )
+        .asFunction();
+    _startTcpListening = _library
+        .lookup<NativeFunction<Void Function(Pointer<Void>)>>(
+          'engine_startTCPListening',
+        )
+        .asFunction();
+    _stopTcpListening = _library
+        .lookup<NativeFunction<Void Function(Pointer<Void>)>>(
+          'engine_stopTCPListening',
+        )
+        .asFunction();
 
-    _sendFileRequest = _library.lookup<NativeFunction<Void Function(Pointer<Void>, Pointer<Utf8>)>>('engine_sendFileRequest').asFunction();
-    _sendFileResponse = _library.lookup<NativeFunction<Void Function(Pointer<Void>, Pointer<Utf8>)>>('engine_sendFileResponse').asFunction();
-    _addUserSelectedFiles = _library.lookup<NativeFunction<Void Function(Pointer<Void>, Pointer<Utf8>)>>('engine_addUserSelectedFiles').asFunction();
+    _sendFileRequest = _library
+        .lookup<NativeFunction<Void Function(Pointer<Void>, Pointer<Utf8>)>>(
+          'engine_sendFileRequest',
+        )
+        .asFunction();
+    _sendFileResponse = _library
+        .lookup<NativeFunction<Void Function(Pointer<Void>, Pointer<Utf8>)>>(
+          'engine_sendFileResponse',
+        )
+        .asFunction();
+    _addUserSelectedFiles = _library
+        .lookup<NativeFunction<Void Function(Pointer<Void>, Pointer<Utf8>)>>(
+          'engine_addUserSelectedFiles',
+        )
+        .asFunction();
 
-    _initialiseDartEventPortId = _library.lookup<NativeFunction<Void Function(Pointer<Void>, Int64)>>('engine_initialiseDartEventPortId').asFunction();
+    _initialiseDartEventPortId = _library
+        .lookup<NativeFunction<Void Function(Pointer<Void>, Int64)>>(
+          'engine_initialiseDartEventPortId',
+        )
+        .asFunction();
   }
-
 
   Pointer<Void> get engine => _engine;
 
@@ -61,14 +115,23 @@ class Engine {
   void startTcpListening() => _verifyAlive(() => _startTcpListening(_engine));
   void stopTcpListening() => _verifyAlive(() => _stopTcpListening(_engine));
 
+  void intialiseCurrentUserAndDevice(String jsonString) {
+    _verifyAlive(() {
+      final nativeString = jsonString.toNativeUtf8();
+      try {
+        _intialiseCurrentUserAndDevice(_engine, nativeString);
+      } finally {
+        calloc.free(nativeString);
+      }
+    });
+  }
+
   DynamicLibrary _loadLibrary() {
     if (Platform.isAndroid) {
       return DynamicLibrary.open('libfile_share_engine.so');
     }
 
-    throw UnsupportedError(
-      'Unsupported platform: ${Platform.operatingSystem}',
-    );
+    throw UnsupportedError('Unsupported platform: ${Platform.operatingSystem}');
   }
 
   void sendFileRequest(String senderIPAddress) {
@@ -112,7 +175,9 @@ class Engine {
 
   void _bindDartApi() {
     _initializeDartApi = _library
-        .lookup<NativeFunction<IntPtr Function(Pointer<Void>)>>('engine_initialize_dart_api')
+        .lookup<NativeFunction<IntPtr Function(Pointer<Void>)>>(
+          'engine_initialize_dart_api',
+        )
         .asFunction();
 
     final result = _initializeDartApi(NativeApi.initializeApiDLData);
@@ -129,10 +194,11 @@ class Engine {
   }
 
   void dispose() {
-    final destroy = _library.lookupFunction<
-        Void Function(Pointer<Void>),
-        void Function(Pointer<Void>)
-    >('engine_destroy');
+    final destroy = _library
+        .lookupFunction<
+          Void Function(Pointer<Void>),
+          void Function(Pointer<Void>)
+        >('engine_destroy');
 
     destroy(_engine);
   }

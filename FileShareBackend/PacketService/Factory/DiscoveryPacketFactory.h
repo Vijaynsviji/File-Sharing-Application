@@ -19,12 +19,14 @@ class DiscoveryPacketFactory {
 public:
     static Discovery createPacket(
         std::string &uniqueId,
-        Device &device
+        Device &device,
+        User& user
     );
 
 
     static discoveryProto::Discovery createProto(
         std::string& uniqueId,
-        Device& device
+        Device& device,
+        User& user
     );
 };

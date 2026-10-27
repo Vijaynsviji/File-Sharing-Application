@@ -7,7 +7,8 @@ import '../../core/enums/fileCategoryEnums.dart';
 class Filenotifiers extends ChangeNotifier {
   final List<FileModel> _selectedFiles = [];
   final HashSet<String> _selectedFilesSet = HashSet<String>();
-  final HashMap<FileCategoryEnum, List<FileModel>> _allFilesDataMap = HashMap<FileCategoryEnum, List<FileModel>>();
+  final HashMap<FileCategoryEnum, List<FileModel>> _allFilesDataMap =
+      HashMap<FileCategoryEnum, List<FileModel>>();
   bool _isLoadingFiles = false;
 
   // ==========================================
@@ -18,7 +19,8 @@ class Filenotifiers extends ChangeNotifier {
 
   HashSet<String> get selectedFilesSet => _selectedFilesSet;
 
-  Map<FileCategoryEnum, List<FileModel>> get allFilesDataMap => _allFilesDataMap;
+  Map<FileCategoryEnum, List<FileModel>> get allFilesDataMap =>
+      _allFilesDataMap;
 
   bool get isLoadingFiles => _isLoadingFiles;
 
@@ -34,10 +36,7 @@ class Filenotifiers extends ChangeNotifier {
     _isLoadingFiles = true;
     notifyListeners();
 
-    try {
-
-
-    } catch (e) {
+    try {} catch (e) {
       debugPrint("Error loading files: $e");
     } finally {
       // 5. Stop loading and update UI
@@ -62,7 +61,8 @@ class Filenotifiers extends ChangeNotifier {
     // Assuming 'fileID' is the unique string identifier in FileModel.
     // Change it to filePath if that is what you are using in the HashSet.
     _selectedFilesSet.addAll(files.map((file) => file.fileID));
-
+    print("Selected Files: ");
+    print(files);
     notifyListeners();
   }
 

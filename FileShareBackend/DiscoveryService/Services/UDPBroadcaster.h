@@ -12,20 +12,27 @@
 #include <iostream>
 #include "UniversalSocket.h"
 #include <vector>
+#include <atomic>
+#include <condition_variable>
+#include <mutex>
 
 
 #include "DiscoveryService/Models/OnlineDevice.h"
-
-
-
+#include "PacketService/Packets/User.h"
 
 
 class UDPBroadcaster {
     int broadCastPort;
-    bool stopServer = false;
+    std::atomic<bool> stopServer{false};
     int bufferSize = 1024;
+
+    std::mutex stopMutex;
+    std::condition_variable stopCondition;
 public:
     explicit UDPBroadcaster(int portValue,int bufferSize):broadCastPort(portValue),bufferSize(bufferSize){}
-    void broadCastUDP();
+    void broadCastUDP(
+    Device& device,
+User& user
+        );
     void shutDownServer();
 };

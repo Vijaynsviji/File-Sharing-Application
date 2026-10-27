@@ -1,22 +1,35 @@
+import com.android.build.api.dsl.ApplicationExtension
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import java.util.Properties
+
 plugins {
     id("com.android.application")
-    id("kotlin-android")
-    // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
     id("dev.flutter.flutter-gradle-plugin")
 }
 
-android {
+val localProps = Properties().apply {
+    val f = rootProject.file("local.properties")
+    if (f.exists()) f.inputStream().use { load(it) }
+}
+
+val sdkDir = (localProps.getProperty("sdk.dir")
+    ?: System.getenv("ANDROID_HOME")
+    ?: System.getenv("ANDROID_SDK_ROOT")
+    ?: error("Android SDK not found")).replace("\\", "/")
+
+val customNdkVersion = "28.2.13676358"
+val customNdkPath = "$sdkDir/ndk/$customNdkVersion"
+
+configure<ApplicationExtension> {
     namespace = "com.vijayns.file_share_application_frontend"
     compileSdk = flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
 
+    ndkVersion = customNdkVersion
+
+    // RESTORED: Forces Java to compile at version 17
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
-    }
-
-    kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_17.toString()
     }
 
     defaultConfig {
@@ -34,7 +47,7 @@ android {
             cmake {
                 arguments += listOf(
                     "-DCMAKE_TOOLCHAIN_FILE=C:/Users/VijayNSadashiva/.vcpkg-clion/vcpkg/scripts/buildsystems/vcpkg.cmake",
-                    "-DVCPKG_CHAINLOAD_TOOLCHAIN_FILE=${android.ndkDirectory}/build/cmake/android.toolchain.cmake",
+                    "-DVCPKG_CHAINLOAD_TOOLCHAIN_FILE=$customNdkPath/build/cmake/android.toolchain.cmake",
                     "-DANDROID_PLATFORM=android-24"
                 )
             }
@@ -43,8 +56,6 @@ android {
 
     buildTypes {
         release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
             signingConfig = signingConfigs.getByName("debug")
         }
     }
@@ -53,6 +64,13 @@ android {
         cmake {
             path = file("src/main/cpp/CMakeLists.txt")
         }
+    }
+}
+
+// RESTORED: Forces Kotlin to compile at version 17
+kotlin {
+    compilerOptions {
+        jvmTarget.set(JvmTarget.JVM_17)
     }
 }
 

@@ -1,4 +1,5 @@
 import 'package:file_share_application_frontend/global/Providers/AppSettingsNotifier.dart';
+import 'package:file_share_application_frontend/global/Providers/DiscoveryNotifier.dart';
 import 'package:file_share_application_frontend/global/Providers/PeerDeviceNotifier.dart';
 import 'package:file_share_application_frontend/repository/app_settings_repository.dart';
 import 'package:provider/provider.dart';
@@ -34,11 +35,15 @@ class AppProviders {
       ChangeNotifierProvider<Filenotifiers>(
         create: (context) => Filenotifiers(),
       ),
+      ChangeNotifierProvider<Discoverynotifier>.value(
+        value: dependencies.discoveryData,
+      ),
       ChangeNotifierProvider<Filetransfernotifier>(
         create: (context) => Filetransfernotifier(),
       ),
       ChangeNotifierProvider<EngineNotifier>(
-        create: (context) => EngineNotifier(),
+        create: (context) =>
+            EngineNotifier(dependencies.discoveryData, dependencies.userData),
       ),
     ];
   }

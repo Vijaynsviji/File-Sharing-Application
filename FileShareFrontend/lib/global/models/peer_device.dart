@@ -41,9 +41,11 @@ class PeerDevice {
       deviceType: map['deviceType'] as String,
       profileImage: map['profileImage'] as String,
       bio: map['bio'] as String,
-      createdAt: map['createdAt'] is String
-          ? DateTime.parse(map['createdAt'] as String)
-          : map['createdAt'] as DateTime,
+      createdAt: map['createdAt'] != null
+          ? (map['createdAt'] is String
+                ? DateTime.parse(map['createdAt'] as String)
+                : map['createdAt'] as DateTime)
+          : DateTime.now(),
     );
   }
 

@@ -13,6 +13,7 @@
 
 #include "Device.h"
 #include "PacketEnums.h"
+#include "User.h"
 
 class Discovery{
     PacketTypes PacketType;
@@ -20,11 +21,12 @@ class Discovery{
     // std::string DeviceName;
     // std::string DeviceType;
     Device device;
+    User user;
 
 public:
-    Discovery(std::string unique_id, Device device)
+    Discovery(std::string unique_id, Device device,User user)
         : UniqueId(unique_id),
-          device(device),
+          device(device),user(user),
         PacketType(PacketTypes::kDiscovery) {
     }
 
@@ -53,8 +55,16 @@ public:
         device = newDeviceValue;
     }
 
+    User& get_user() {
+        return user;
+    }
+
+    void set_user(User newUser)  {
+        user = newUser;
+    }
+
     bool isInvalid() {
-        return UniqueId.empty() || device.isInvalid();
+        return UniqueId.empty() || device.isInvalid() || user.isInvalid();
     }
 
     // std::string get_device_name() const {

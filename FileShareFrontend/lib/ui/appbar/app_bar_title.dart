@@ -9,6 +9,8 @@ import 'package:skeletonizer/skeletonizer.dart';
 
 import '../../core/Language/l10n_extensions.dart';
 import '../../global/Providers/CurrentUserNotifier.dart';
+import '../settings/settings_enums.dart';
+import '../settings/settings_view.dart';
 
 class AppBarTitle extends StatelessWidget {
   const AppBarTitle({super.key});
@@ -36,12 +38,23 @@ class AppBarTitle extends StatelessWidget {
         // ),
         // Icon(Icons.menu, color: context.colors.ink),
         Text(context.strings.homeTitle),
-        Avatar(
-          profileImageModel: profileImageModel,
-          isAvatarSelected: false,
-          width: 35,
-          height: 35,
-          isLoading: isLoading,
+        GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute<void>(
+                builder: (context) =>
+                    SettingsView(currentView: SettingsViewEnum.profileView),
+              ),
+            );
+          },
+          child: Avatar(
+            profileImageModel: profileImageModel,
+            isAvatarSelected: false,
+            width: 35,
+            height: 35,
+            isLoading: isLoading,
+          ),
         ),
       ],
     );

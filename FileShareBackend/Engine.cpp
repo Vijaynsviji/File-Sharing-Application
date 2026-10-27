@@ -12,12 +12,38 @@
 
 
 
+void Engine::intialiseCurrentUserAndDevice(const char* jsonString) {
+    try {
+        nlohmann::json parsedJson = nlohmann::json::parse(jsonString);
+        auto uniqueId = Utility::generateGUID();
+        Device device(
+             parsedJson.at("device_unique_id"), // Changed to double quotes
+             parsedJson.at("device_name"),     // Changed to double quotes
+             parsedJson.at("device_type")      // Changed to double quotes
+         );
+
+        User user(
+            parsedJson.at("name"),           // Changed to double quotes
+            parsedJson.at("bio"),            // Changed to double quotes
+            "Profile Image",   // Changed to double quotes
+            parsedJson.at("id")              // Changed to double quotes
+        );
+
+        currentUser = user;
+        currentDevice = device;
+
+    }catch (std::exception& e) {
+        std::cerr<<e.what()<<std::endl;
+    }
+}
+
 void Engine::startBroadCast() {
         try {
-            std::function<void()> broadcastUDPCallBack = [this]() {
-                discoveryService.startUdpBroadCasting();
+
+            std::function<void()> broadcastUDPCallBack = [this]()    {
+                discoveryService.startUdpBroadCasting(currentDevice,currentUser);
             };
-            Task broadCastTask("BroadCasting",broadcastUDPCallBack);
+            Task broadCastTask("BroadCasting",std::move(broadcastUDPCallBack));
             threadPool.addTask(broadCastTask);
 
         }catch (std::exception& e) {
@@ -130,7 +156,7 @@ void Engine::addUserSelectedFiles(const char* jsonString) {
     }
 }
 
-void Engine::initialiseDartPortId(int dartPortId) {
+void Engine::initialiseDartPortId(int64_t dartPortId) {
     eventEmitter.initialize(dartPortId);
 }
 

@@ -11,6 +11,7 @@ import '../../repository/database_helper.dart';
 import '../../repository/peer_device_repository.dart';
 import '../../repository/user_repository.dart';
 import '../Providers/AppSettingsNotifier.dart';
+import '../Providers/DiscoveryNotifier.dart';
 
 // A simple container to hold everything we initialize
 class AppDependencies {
@@ -20,6 +21,7 @@ class AppDependencies {
   final Currentusernotifier userData;
   // final PeerDeviceRepository peerDeviceRepository;
   final PeerDeviceNotifier peerDeviceData;
+  final Discoverynotifier discoveryData;
 
   AppDependencies({
     required this.appSettings,
@@ -27,6 +29,7 @@ class AppDependencies {
     // required this.peerDeviceRepository,
     // required this.appSettingsRepository,
     required this.peerDeviceData,
+    required this.discoveryData,
   });
 
   // This function does all the heavy lifting
@@ -57,11 +60,13 @@ class AppDependencies {
       );
       final currentUserData = Currentusernotifier(repository: userRepo);
       final peerDeviceData = PeerDeviceNotifier(repository: peerRepo);
+      final discoveryData = Discoverynotifier(repository: peerRepo);
 
       return AppDependencies(
         appSettings: appSettingsData,
         userData: currentUserData,
         peerDeviceData: peerDeviceData,
+        discoveryData: discoveryData,
         // appSettingsRepository: settingsRepo,
       );
     } catch (e) {

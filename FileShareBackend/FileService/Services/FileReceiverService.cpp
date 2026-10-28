@@ -17,28 +17,23 @@
 #include "Utils/utils.h"
 
 
-void FileReceiverService::handleSendFileRequestPacket(std::string& senderIPAddress) {
+void FileReceiverService::handleSendFileRequestPacket(std::string& senderIPAddress,User& currentUser,Device& currentDevie) {
     if (senderIPAddress.empty()) {
         throw std::invalid_argument("Sender IP is Empty, Not able to Send File Request Packet");
     }
 
+    std::cout<<"Sender IP Address: "<<senderIPAddress<<std::endl;
 
-    int senderTCPPort = 9082;
+    int senderTCPPort = 8085;
     TCPClientSocketConfig tcpConfig(
         senderTCPPort,
         senderIPAddress
     );
+
     SocketValue receiverSocket = TCPService::createClientSocket(tcpConfig);
     std::string deviceId = Utility::generateGUID();
 
-    //TODO 1: this Device will taken from our Android Application
-    Device receiverDevice = Device(
-        deviceId,
-        "Temp Name",
-        "Android"
-    );
-    set_receiver_device(receiverDevice);
-    FileSendPacketService::fileRequest(receiverSocket.socket,receiverDevice);
+    FileSendPacketService::fileRequest(receiverSocket.socket,currentDevie,currentUser);
 
 }
 

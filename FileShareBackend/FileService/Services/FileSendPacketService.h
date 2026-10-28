@@ -15,10 +15,11 @@
 #include "PacketService/Packets/Device.h"
 #include "PacketService/Packets/FileMetadata.h"
 #include "UniversalSocket.h"
+#include "PacketService/Packets/User.h"
 
 class FileSendPacketService {
 public:
-    static void fileRequest(SocketType& socket, Device& device);
+    static void fileRequest(SocketType& socket, Device& device,User& user);
 
     static void fileResponse(SocketType& socket,std::vector<FileMetadata>& fileMetadataArray,bool isRequestAcceptedOrNot);
 

@@ -59,4 +59,10 @@ inline void cleanupNetwork() {
     WSACleanup();
 // Android doesn't need cleanup!
 #endif
+
+#ifdef _WIN32
+    #define CROSS_ACCEPT(s, addr, addr_len) accept(s, addr, addr_len)
+#else
+    #define CROSS_ACCEPT(s, addr, addr_len) accept(s, addr, addr_len)
+#endif
 }

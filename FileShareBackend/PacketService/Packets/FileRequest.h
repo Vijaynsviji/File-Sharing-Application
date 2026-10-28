@@ -12,17 +12,21 @@
 #include <string>
 
 #include "Device.h"
+#include "User.h"
 #include "PacketEnums.h"
 
 class FileRequest {
     PacketTypes PacketType;
     std::string UniqueId;
     Device device;
+    User& user;
+
 
 public:
-    FileRequest(std::string unique_id, Device device)
+    FileRequest(std::string unique_id, Device device,User user)
         : UniqueId(unique_id),
           device(device),
+    user(user),
     PacketType(PacketTypes::kFileRequest){
     }
 
@@ -54,5 +58,13 @@ public:
 
     void set_device(Device device) {
         this->device = device;
+    }
+
+    User get_user() const {
+        return user;
+    }
+
+    void set_user(User user) {
+        this->user = user;
     }
 };

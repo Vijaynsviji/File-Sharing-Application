@@ -19,11 +19,13 @@ public:
 
     static FileRequest createPacket(
         std::string& uniqueId,
-        Device& device
+        Device& device,
+        User& user
     );
 
     static FileRequestProto::FileRequest createProto(
         std::string& uniqueId,
-        Device& device
+        Device& device,
+        User& user
     );
 };

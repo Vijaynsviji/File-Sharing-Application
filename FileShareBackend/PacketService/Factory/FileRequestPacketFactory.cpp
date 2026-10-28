@@ -8,13 +8,15 @@
 #include<string>
 
 #include "PacketService/Converters/DeviceConverter.h"
+#include "PacketService/Converters/UserConverter.h"
 #include "PacketService/Packets/FileRequest.h"
 #include "PacketService/Proto/FileRequest.pb.h"
 
 
 FileRequest FileRequestPacketFactory::createPacket(
         std::string& uniqueId,
-        Device& device
+        Device& device,
+        User& user
     ) {
     if (uniqueId.empty() || device.isInvalid()) {
         throw std::invalid_argument("Cannot Create File Request Packet");
@@ -22,7 +24,8 @@ FileRequest FileRequestPacketFactory::createPacket(
 
     FileRequest fileRequest(
         uniqueId,
-        device
+        device,
+        user
     );
 
     return fileRequest;
@@ -30,7 +33,8 @@ FileRequest FileRequestPacketFactory::createPacket(
 
 FileRequestProto::FileRequest FileRequestPacketFactory::createProto(
     std::string& uniqueId,
-    Device& device
+    Device& device,
+    User& user
 ) {
     if (uniqueId.empty() || device.isInvalid()) {
         throw std::invalid_argument("Cannot Create Discovery Proto.");
@@ -42,6 +46,11 @@ FileRequestProto::FileRequest FileRequestPacketFactory::createProto(
         throw std::runtime_error("Not able to convert device to proto.");
     }
 
+    auto userProto = UserConverter::toProto(user);
+    if (!userProto.has_value()) {
+        throw std::runtime_error("Not able to convert user to proto.");
+    }
+    *fileRequestProto.mutable_user() = *userProto;
     *fileRequestProto.mutable_device() = *deviceProto;
     fileRequestProto.set_uniqueid(uniqueId);
     fileRequestProto.set_packettype(PacketEnum::FileRequest);

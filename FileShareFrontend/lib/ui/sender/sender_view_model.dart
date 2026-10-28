@@ -30,4 +30,32 @@ class SenderViewModel extends ChangeNotifier {
       engine!.stopBroadcasting();
     } catch (e) {}
   }
+
+  Future<void> startTCPListening() async {
+    try {
+      if (engine == null) return;
+      engine!.startTcpListening();
+    } catch (e) {}
+  }
+
+  Future<void> stopTCPListening() async {
+    try {
+      if (engine == null) return;
+      engine!.stopTcpListening();
+    } catch (e) {}
+  }
+
+  Future<void> startBroadCastingAndTCPListening() async {
+    try {
+      startBroadCasting();
+      startTCPListening();
+    } catch (e) {}
+  }
+
+  Future<void> stopAllBroadCastingAndListening() async {
+    try {
+      stopBroadCasting();
+      stopTCPListening();
+    } catch (e) {}
+  }
 }

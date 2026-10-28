@@ -15,26 +15,41 @@
 #include "PacketService/Factory/TransferCompletePacketFactory.h"
 #include "PacketService/Packets/Device.h"
 #include "PacketService/Packets/FileMetadata.h"
+#include "PacketService/Packets/User.h"
 #include "PacketService/Proto/Error.pb.h"
 #include "PacketService/Proto/FileResponse.pb.h"
 #include "PacketService/Proto/TransferComplete.pb.h"
 
 
 
-void FileSendPacketService::fileRequest(SocketType& socket, Device& device) {
-        if (device.isInvalid()) {
+void FileSendPacketService::fileRequest(SocketType& socket, Device& device,User& user) {
+        if (device.isInvalid() || user.isInvalid()) {
             throw std::invalid_argument("Cannot send invalid File Request.");
         }
         std::string uniqueId = device.get_device_id();
-        FileRequestProto::FileRequest fileRequestProto = FileRequestPacketFactory::createProto(uniqueId,device);
+
+        FileRequestProto::FileRequest fileRequestProto = FileRequestPacketFactory::createProto(uniqueId,device,user);
+        if (!fileRequestProto.has_device() || !fileRequestProto.has_user()) {
+            throw std::runtime_error("Not able to Create a File Request Proto");
+        }
+
         std::string serialisedFileRequestProto;
         if (!fileRequestProto.SerializeToString(&serialisedFileRequestProto)) {
             throw std::runtime_error("Not able to Serialise File Request Proto");
             return;
         }
+
         int sendResult = send(socket, serialisedFileRequestProto.data(), static_cast<int>(serialisedFileRequestProto.size()), 0);
         if (sendResult == SOCKET_ERROR) {
-            throw std::runtime_error("Not able to send File Request Payload");
+            const int error = CROSS_GET_ERROR();
+
+            std::cerr << "send() failed. Error code: "
+                      << error << '\n';
+
+            throw std::runtime_error(
+                "Not able to send File Request Payload. Error: " +
+                std::to_string(error)
+            );
             return;
         }
     }

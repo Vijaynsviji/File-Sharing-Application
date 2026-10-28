@@ -26,6 +26,7 @@ void Engine::intialiseCurrentUserAndDevice(const char* jsonString) {
             parsedJson.at("name"),           // Changed to double quotes
             parsedJson.at("bio"),            // Changed to double quotes
             "Profile Image",   // Changed to double quotes
+            // parsedJson.at("profile_image"),
             parsedJson.at("id")              // Changed to double quotes
         );
 
@@ -83,11 +84,11 @@ void Engine::stopListening() {
 
 void Engine::startTCPListening() {
     try {
-        discoveryService.DiscoveryRequestListner();
+
         std::function<void()> listenTCPCallBack = [this]() {
             discoveryService.DiscoveryRequestListner();
         };
-        Task broadCastTask("TCPListening",listenTCPCallBack);
+        Task broadCastTask("TCPListening",std::move(listenTCPCallBack));
         threadPool.addTask(broadCastTask);
 
     }catch (std::exception&  e) {
@@ -105,7 +106,7 @@ void Engine::stopTCPListening() {
 
 void Engine::sendFileRequest(std::string senderIPAddress) {
     try {
-        fileReceiverService.handleSendFileRequestPacket(senderIPAddress);
+        fileReceiverService.handleSendFileRequestPacket(senderIPAddress,currentUser,currentDevice);
     }catch (std::exception& e) {
         std::cerr<<e.what()<<std::endl;
     }

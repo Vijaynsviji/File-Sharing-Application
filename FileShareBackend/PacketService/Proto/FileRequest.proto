@@ -1,6 +1,7 @@
 syntax="proto3";
 import "PacketService/Proto/PacketEnum.proto";
 import "PacketService/Proto/DeviceProto.proto";
+import "PacketService/Proto/User.proto";
 
 package FileRequestProto;
 
@@ -9,4 +10,5 @@ message FileRequest{
   PacketEnum.PacketType packetType = 1;
   string uniqueId = 2;
   DeviceProto.Device device = 3;
+  UserProto.User user = 4;
 }

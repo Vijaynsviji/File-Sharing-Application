@@ -21,16 +21,6 @@
 
 
 void UDPListener::listenUDP(std::unordered_map<std::string,OnlineDevice>& onlineDevice) {
-    // SocketType listenSocket = socket(AF_INET,SOCK_DGRAM,0);
-    // if (listenSocket == INVALID_SOCKET) {
-    //     throw std::runtime_error("Not able to create Socket for UDP Listen");
-    // }
-    //
-    // sockaddr_in address{
-    //     AF_INET,
-    //     htons(listenPortValue),
-    //     INADDR_ANY
-    // };
 
     UDPSocketConfig udpSocketParams{};
     udpSocketParams.portValue = listenPortValue;
@@ -65,6 +55,18 @@ void UDPListener::listenUDP(std::unordered_map<std::string,OnlineDevice>& online
             std::cerr<<"Not able to Connect"<<std::endl;
         }
 
+        char ipAddress[INET_ADDRSTRLEN]{};
+
+        if (inet_ntop(
+                AF_INET,
+                &clientSocket.sin_addr,
+                ipAddress,
+                sizeof(ipAddress)) != nullptr) {
+
+            std::cout << "Packet received from IP: "
+                      << ipAddress << std::endl;
+                }
+
         std::string receivedData(buffer.data(), receiveFromResponse);
         if (stopListening.load() ||
             receivedData == POISON_PILL) {
@@ -72,9 +74,7 @@ void UDPListener::listenUDP(std::unordered_map<std::string,OnlineDevice>& online
             }
 
         std::cout<<"Found a BroadCast Message"<<std::endl;
-        // for (auto i:buffer) {
-        //     std::cout<<i;
-        // }
+
 
         discoveryProto::Discovery discoveryProto;
         if (!discoveryProto.ParseFromString(buffer.data())) {
@@ -82,12 +82,13 @@ void UDPListener::listenUDP(std::unordered_map<std::string,OnlineDevice>& online
         }
         //TODO 1:  here Sender Discovery Packet Received, and will send one File Request Message.
         std::cout<<discoveryProto.DebugString()<<std::endl;
-        Discovery discoveryPacket = DiscoveryConverter::toPacket(discoveryProto);
-        // nlohmann::json j = nlohmann::to_json(discoveryPacket);
-        //TODO 2: then break this loop after the File Request Message Sent.
-        // eventEmitter.emitMessage(discoveryProto.SerializeAsString());
-        eventEmitter.sendDiscoveredUserEvent(discoveryPacket,"IPAddress");
 
+        Discovery discoveryPacket = DiscoveryConverter::toPacket(discoveryProto);
+        if (discoveryPacket.isInvalid()) {
+            throw std::runtime_error("Not able to convert Discovery Proto to Packet");
+        }
+
+        eventEmitter.sendDiscoveredUserEvent(discoveryPacket,ipAddress);
     }
 
 }

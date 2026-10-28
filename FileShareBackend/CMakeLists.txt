@@ -7,6 +7,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # 1. Find Protobuf using CONFIG mode (this targets vcpkg directly)
 find_package(protobuf CONFIG REQUIRED)
 find_package(nlohmann_json REQUIRED)
+find_package(ZLIB REQUIRED)
 
 file(GLOB PROTO_FILES "${CMAKE_CURRENT_SOURCE_DIR}/PacketService/Proto/*.proto")
 
@@ -96,6 +97,8 @@ add_library(FileShareCore STATIC
         PacketService/Converters/UserConverter.h
         PacketService/Converters/UserConverter.cpp
         EventService/include/dart_api_dl.c
+        Utils/zlibcompression.h
+        Utils/zlibcompression.cpp
 )
 
 set_target_properties(FileShareCore PROPERTIES
@@ -135,6 +138,7 @@ endif()
 target_link_libraries(FileShareCore PUBLIC
         protobuf::libprotobuf
         nlohmann_json::nlohmann_json
+        ZLIB::ZLIB
 )
 
 # Win32 specific linking for Winsock2 (Required for UDP/TCP sockets)

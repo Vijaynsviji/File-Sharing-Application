@@ -39,72 +39,49 @@ void DiscoveryService::stopRemoveInactivyDeviceTask() {
 }
 
 void DiscoveryService::DiscoveryRequestListner() {
-    // SocketType requestListenSocket = socket(AF_INET,SOCK_STREAM,0);
-    // if (requestListenSocket == INVALID_SOCKET) {
-    //     throw std::runtime_error("Not able to Create a TCP Socket!!");
-    // }
-    //
-    // sockaddr_in address{
-    //     AF_INET,
-    //     htons(DiscoveryTCPPort)
-    // };
-    //
-    // int bindSocket = bind(requestListenSocket,(const struct sockaddr*)&address,sizeof(address));
-    // if (bindSocket == SOCKET_ERROR) {
-    //     throw std::runtime_error("Not able to Bind to a Port");
-    // }
-    //
-    // int assignIp = inet_pton(AF_INET,"127.0.0.1",&address);
-    // if (assignIp == SOCKET_ERROR) {
-    //     throw std::runtime_error("Not able to assign a IP");
-    // }
-    //
-    // int listenToRequest = listen(requestListenSocket,10);
-    // if (listenToRequest == SOCKET_ERROR) {
-    //     throw std::runtime_error("Not able to Listen for Requests");
-    // }
+
     TCPServerSocketConfig socketConfig = TCPServerSocketConfig(DiscoveryTCPPort);
     SocketValue tcpSocketValue = TCPService::createServerSocket(socketConfig);
     sockaddr_in address = tcpSocketValue.address;
     SocketType requestListenSocket = tcpSocketValue.socket;
 
-    // accept(requestListenSocket)
-
-
     while (!stopDiscoveryListenServer) {
-        sockaddr_in clientSocket;
-        std::vector<char> buffer(1024);
-        int receiveRequest = recv(requestListenSocket,buffer.data(),buffer.size(),0);
+
+        sockaddr_in address{};
+        std::vector<char> buffer(65507);
+
+
+        #ifdef _WIN32
+                int addr_len = sizeof(address);
+        #else
+                socklen_t addr_len = sizeof(address);
+        #endif
+
+
+        SocketType clientSocket = CROSS_ACCEPT(requestListenSocket,(struct sockaddr*)&address,&addr_len);
+        if (clientSocket == INVALID_SOCKET) {
+            std::cerr << "accept() failed: "
+                      << CROSS_GET_ERROR() << std::endl;
+            continue;
+        }
+
+        int receiveRequest = recv(clientSocket,buffer.data(),buffer.size(),0);
         if (receiveRequest == SOCKET_ERROR) {
             throw std::runtime_error("Not able to receive A Request!!");
         }
 
-        //TODO 1: When Request Comes, if the User Click Allow this User To Receive Added them To Online Devices
-        std::cout<<"Do You Want to Accept This User as a Receiver?\nYes Or No";
-        std::string userChoice;
-        std::cin>>userChoice;
-        if (userChoice == "Yes"){
-            FileRequestProto::FileRequest fileRequestProto;
-            fileRequestProto.ParseFromArray(buffer.data(), buffer.size());
-            std::optional<FileRequest> file_request;
-            try {
-                file_request = FileRequestConverter::toPacket(fileRequestProto);
-            }catch (const std::exception& e) {
-                std::cerr<<e.what();
-                return;
-            }
+        FileRequestProto::FileRequest fileRequestProto;
 
-            // OnlineDevice onlineDevice(
-            //    file_request->get_device(),
-            //    file_request->get_unique_id(),
-            //    clientSocket
-            // );
-            //
-            // std::unique_lock<std::mutex> lock = std::unique_lock<std::mutex>(onlineDeviceMutex);
-            // std::string uniqueId = file_request->get_unique_id();
-            // onlineDevices.insert({uniqueId,onlineDevice});
-            // lock.unlock();
-        };
+        if (fileRequestProto.ParseFromArray(buffer.data(), receiveRequest)) {
+            std::cout << "File Request: " << fileRequestProto.DebugString() << '\n';
+        } else {
+            std::cerr << "Failed to parse FileRequest protobuf\n";
+        }
+
+        FileRequest file_request = FileRequestConverter::toPacket(fileRequestProto);
+        if (file_request.isInvalid()) {
+            throw std::runtime_error("Not able to Convert File Request Proto to File Request Packet");
+        }
 
     }
 

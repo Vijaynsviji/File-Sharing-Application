@@ -21,4 +21,11 @@ class ReceiverViewModel extends ChangeNotifier {
       engine!.stopListening();
     } catch (e) {}
   }
+
+  Future<void> sendFileRequest(String IPAddress) async {
+    try {
+      if (engine == null) return;
+      engine!.sendFileRequest(IPAddress);
+    } catch (e) {}
+  }
 }

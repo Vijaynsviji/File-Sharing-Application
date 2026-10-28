@@ -72,7 +72,7 @@ public:
         receiverDevice = receiver_device;
     }
 
-    void handleSendFileRequestPacket(std::string& senderIPAddress);
+    void handleSendFileRequestPacket(std::string& senderIPAddress,User& currentUser,Device& currentDevie);
 
     void handleErrorDetails(SocketType& socket,std::string& errorDetails);
 };

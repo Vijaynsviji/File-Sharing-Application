@@ -81,4 +81,8 @@ class Discoverynotifier extends ChangeNotifier {
     notifyListeners();
     await _savePeerUserToDatabase(peerDevice);
   }
+
+  String? getIPFromDeviceId(String deviceUniqueId) {
+    return _peerIPMap[deviceUniqueId];
+  }
 }

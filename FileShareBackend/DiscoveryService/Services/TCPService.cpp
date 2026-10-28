@@ -4,6 +4,7 @@
 
 #include "TCPService.h"
 
+#include <iostream>
 #include <stdexcept>
 #include "UniversalSocket.h"
 
@@ -56,6 +57,24 @@ SocketValue TCPService::createClientSocket(TCPClientSocketConfig& config) {
         CROSS_CLOSE(requestListenSocket);
         throw std::runtime_error("Not able to assign a IP");
     }
+
+    int connectResult = connect(
+        requestListenSocket,
+        reinterpret_cast<sockaddr*>(&address),
+        sizeof(address)
+    );
+
+    if (connectResult == SOCKET_ERROR) {
+        int error = CROSS_GET_ERROR();
+        CROSS_CLOSE(requestListenSocket);
+
+        throw std::runtime_error(
+            "TCP connect failed. Error: " + std::to_string(error)
+        );
+    }
+
+    std::cout << "TCP connection established successfully"
+              << std::endl;
 
     return SocketValue(requestListenSocket,address);
 }

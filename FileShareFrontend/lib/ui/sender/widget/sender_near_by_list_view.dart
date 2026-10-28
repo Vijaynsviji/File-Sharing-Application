@@ -42,7 +42,8 @@ class _SenderNearByListViewState extends State<SenderNearByListView> {
     // context.read<SenderViewModel>().startBroadCasting();
     _viewModel = context.read<SenderViewModel>();
     _discoveryViwModel = context.read<Discoverynotifier>();
-    _viewModel.startBroadCasting();
+    // _viewModel.startBroadCasting();
+    _viewModel.startBroadCastingAndTCPListening();
   }
 
   // 2. DISPOSE: Runs exactly once when the widget leaves the screen permanently
@@ -50,7 +51,8 @@ class _SenderNearByListViewState extends State<SenderNearByListView> {
   void dispose() {
     // print("Screen Destroyed! Clean up your listeners, timers, or controllers here.");
     // context.read<SenderViewModel>().stopBroadCasting();
-    _viewModel.stopBroadCasting();
+    // _viewModel.stopBroadCasting();
+    _viewModel.stopAllBroadCastingAndListening();
     _discoveryViwModel.resetDiscoveryStates();
     super.dispose();
   }

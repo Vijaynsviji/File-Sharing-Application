@@ -20,6 +20,7 @@ int main() {
       "id": "user-unique-id-12345"
     })");
     engine.startBroadCast();
+    engine.startTCPListening();
     // engine.startListening();
 
     std::cout << "Server is running. Press Enter to shut down..." << std::endl;
